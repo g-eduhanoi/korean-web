@@ -1,9 +1,38 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  PreconditionFailedException,
+} from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Op } from 'sequelize';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
+import { Account } from './entities/account.entity';
+import { LoginInput } from './input/login.input';
 
 @Injectable()
 export class AccountService {
+  constructor(@InjectModel(Account) private accountModel: typeof Account) {}
+
+  async login(input: LoginInput): Promise<boolean> {
+    const user: Account = await this.accountModel.findOne({
+      where: {
+        [Op.or]: [{ email: input.username }, { username: input.username }],
+      },
+    });
+
+    if (!user)
+      throw new BadRequestException('Something bad happened', {
+        cause: new Error(),
+        description: 'Some error description',
+      });
+
+    if (user.password !== input.password)
+      throw new Error('Password is incorrect');
+
+    return true;
+  }
+
   create(createAccountDto: CreateAccountDto) {
     return 'This action adds a new account';
   }

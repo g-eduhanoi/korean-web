@@ -39,7 +39,7 @@ async function bootstrap() {
   // configure global exception filter
   const { httpAdapter } = app.get(HttpAdapterHost);
   app.useGlobalFilters(new AllExceptionsFilter(httpAdapter));
-  
+
   await app.listen(3000);
 }
 bootstrap();
