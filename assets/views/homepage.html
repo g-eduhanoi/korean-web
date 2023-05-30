@@ -3,20 +3,32 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>App</title>
+    <meta name="viewport" content="width=device-width">
+    <title>Trung tâm tiếng hàn G-EDU</title>
 
     <link rel="stylesheet" href="/assets/public/css/taildwin-out.css" />
+    <link rel="stylesheet" href="/taildwin-out.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            color: black;
+        }
+    </style>
 
 </head>
 
-<body class="text-[#666680]">
-    <header class="pt-[50px] px-[100px]">
+<body>
+    <header class="pt-[50px] px-[15px] lg:px-[100px]">
         <div class="flex justify-between">
-            <div class="site_logo">
-                <svg width="101" height="25" viewBox="0 0 101 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="site_logo w-[70px] lg:w-[101px]">
+                <svg class="w-full" width="101" height="25" viewBox="0 0 101 25" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M17.7273 8C17.4773 7.23485 17.1477 6.54924 16.7386 5.94318C16.3371 5.32954 15.8561 4.80682 15.2955 4.375C14.7424 3.94318 14.1136 3.61364 13.4091 3.38636C12.7045 3.15909 11.9318 3.04545 11.0909 3.04545C9.71212 3.04545 8.45833 3.40151 7.32955 4.11364C6.20076 4.82576 5.30303 5.875 4.63636 7.26136C3.9697 8.64773 3.63636 10.3485 3.63636 12.3636C3.63636 14.3788 3.97349 16.0795 4.64773 17.4659C5.32197 18.8523 6.23485 19.9015 7.38636 20.6136C8.53788 21.3258 9.83333 21.6818 11.2727 21.6818C12.6061 21.6818 13.7803 21.3977 14.7955 20.8295C15.8182 20.2538 16.6136 19.4432 17.1818 18.3977C17.7576 17.3447 18.0455 16.1061 18.0455 14.6818L18.9091 14.8636H11.9091V12.3636H20.7727V14.8636C20.7727 16.7803 20.3636 18.447 19.5455 19.8636C18.7348 21.2803 17.6136 22.3788 16.1818 23.1591C14.7576 23.9318 13.1212 24.3182 11.2727 24.3182C9.21212 24.3182 7.40152 23.8333 5.84091 22.8636C4.28788 21.8939 3.07576 20.5152 2.20455 18.7273C1.34091 16.9394 0.909091 14.8182 0.909091 12.3636C0.909091 10.5227 1.1553 8.86742 1.64773 7.39773C2.14773 5.92045 2.85227 4.66288 3.76136 3.625C4.67045 2.58712 5.74621 1.79167 6.98864 1.23864C8.23106 0.685605 9.59848 0.40909 11.0909 0.40909C12.3182 0.40909 13.4621 0.594696 14.5227 0.965908C15.5909 1.32954 16.5417 1.84848 17.375 2.52273C18.2159 3.18939 18.9167 3.98864 19.4773 4.92045C20.0379 5.8447 20.4242 6.87121 20.6364 8H17.7273ZM35.2358 11.1136V13.6136H25.054V11.1136H35.2358ZM40.3182 24V0.727272H54.3636V3.22727H43.1364V11.0909H53.6364V13.5909H43.1364V21.5H54.5455V24H40.3182ZM66.625 24H59.4432V0.727272H66.9432C69.2008 0.727272 71.1326 1.19318 72.7386 2.125C74.3447 3.04924 75.5758 4.37879 76.4318 6.11364C77.2879 7.84091 77.7159 9.90909 77.7159 12.3182C77.7159 14.7424 77.2841 16.8295 76.4205 18.5795C75.5568 20.322 74.2992 21.6629 72.6477 22.6023C70.9962 23.5341 68.9886 24 66.625 24ZM62.2614 21.5H66.4432C68.3674 21.5 69.9621 21.1288 71.2273 20.3864C72.4924 19.6439 73.4356 18.5871 74.0568 17.2159C74.678 15.8447 74.9886 14.2121 74.9886 12.3182C74.9886 10.4394 74.6818 8.82197 74.0682 7.46591C73.4545 6.10227 72.5379 5.05682 71.3182 4.32954C70.0985 3.5947 68.5795 3.22727 66.7614 3.22727H62.2614V21.5ZM97.7159 0.727272H100.534V16.1364C100.534 17.7273 100.159 19.1477 99.4091 20.3977C98.6667 21.6402 97.6174 22.6212 96.2614 23.3409C94.9053 24.053 93.3144 24.4091 91.4886 24.4091C89.6629 24.4091 88.072 24.053 86.7159 23.3409C85.3598 22.6212 84.3068 21.6402 83.5568 20.3977C82.8144 19.1477 82.4432 17.7273 82.4432 16.1364V0.727272H85.2614V15.9091C85.2614 17.0455 85.5114 18.0568 86.0114 18.9432C86.5114 19.822 87.2235 20.5152 88.1477 21.0227C89.0795 21.5227 90.1932 21.7727 91.4886 21.7727C92.7841 21.7727 93.8977 21.5227 94.8295 21.0227C95.7614 20.5152 96.4735 19.822 96.9659 18.9432C97.4659 18.0568 97.7159 17.0455 97.7159 15.9091V0.727272Z"
                         fill="#130D4B" />
@@ -26,12 +38,12 @@
                 </svg>
             </div>
 
-            <div class="header_menu w-2/3">
+            <div class="header_menu lg:w-[70%]">
                 <!-- begin header menu -->
 
-                <ul class="flex gap-[20px] font-[700] justify-center items-center">
+                <ul class="flex gap-[10px] lg:gap-[20px] font-[700] justify-center items-center text-[#666680]">
                     <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="text-xl hover:text-[#130D4B]">
+                        <a href="index.php#about" class="hover:text-[#130D4B]">
                             Về G-EDU
                         </a>
                         <span class="pt-1">
@@ -41,18 +53,18 @@
                         <ul
                             class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Giới thiệu</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Giới thiệu</a></li>
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Mạng xã hội</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Mạng xã hội</a></li>
                         </ul>
 
                     </li>
 
-                    <li><a href="index.php#contact" class="text-xl hover:text-[#130D4B]">Liên hệ</a></li>
+                    <li><a href="index.php#contact" class=" hover:text-[#130D4B]">Liên hệ</a></li>
 
 
                     <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="text-xl hover:text-[#130D4B]">
+                        <a href="index.php#about" class=" hover:text-[#130D4B]">
                             Học tiếng Hàn
                         </a>
                         <span class="pt-1">
@@ -62,15 +74,15 @@
                         <ul
                             class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Chuyên ngành học</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Chuyên ngành học</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Thông tin học bổng</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Thông tin học bổng</a></li>
                         </ul>
                     </li>
 
                     <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="text-xl hover:text-[#130D4B]">
+                        <a href="index.php#about" class=" hover:text-[#130D4B]">
                             Sống tại Seoul
                         </a>
                         <span class="pt-1">
@@ -80,15 +92,15 @@
                         <ul
                             class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Hiểu về Hàn Quốc</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Hiểu về Hàn Quốc</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Cộng đồng</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Cộng đồng</a></li>
                         </ul>
                     </li>
 
                     <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="text-xl hover:text-[#130D4B]">
+                        <a href="index.php#about" class=" hover:text-[#130D4B]">
                             Lớp du học
                         </a>
                         <span class="pt-1">
@@ -98,18 +110,18 @@
                         <ul
                             class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Sơ-Trung-Cao cấp</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Sơ-Trung-Cao cấp</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">TOPIK</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">TOPIK</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">OPIC</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">OPIC</a></li>
                         </ul>
                     </li>
 
                     <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="text-xl hover:text-[#130D4B]">
+                        <a href="index.php#about" class=" hover:text-[#130D4B]">
                             Book Club
                         </a>
                         <span class="pt-1">
@@ -119,13 +131,14 @@
                         <ul
                             class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Khách mời - Thuyết giảng</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Khách mời - Thuyết giảng</a>
+                            </li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Cố vấn học tập</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Cố vấn học tập</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
-                                    class="hover:text-[#130D4B] block mt-[5px]">Workshop</a></li>
+                                    class=" hover:text-[#130D4B] block mt-[5px]">Workshop</a></li>
                         </ul>
                     </li>
 
@@ -146,17 +159,15 @@
                 <script>
                     // hide/show sub menu in menu item
 
-                    let isHoveringSubMenuItem = false;
-                    let isHoveringTimeOuter = null;
-
                     const menuItems = document.querySelectorAll('.menu_item');
                     menuItems.forEach(menuItem => {
-
+                        let isHoveringSubMenuItem = false;
+                        let isHoveringTimeOuter = null;
                         menuItem.addEventListener('mouseover', () => {
                             menuItem.querySelector('.sub_menu').classList.remove('hidden');
                         });
 
-                        menuItem.addEventListener('mouseout', () => {
+                        menuItem.addEventListener('mouseleave', () => {
                             isHoveringTimeOuter = setTimeout(() => {
                                 if (!isHoveringSubMenuItem) {
                                     menuItem.querySelector('.sub_menu').classList.add('hidden');
@@ -177,173 +188,391 @@
                     });
 
 
-
                 </script>
                 <!-- end header menu -->
             </div>
         </div>
     </header>
 
-    <div class="pt-[50px] px-[100px]">
-        <img src="/assets/public/images/homepage/image_slide.jpg">
-    </div>
+    <div class="homepage_content px-[15px] lg:px-[100px]">
 
-    <div class="pt-[50px] px-[100px] text-center">
-        <p class="text-2xl text-[#B0B0C0]">G-EDU</p>
-        <h3 class="text-3xl text-[#181B32] font-[600] mt-[15px]">
-            Kỹ năng đạt được
-        </h3>
+        <section class="pt-[50px]">
+            <img src="/assets/public/images/homepage/image_slide.jpg">
+        </section>
 
-        <div class="flex gap-[50px] skills mt-[50px] justify-center">
+        <section class="pt-[50px] text-center">
+            <p class="text-2xl text-[#B0B0C0]">G-EDU</p>
+            <h3 class="text-3xl text-[#181B32] font-[600] mt-[15px]">
+                Kỹ năng đạt được
+            </h3>
 
-            <div class="w-[350px]">
-                <div class="grid gap-[30px] justify-center">
-                    <img src="/assets/public/images/homepage/speaking_icon.jpg" alt="">
-                    <p class="text-2xl text-[#181B32] font-[600]">
-                        Phát âm - Nói
+            <div class="flex gap-[50px] skills mt-[50px] justify-center">
+
+                <div class="w-[350px]">
+                    <div class="grid gap-[30px] justify-center">
+                        <img src="/assets/public/images/homepage/speaking_icon.jpg" alt="">
+                        <p class="text-2xl text-[#181B32] font-[600]">
+                            Phát âm - Nói
+                        </p>
+                    </div>
+                    <p class="mt-[15px]">
+                        Giao tiếp là sự qua lại hai chiều, thực hành Phát âm đúng và chuẩn là bước đệm để Nói hay và
+                        Nghe
+                        giỏi.
                     </p>
                 </div>
-                <p class="mt-[15px]">
-                    Giao tiếp là sự qua lại hai chiều, thực hành Phát âm đúng và chuẩn là bước đệm để Nói hay và Nghe
-                    giỏi.
-                </p>
-            </div>
 
-            <div class="w-[350px]">
-                <div class="grid gap-[30px] justify-center justify-items-center">
-                    <img src="/assets/public/images/homepage/listening_icon.jpg" alt="">
-                    <p class="text-2xl text-[#181B32] font-[600]">
-                        Nghe  
+                <div class="w-[350px]">
+                    <div class="grid gap-[30px] justify-center justify-items-center">
+                        <img src="/assets/public/images/homepage/listening_icon.jpg" alt="">
+                        <p class="text-2xl text-[#181B32] font-[600]">
+                            Nghe
+                        </p>
+
+                    </div>
+                    <p class="mt-[15px]">
+                        Thực hành nghe một cách chủ động để tăng độ tiếp xúc với ngôn ngữ, nâng cao khả năng nghe và
+                        hiểu
+                        ngôn ngữ.
                     </p>
-
                 </div>
-                <p class="mt-[15px]">
-                    Thực hành nghe một cách chủ động để tăng độ tiếp xúc với ngôn ngữ, nâng cao khả năng nghe và hiểu
-                    ngôn ngữ.
-                </p>
-            </div>
 
-            <div class="w-[350px]">
-                <div class="grid gap-[30px] justify-center">
-                    <img src="/assets/public/images/homepage/writing_icon.jpg" alt="">
-                    <p class="text-2xl text-[#181B32] font-[600]">Viết</p>
-                </div>
-                <p class="mt-[15px]">
-                    Bước thực hành tiếng tổng hợp của học ngôn ngữ. Viết giỏi mới thực sự là giỏi!
-                </p>
-            </div>
-
-            <div class="w-[350px]">
-                <div class="grid gap-[30px] justify-center justify-items-center">
-                    <img src="/assets/public/images/homepage/listening_icon.jpg" alt="">
-                    <p class="text-2xl text-[#181B32] font-[600]">
-                        Ngữ pháp  
+                <div class="w-[350px]">
+                    <div class="grid gap-[30px] justify-center">
+                        <img src="/assets/public/images/homepage/writing_icon.jpg" alt="">
+                        <p class="text-2xl text-[#181B32] font-[600]">Viết</p>
+                    </div>
+                    <p class="mt-[15px]">
+                        Bước thực hành tiếng tổng hợp của học ngôn ngữ. Viết giỏi mới thực sự là giỏi!
                     </p>
-
                 </div>
-                <p class="mt-[15px]">
-                    Là nền tảng quan trọng nhất của ngôn ngữ, “gốc rễ” phải chắc thì cây mới vững chãi và ra hoa kết trái.
-                </p>
+
+                <div class="w-[350px]">
+                    <div class="grid gap-[30px] justify-center justify-items-center">
+                        <img src="/assets/public/images/homepage/grammar_icon.jpg" alt="">
+                        <p class="text-2xl text-[#181B32] font-[600]">
+                            Ngữ pháp
+                        </p>
+                    </div>
+                    <p class="mt-[15px]">
+                        Là nền tảng quan trọng nhất của ngôn ngữ, “gốc rễ” phải chắc thì cây mới vững chãi và ra hoa kết
+                        trái.
+                    </p>
+                </div>
+
             </div>
 
-        </div>
-
-    </div>
+        </section>
 
 
-    <!-- study itenerary -->
-    <section class="pt-[50px] px-[100px] studying_itenerary">
-        <h3 class="text-3xl">
-            Hành trình với G-EDU
-        </h3>
+        <!-- study itenerary -->
+        <section class="pt-[50px] studying_itenerary">
+            <h3 class="text-3xl font-semibold">
+                Hành trình với G-EDU
+            </h3>
 
-        <div>
-            <img src="/assets/public/images/homepage/studying_itenerary.jpg">
-        </div>
-    </section>
-    <!-- end study itenerary -->
-
-    <!-- faq -->
-    <section class="pt-[50px] px-[100px] studying_itenerary mb-40">
-        <h3 class="text-3xl">
-        Câu hỏi thường gặp
-        </h3>
-        <div>
-            <div class="flex flex-row justify-between mb-[40.83px]">
-                <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg ">KHÓA HỌC NÀY DÀNH CHO NHỮNG AI</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div>
-                <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg">TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div>
+            <div>
+                <img src="/assets/public/images/homepage/studying_itenerary.jpg">
             </div>
-            <div class="flex flex-row justify-between mb-[40.83px]">
-                <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg ">CÓ ĐƯỢC TRẢI NGHIỆM HỌC THỬ KHÔNG</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div>
-                <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg">PHẢI LÀM GÌ NẾU THI TRƯỢT</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-row justify-between mb-[40.83px]">
-                <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg ">THỦ TỤC ĐĂNG KÍ NHẬP HỌC CẦN CÓ NHỮNG GÌ ?</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div>
-                <!-- <div class="w-[836.92px] h-[134.78px] border border-l border-[#B0B0C0] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px]">
-                    <div class="font-semibold text-lg">VÌ SAO CHỌN G-ININ ĐỂ HỌC TIẾNG HÀN</div>
-                    <div class="bg-[#524FD5] w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-white font-thin text-4xl">+</div>
-                    </div>
-                </div> -->
-                <div class="w-[836.92px] h-[134.78px] rounded-[54.8799px] flex flex-row items-center justify-between px-[76.83px] bg-[#524FD5] relative">
-                    <div class="font-semibold text-lg text-white">VÌ SAO CHỌN G-ININ ĐỂ HỌC TIẾNG HÀN</div>
-                    <div class="bg-white w-[43.9px] h-[43.9px] rounded-full flex flex-row justify-center">
-                        <div class="text-black font-thin text-4xl">-</div>
-                    </div>
-                    <div class=" w-full absolute top-0 left-0 bg-[#524FD5] rounded-[54.8799px] -z-10  px-[76.83px] pt-[134.78px] pb-[49.39px]">
-                        <div class="text-white z-50 ">
+        </section>
+        <!-- end study itenerary -->
 
-                            Tại G-EDU, chúng tôi chọn phương châm “thực dạy” và “thực học”
-                            
-                            Sự tâm huyết, giàu chuyên môn và tầm nhìn của đội ngũ sáng lập trung tâm sẽ là nguồn lực quý giá và “mở” cho tất cả học viên của G-EDU “tận dụng”
-                            
-                            G-EDU cung cấp các bài giảng đặc biệt, các buổi nói chuyện, workshop giao lưu dành cho học viên.
+        <!-- faq -->
+        <section class="pt-[50px] studying_itenerary mb-40">
+            <h3 class="text-3xl font-semibold">
+                Câu hỏi thường gặp
+            </h3>
+
+            <div class="mt-[30px]">
+                <ul class="flex flex-wrap justify-between gap-[30px] lg:gap-y-[40px] xl:gap-y-[50px] list_faq">
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                KHÓA HỌC NÀY DÀNH CHO NHỮNG AI?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
                         </div>
-                    </div>
-                </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            G-EDU có đầy đủ các khóa học dành cho mọi đối tượng quan tâm đến tiếng Hàn. Hãy liên hệ để
+                            được tư vấn khóa học phù hợp
+                        </p>
+                    </li>
+
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                TÔI CÓ THỂ TRẢI NGHIỆM HỌC THỬ KHÔNG?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
+                        </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            G-EDU không cung cấp riêng biệt tiết học thử. Học viên đăng ký học và sau khi kết thúc buổi
+                            học đầu tiên, nếu học viên không hài lòng, chúng tôi sẽ HOÀN TRẢ TOÀN BỘ số tiền khóa học
+                            bạn đã đóng.
+                        </p>
+                    </li>
+
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                THỦ TỤC ĐĂNG KÍ NHƯ THẾ NÀO?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
+                        </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            Sự chuẩn bị rõ ràng về mục đích học của bạn là hành trang đủ để bắt đầu ngay với G-EDU
+                        </p>
+                    </li>
+
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
+                        </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            G-EDU thiết kế các lớp học ONLINE và OFFLINE riêng biệt, nhưng không kết hợp đồng thời On và
+                            Off.
+                        </p>
+                    </li>
+
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                TRUNG TÂM CÓ HỖ TRỢ HỌC VIÊN NGOÀI GIỜ HỌC KHÔNG?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
+                        </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            Tại tầng 3 của G-EDU, các học viên sẽ thoải mái sử dụng “Góc thư viện” để đọc sách tiếng
+                            Hàn, thực hành tiếng theo cá nhân hoặc theo nhóm.
+                            <br />
+                            Đặc biệt, học viên sẽ được tư vấn với những người sáng lập trung tâm về “mọi nỗi lo” (định
+                            hướng sau học tiếng Hàn, dự định du học, chọn nghề nghiệp v.v)
+                        </p>
+                    </li>
+
+                    <li
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        <div class=" flex flex-row items-center justify-between gap-[15px]">
+                            <h3 class="font-semibold text-lg ">
+                                VÌ SAO NÊN CHỌN G-EDU ĐỂ HỌC TIẾNG HÀN?
+                            </h3>
+
+                            <div
+                                class="show_ans bg-[#524FD5] flex items-center justify-center rounded-full p-[15px] cursor-pointer hover:bg-[#4644b5] hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-plus" style="color: white;"></i>
+                            </div>
+
+                            <div
+                                class="hide_ans hidden flex items-center justify-center rounded-full p-[15px] cursor-pointer bg-white hover:scale-[1.1] duration-200 ease-in-out">
+                                <i class="fas fa-minus text-[#524FD5]"></i>
+                            </div>
+
+                        </div>
+                        <p class="faq_ans hidden max-w-[95%] mt-[10px]">
+                            Tại G-EDU, chúng tôi chọn phương châm “thực dạy” và “thực học”
+                            <br>
+                            Sự tâm huyết, giàu chuyên môn và tầm nhìn của đội ngũ sáng lập trung tâm sẽ là nguồn lực quý
+                            giá và “mở” cho tất cả học viên của G-EDU “tận dụng”
+                            <br>
+                            G-EDU cung cấp các bài giảng đặc biệt, các buổi nói chuyện, workshop giao lưu dành cho học
+                            viên.
+                        </p>
+                    </li>
+
+                </ul>
+
+                <!-- script for show, hiden faq_item -->
+                <script>
+                    const faq_items = document.querySelectorAll('.faq_item');
+
+                    faq_items.forEach(e => {
+                        const faq_ans = e.querySelector('.faq_ans');
+                        const faq_show_ans = e.querySelector('.show_ans');
+                        const faq_hide_ans = e.querySelector('.hide_ans');
+
+                        faq_show_ans.addEventListener('click', () => {
+                            faq_ans.classList.remove('hidden');
+                            faq_show_ans.classList.add('hidden');
+                            faq_hide_ans.classList.remove('hidden');
+
+                            e.classList.add('bg-[#524FD5]');
+                            e.classList.add('text-white');
+
+                            console.log(e.classList);
+                        });
+
+                        faq_hide_ans.addEventListener('click', () => {
+                            faq_ans.classList.add('hidden');
+                            faq_show_ans.classList.remove('hidden');
+                            faq_hide_ans.classList.add('hidden');
+
+                            e.classList.remove('bg-[#524FD5]');
+                            e.classList.remove('text-white');
+                        });
+                    })
+                </script>
             </div>
+
+        </section>
+
+    </div>
+
+
+    <footer
+        class="bg-[#F8FAFE] grid lg:flex justify-center lg:justify-between gap-[50px] xl:gap-[100px] px-[20px] lg:px-[100px] 2xl:px-[200px] py-[70px]">
+        <div class="grid lg:block justify-center text-center lg:text-left">
+            <h2 class="text-2xl font-semibold">
+                G-EDU
+            </h2>
+            <p class="max-w-[300px] mt-[15px]">
+                Địa chỉ: Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội
+            </p>
         </div>
 
-    </section>
+        <!-- leave your info -->
+        <div class="studying_itenerary">
+            <h3 class="text-3xl text-center">
+                Để lại thông tin liên hệ
+            </h3>
+            <p class="max-w-[500px] mx-auto mt-[15px] text-center">
+                Nếu bạn có thắc mắc hay băn khoăn về chương trình học, hãy để lại thông tin, chúng tôi sẽ liên hệ với
+                bạn
+                trong thời gian sớm nhất!
+            </p>
 
 
-    <!-- leave your info -->
-    <div class="pt-[50px] px-[100px] studying_itenerary">
-        <h3 class="text-3xl text-center">
-            Để lại thông tin liên hệ
-        </h3>
-        <p class="max-w-[500px] mx-auto mt-[15px] text-center">
-            Nếu bạn có thắc mắc hay băn khoăn về chương trình học, hẫy để lại thông tin, chúng tôi sẽ liên hệ với bạn
-            trong thời gian sớm nhất!
-        </p>
-    </div>
-    <!-- end leave your info -->
+            <!-- script form -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const leaveFormBtn = document.querySelector('#leaveInfoForm button');
+                    console.log(leaveFormBtn);
+                    leaveFormBtn.addEventListener('click', () => {
 
+                    });
+                })
+            </script>
+            <form id="leaveInfoForm" class="px-8 pt-6 pb-8 mb-4">
+                <div class="flex gap-[15px]">
+                    <div>
+                        <input
+                            class="shadow appearance-none border rounded-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="fullName" type="text" required placeholder="Họ và tên">
+                        <p class="fullName_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
+                    </div>
+
+                    <div>
+                        <input
+                            class="shadow appearance-none border rounded-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="phone" type="text" required placeholder="Số điện thoại">
+                        <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
+                    </div>
+                </div>
+                <p class="leave_info_message hidden text-green-500 text-[13px] px-[10px] max-w-[350px] mt-[10px]">Cảm ơn
+                    bạn đã quan tâm đến chương trình học, chúng tôi liên hệ lại với bạn trong thời gian sớm nhất!</p>
+
+                <div class="flex justify-center">
+                    <button
+                        class="bg-[#524FD5] hover:bg-[#605ecb] mt-[15px] text-white font-bold py-2 px-5 rounded duration-200 ease-in-out"
+                        type="button">
+                        Gửi
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- end leave your info -->
+
+        <!-- social media link -->
+        <div>
+            <ul class="flex gap-[20px] justify-center">
+                <li>
+                    <a href="https://facebook.com"
+                        class="flex items-center justify-center gap-[10px] border hover:border-gray-400 rounded-full p-[15px] w-[40px] h-[40px] hover:scale-[1.1] duration-200 ease-in-out">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://facebook.com"
+                        class="flex items-center justify-center gap-[10px] border hover:border-gray-400 rounded-full p-[15px] w-[40px] h-[40px] hover:scale-[1.1] duration-200 ease-in-out">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://facebook.com"
+                        class="flex items-center justify-center gap-[10px] border hover:border-gray-400 rounded-full p-[15px] w-[40px] h-[40px] hover:scale-[1.1] duration-200 ease-in-out">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://facebook.com"
+                        class="flex items-center justify-center gap-[10px] border hover:border-gray-400 rounded-full p-[15px] w-[40px] h-[40px] hover:scale-[1.1] duration-200 ease-in-out">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
 </body>
 
 </html>
