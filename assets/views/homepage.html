@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <header class="pt-[50px] px-[15px] lg:px-[100px]">
+    <header class="pt-[20px] md:pt-[50px] px-[15px] lg:px-[100px]">
         <div class="flex justify-between">
             <div class="site_logo w-[70px] lg:w-[101px]">
                 <svg class="w-full" width="101" height="25" viewBox="0 0 101 25" fill="none"
@@ -38,20 +38,28 @@
                 </svg>
             </div>
 
-            <div class="header_menu lg:w-[70%]">
-                <!-- begin header menu -->
+            <div id="header_menu_background" class="fixed hidden md:hidden top-0 left-0 w-full h-full bg-[#b0b0c021]">
 
-                <ul class="flex gap-[10px] lg:gap-[20px] font-[700] justify-center items-center text-[#666680]">
-                    <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class="hover:text-[#130D4B]">
-                            Về G-EDU
+            </div>
+            <div
+                class="header_menu hidden md:block bg-white w-[50%] md:w-[90%] lg:w-[70%] h-full lg:h-fit border md:border-[0] z-[999] absolute top-0 right-0 md:relative md:block">
+                <button id="close_header_menu"
+                    class="hover:text-violet-500 duration-150 ease-in-out text-xl absolute top-[10px] left-[30px] md:hidden">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <!-- begin header menu -->
+                <ul
+                    class="grid md:flex gap-[10px] lg:gap-[20px] font-[700] px-[30px] py-[50px] md:p-0 md:justify-center items-center text-[#666680]">
+                    <li class="menu_item relative cursor-pointer">
+                        <a class="flex space-x-1 items-center hover:text-[#130D4B]">
+                            <span>Về G-EDU</span>
+                            <span class="pt-1">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
                         </a>
-                        <span class="pt-1">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
 
                         <ul
-                            class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                            class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Giới thiệu</a></li>
                             <li class="sub_menu_item"><a href="index.php#contact"
@@ -63,16 +71,16 @@
                     <li><a href="index.php#contact" class=" hover:text-[#130D4B]">Liên hệ</a></li>
 
 
-                    <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class=" hover:text-[#130D4B]">
-                            Học tiếng Hàn
+                    <li class="menu_item relative cursor-pointer">
+                        <a class="flex space-x-1 items-center hover:text-[#130D4B]">
+                            <span> Học tiếng Hàn</span>
+                            <span class="pt-1">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
                         </a>
-                        <span class="pt-1">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
 
                         <ul
-                            class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Chuyên ngành học</a></li>
 
@@ -81,16 +89,16 @@
                         </ul>
                     </li>
 
-                    <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class=" hover:text-[#130D4B]">
-                            Sống tại Seoul
+                    <li class="menu_item relative cursor-pointer">
+                        <a class="flex space-x-1 items-center hover:text-[#130D4B]">
+                            <span>Sống tại Seoul</span>
+                            <span class="pt-1">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
                         </a>
-                        <span class="pt-1">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
 
                         <ul
-                            class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Hiểu về Hàn Quốc</a></li>
 
@@ -99,16 +107,16 @@
                         </ul>
                     </li>
 
-                    <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class=" hover:text-[#130D4B]">
-                            Lớp du học
+                    <li class="menu_item relative cursor-pointer">
+                        <a class="flex space-x-1 items-center hover:text-[#130D4B]">
+                            <span>Lớp du học</span>
+                            <span class="pt-1">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
                         </a>
-                        <span class="pt-1">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
 
                         <ul
-                            class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Sơ-Trung-Cao cấp</a></li>
 
@@ -120,16 +128,15 @@
                         </ul>
                     </li>
 
-                    <li class="menu_item flex space-x-1 items-center relative cursor-pointer">
-                        <a href="index.php#about" class=" hover:text-[#130D4B]">
-                            Book Club
+                    <li class="menu_item relative cursor-pointer">
+                        <a class="flex space-x-1 items-center hover:text-[#130D4B]">
+                            <span>Book Club</span>
+                            <span class="pt-1">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
                         </a>
-                        <span class="pt-1">
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-
                         <ul
-                            class="sub_menu hidden shadow absolute top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                             <li class="sub_menu_item"><a href="index.php"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Khách mời - Thuyết giảng</a>
                             </li>
@@ -141,7 +148,6 @@
                                     class=" hover:text-[#130D4B] block mt-[5px]">Workshop</a></li>
                         </ul>
                     </li>
-
                 </ul>
 
                 <style>
@@ -158,39 +164,70 @@
 
                 <script>
                     // hide/show sub menu in menu item
+                    document.addEventListener('DOMContentLoaded', () => {
+                        
+                        const menuItems = document.querySelectorAll('.menu_item');
+                        menuItems.forEach(menuItem => {
+                            let isHoveringSubMenuItem = false;
+                            let isHoveringTimeOuter = null;
 
-                    const menuItems = document.querySelectorAll('.menu_item');
-                    menuItems.forEach(menuItem => {
-                        let isHoveringSubMenuItem = false;
-                        let isHoveringTimeOuter = null;
-                        menuItem.addEventListener('mouseover', () => {
-                            menuItem.querySelector('.sub_menu').classList.remove('hidden');
-                        });
+                            if (screen.availWidth >= 768) { // handle open on tablet and desktop
+                                menuItem.addEventListener('mouseover', () => {
+                                    menuItem.querySelector('.sub_menu').classList.remove('hidden');
+                                });
 
-                        menuItem.addEventListener('mouseleave', () => {
-                            isHoveringTimeOuter = setTimeout(() => {
-                                if (!isHoveringSubMenuItem) {
+                                menuItem.addEventListener('mouseleave', () => {
+                                    isHoveringTimeOuter = setTimeout(() => {
+                                        if (!isHoveringSubMenuItem) {
+                                            menuItem.querySelector('.sub_menu').classList.add('hidden');
+                                        }
+                                    }, 150);
+                                });
+
+                                menuItem.querySelector('.sub_menu').addEventListener('mouseover', () => {
+                                    clearTimeout(isHoveringTimeOuter);
+                                    isHoveringSubMenuItem = true;
+                                    menuItem.querySelector('.sub_menu').classList.remove('hidden');
+                                });
+
+                                menuItem.querySelector('.sub_menu').addEventListener('mouseout', () => {
+                                    isHoveringSubMenuItem = false;
                                     menuItem.querySelector('.sub_menu').classList.add('hidden');
-                                }
-                            }, 150);
+                                });
+                            }
+                            else { // handle open on mobile
+                                menuItem.addEventListener('click', () => {
+                                    menuItem.querySelector('.sub_menu').classList.toggle('hidden');
+                                });
+                            }
                         });
 
-                        menuItem.querySelector('.sub_menu').addEventListener('mouseover', () => {
-                            clearTimeout(isHoveringTimeOuter);
-                            isHoveringSubMenuItem = true;
-                            menuItem.querySelector('.sub_menu').classList.remove('hidden');
-                        });
+                        if (screen.availWidth < 768){
+                            document.getElementById('close_header_menu').addEventListener('click', () => {
+                                document.getElementById('header_menu_background').classList.add('hidden');
+                                document.querySelector('.header_menu').classList.add('hidden');
+                            });
 
-                        menuItem.querySelector('.sub_menu').addEventListener('mouseout', () => {
-                            isHoveringSubMenuItem = false;
-                            menuItem.querySelector('.sub_menu').classList.add('hidden');
-                        });
+                            document.getElementById('header_menu_background').addEventListener('click', () => {
+                                document.getElementById('header_menu_background').classList.add('hidden');
+                                document.querySelector('.header_menu').classList.add('hidden');
+                            });
+
+                            document.getElementById('open_header_menu').addEventListener('click', () => {
+                                document.getElementById('header_menu_background').classList.remove('hidden');
+                                document.querySelector('.header_menu').classList.remove('hidden');
+                            });
+                        }
+
                     });
-
 
                 </script>
                 <!-- end header menu -->
             </div>
+
+            <button id="open_header_menu" class="hover:text-violet-500 duration-150 ease-in-out text-xl md:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -206,10 +243,10 @@
                 Kỹ năng đạt được
             </h3>
 
-            <div class="flex gap-[50px] skills mt-[50px] justify-center">
-                <div class="w-[350px]">
+            <div class="grid md:flex gap-[50px] skills mt-[50px] justify-center">
+                <div class="md:w-[350px]">
                     <div class="grid gap-[30px] justify-center justify-items-center">
-                        <img src="/assets/public/images/homepage/grammar_icon.jpg" alt="">
+                        <img class="mx-auto" src="/assets/public/images/homepage/grammar_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
                             Ngữ pháp
                         </p>
@@ -219,10 +256,10 @@
                         trái.
                     </p>
                 </div>
-                
-                <div class="w-[350px]">
+
+                <div class="md:w-[350px]">
                     <div class="grid gap-[30px] justify-center">
-                        <img src="/assets/public/images/homepage/speaking_icon.jpg" alt="">
+                        <img class="mx-auto" src="/assets/public/images/homepage/speaking_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
                             Phát âm - Nói
                         </p>
@@ -234,9 +271,9 @@
                     </p>
                 </div>
 
-                <div class="w-[350px]">
+                <div class="md:w-[350px]">
                     <div class="grid gap-[30px] justify-center justify-items-center">
-                        <img src="/assets/public/images/homepage/listening_icon.jpg" alt="">
+                        <img class="mx-auto" src="/assets/public/images/homepage/listening_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
                             Nghe
                         </p>
@@ -249,9 +286,9 @@
                     </p>
                 </div>
 
-                <div class="w-[350px]">
+                <div class="md:w-[350px]">
                     <div class="grid gap-[30px] justify-center">
-                        <img src="/assets/public/images/homepage/writing_icon.jpg" alt="">
+                        <img class="mx-auto" src="/assets/public/images/homepage/writing_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">Viết</p>
                     </div>
                     <p class="mt-[15px]">
@@ -259,7 +296,7 @@
                     </p>
                 </div>
 
-                
+
 
             </div>
 
@@ -272,8 +309,12 @@
                 Hành trình với G-EDU
             </h3>
 
-            <div>
+            <div class="hidden md:block">
                 <img src="/assets/public/images/homepage/studying_itenerary.jpg">
+            </div>
+
+            <div class="md:hidden h-full" >
+                
             </div>
         </section>
         <!-- end study itenerary -->
@@ -287,7 +328,7 @@
             <div class="mt-[30px]">
                 <ul class="flex flex-wrap justify-between gap-[30px] lg:gap-y-[40px] xl:gap-y-[50px] list_faq">
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 KHÓA HỌC NÀY DÀNH CHO NHỮNG AI?
@@ -311,7 +352,7 @@
                     </li>
 
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 TÔI CÓ THỂ TRẢI NGHIỆM HỌC THỬ KHÔNG?
@@ -336,7 +377,7 @@
                     </li>
 
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 THỦ TỤC ĐĂNG KÍ NHƯ THẾ NÀO?
@@ -359,7 +400,7 @@
                     </li>
 
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?
@@ -383,7 +424,7 @@
                     </li>
 
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 TRUNG TÂM CÓ HỖ TRỢ HỌC VIÊN NGOÀI GIỜ HỌC KHÔNG?
@@ -410,7 +451,7 @@
                     </li>
 
                     <li
-                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.5%] xl:w-[49%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
+                        class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
                                 VÌ SAO NÊN CHỌN G-EDU ĐỂ HỌC TIẾNG HÀN?
@@ -511,17 +552,17 @@
                 })
             </script>
             <form id="leaveInfoForm" class="px-8 pt-6 pb-8 mb-4">
-                <div class="flex gap-[15px]">
+                <div class="grid md:flex gap-[15px]">
                     <div>
                         <input
-                            class="shadow appearance-none border rounded-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="fullName" type="text" required placeholder="Họ và tên">
                         <p class="fullName_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                     </div>
 
                     <div>
                         <input
-                            class="shadow appearance-none border rounded-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="phone" type="text" required placeholder="Số điện thoại">
                         <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                     </div>
