@@ -17,7 +17,7 @@
             margin: 0;
             width: 100%;
             height: 100%;
-            color: black;
+            color: #181B32;
         }
     </style>
 
@@ -25,6 +25,11 @@
 
 <body>
     <header class="pt-[20px] md:pt-[50px] px-[15px] lg:px-[100px]">
+        <script>
+            function contentIsUpdating() {
+                alert("Nội dung đang được cập nhật");
+            };
+        </script>
         <div class="flex justify-between">
             <div class="site_logo w-[70px] lg:w-[101px]">
                 <svg class="w-full" width="101" height="25" viewBox="0 0 101 25" fill="none"
@@ -42,7 +47,7 @@
 
             </div>
             <div
-                class="header_menu hidden md:block bg-white w-[50%] md:w-[90%] lg:w-[70%] h-full lg:h-fit border md:border-[0] z-[999] absolute top-0 right-0 md:relative md:block">
+                class="header_menu hidden md:block bg-white w-[80%] 2sm:w-[50%] md:w-[90%] lg:w-[70%] h-full lg:h-fit border md:border-[0] z-[999] absolute top-0 right-0 md:relative md:block">
                 <button id="close_header_menu"
                     class="hover:text-violet-500 duration-150 ease-in-out text-xl absolute top-[10px] left-[30px] md:hidden">
                     <i class="fas fa-chevron-right"></i>
@@ -60,15 +65,15 @@
 
                         <ul
                             class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                            <li class="sub_menu_item"><a href="index.php"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Giới thiệu</a></li>
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Mạng xã hội</a></li>
                         </ul>
 
                     </li>
 
-                    <li><a href="index.php#contact" class=" hover:text-[#130D4B]">Liên hệ</a></li>
+                    <li><a onclick="contentIsUpdating()" class=" hover:text-[#130D4B]">Liên hệ</a></li>
 
 
                     <li class="menu_item relative cursor-pointer">
@@ -80,11 +85,11 @@
                         </a>
 
                         <ul
-                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                            <li class="sub_menu_item"><a href="index.php"
+                            class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Chuyên ngành học</a></li>
 
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Thông tin học bổng</a></li>
                         </ul>
                     </li>
@@ -98,11 +103,11 @@
                         </a>
 
                         <ul
-                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                            <li class="sub_menu_item"><a href="index.php"
+                            class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Hiểu về Hàn Quốc</a></li>
 
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Cộng đồng</a></li>
                         </ul>
                     </li>
@@ -116,11 +121,11 @@
                         </a>
 
                         <ul
-                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                            <li class="sub_menu_item"><a href="index.php"
+                            class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Sơ-Trung-Cao cấp</a></li>
 
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">TOPIK</a></li>
 
                             <li class="sub_menu_item"><a href="index.php#contact"
@@ -136,15 +141,15 @@
                             </span>
                         </a>
                         <ul
-                        class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                            <li class="sub_menu_item"><a href="index.php"
+                            class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Khách mời - Thuyết giảng</a>
                             </li>
 
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Cố vấn học tập</a></li>
 
-                            <li class="sub_menu_item"><a href="index.php#contact"
+                            <li class="sub_menu_item"><a onclick="contentIsUpdating()"
                                     class=" hover:text-[#130D4B] block mt-[5px]">Workshop</a></li>
                         </ul>
                     </li>
@@ -165,7 +170,7 @@
                 <script>
                     // hide/show sub menu in menu item
                     document.addEventListener('DOMContentLoaded', () => {
-                        
+
                         const menuItems = document.querySelectorAll('.menu_item');
                         menuItems.forEach(menuItem => {
                             let isHoveringSubMenuItem = false;
@@ -202,7 +207,7 @@
                             }
                         });
 
-                        if (screen.availWidth < 768){
+                        if (screen.availWidth < 768) {
                             document.getElementById('close_header_menu').addEventListener('click', () => {
                                 document.getElementById('header_menu_background').classList.add('hidden');
                                 document.querySelector('.header_menu').classList.add('hidden');
@@ -234,7 +239,7 @@
     <div class="homepage_content px-[15px] lg:px-[100px]">
 
         <section class="pt-[50px]">
-            <img src="/assets/public/images/homepage/image_slide.jpg">
+            <img src="/assets/public/images/homepage/image_slide.png">
         </section>
 
         <section class="pt-[50px] text-center">
@@ -313,14 +318,24 @@
                 <img src="/assets/public/images/homepage/studying_itenerary.jpg">
             </div>
 
-            <div class="md:hidden h-full" >
-                
-            </div>
+            <ul class="md:hidden grid gap-[30px] mt-[30px]">
+                <li class="border shadow-sm p-[15px] rounded-[20px]">
+                    <img src="/assets/public/images/homepage/baisc level.png">
+                </li>
+
+                <li class="border shadow-sm p-[15px] rounded-[20px]">
+                    <img src="/assets/public/images/homepage/immediate level.png">
+                </li>
+
+                <li class="border shadow-sm p-[15px] rounded-[20px]">
+                    <img src="/assets/public/images/homepage/advanced level.png">
+                </li>
+            </ul>
         </section>
         <!-- end study itenerary -->
 
         <!-- faq -->
-        <section class="pt-[50px] studying_itenerary mb-40">
+        <section class="pt-[50px] studying_itenerary mb-10 md:mb-20">
             <h3 class="text-3xl font-semibold">
                 Câu hỏi thường gặp
             </h3>
@@ -615,6 +630,56 @@
         </div>
 
     </footer>
+
+    <!-- Begin Back to top button -->
+    <style>
+        #btn-back-to-top {
+            position: fixed;
+            display: none;
+        }
+    </style>
+    <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+        class="inline-block p-3 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+        id="btn-back-to-top">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path fill="currentColor"
+                d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">
+            </path>
+        </svg>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Get the button
+            let mybutton = document.getElementById("btn-back-to-top");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function () {
+                scrollFunction();
+            };
+
+            function scrollFunction() {
+                if (
+                    document.body.scrollTop > 20 ||
+                    document.documentElement.scrollTop > 20
+                ) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            mybutton.addEventListener("click", backToTop);
+
+            function backToTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        });
+    </script>
+
+    <!-- End Back to top button -->
 </body>
 
 </html>

@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./assets/views/**/*.{html,js,hbs}'],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        '2sm': '400px',
+      },
+    },
   },
   plugins: [],
 };
