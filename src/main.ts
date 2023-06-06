@@ -7,16 +7,25 @@ import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import * as csurf from 'csurf';
 import { AllExceptionsFilter } from './configure/security/exception/http-exception.filter';
+import hbs from 'hbs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors();
 
-
   //  configure view engine and static assets
   app.useStaticAssets(join(__dirname, '..', 'assets/public'));
   app.setBaseViewsDir(join(__dirname, '..', 'assets/views'));
   app.setViewEngine('hbs');
+
+  hbs.registerPartials(
+    join(__dirname, '..', 'assets/views/partials').toString(),
+    function () {},
+  );
+  // hbs.registerPartials(
+  //   join(__dirname, '..', 'assets/views/components').toString(),
+  //   function () {},
+  // );
 
   //  configure session
   app.use(
@@ -31,7 +40,7 @@ async function bootstrap() {
   app.use(cookieParser());
 
   // configure helmet
-  app.use(helmet());
+  // app.use(helmet());
 
   // configure csrf, has deprecated, please update new one
   // app.use(csurf());

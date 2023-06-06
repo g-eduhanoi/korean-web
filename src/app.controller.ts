@@ -24,18 +24,23 @@ export class AppController {
     private readonly accountService: AccountService,
   ) { }
 
+
+  // for home-page
   @All()
   @Render('index')
-  getHello(
+  getHomepage(
     @Req() req: Request,
     @Session() session: Record<string, any>,
   ): object {
     console.log('session homepage', req.session);
-    // return this.appService.getHello();
-    return {
-      message: 'Hello World!',
-    };
+    return {};
   }
+
+  @Get('contact')
+  @Render('contact')
+  getContactPage(): void {
+  }
+
 
   // @Roles(Role.Admin)
   @Get('login')
