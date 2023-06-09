@@ -7,7 +7,8 @@ import * as cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import * as csurf from 'csurf';
 import { AllExceptionsFilter } from './configure/security/exception/http-exception.filter';
-import hbs from 'hbs';
+import hbs, { handlebars } from 'hbs';
+import { readFileSync } from 'fs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -16,16 +17,43 @@ async function bootstrap() {
   //  configure view engine and static assets
   app.useStaticAssets(join(__dirname, '..', 'assets/public'));
   app.setBaseViewsDir(join(__dirname, '..', 'assets/views'));
-  app.setViewEngine('hbs');
 
-  hbs.registerPartials(
-    join(__dirname, '..', 'assets/views/partials').toString(),
-    function () {},
+  handlebars.registerPartial(
+    'head_component',
+    readFileSync(
+      join(
+        __dirname,
+        '..',
+        'assets/views/partials/head_component.hbs',
+      ).toString(),
+      'utf8',
+    ),
   );
-  // hbs.registerPartials(
-  //   join(__dirname, '..', 'assets/views/components').toString(),
-  //   function () {},
-  // );
+
+  handlebars.registerPartial(
+    'header_component',
+    readFileSync(
+      join(
+        __dirname,
+        '..',
+        'assets/views/partials/header_component.hbs',
+      ).toString(),
+      'utf8',
+    ),
+  );
+
+  handlebars.registerPartial(
+    'footer_component',
+    readFileSync(
+      join(
+        __dirname,
+        '..',
+        'assets/views/partials/footer_component.hbs',
+      ).toString(),
+      'utf8',
+    ),
+  );
+  app.setViewEngine('hbs');
 
   //  configure session
   app.use(
@@ -52,4 +80,3 @@ async function bootstrap() {
   await app.listen(3000);
 }
 bootstrap();
-
