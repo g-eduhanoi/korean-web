@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact page</title>
-    <link rel="stylesheet" href="/assets/public/css/taildwin-out.css">
+    <link class="swiper-slide w-full" nk rel="stylesheet" href="/assets/public/css/taildwin-out.css" />
+
+    <link class="swiper-slide w-full" nk rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
 </head>
 
 <body class="bg-neutral-100">
-    <div class="main_content px-[30px] lg:px-[50px] xl:px-[180px] py-[120px] mx-auto bg-white">
+    <div class="hidden main_content px-[30px] lg:px-[50px] xl:px-[180px] py-[120px] mx-auto bg-white">
         <div class="2sm:flex md:gap-x-[100px] xl:gap-x-[200px]">
             <div class="w-1/2">
                 <h1 class="text-3xl font-semibold mb-[100px]">Thông tin liên hệ</h1>
 
 
                 <ul class="grid grid-cols-2 gap-[30px] justify-between">
-                    <li>
+                    <div class="swiper-slide w-full">
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Thời gian làm việc</h3>
                         <div>
                             <p>Thứ 2 đến thứ 6
@@ -25,30 +30,30 @@
                                 8:00 - 17:00
                             </p>
                         </div>
-                    </li>
+                    </div>
 
-                    <li>
+                    <div class="swiper-slide w-full">
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Địa chỉ</h3>
                         <div>
                             <p>
                                 Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội
                             </p>
                         </div>
-                    </li>
+                    </div>
 
-                    <li>
+                    <div class="swiper-slide w-full">
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Email</h3>
                         <div>
                             <p>contact@g-eduhanoi.com</p>
                         </div>
-                    </li>
+                    </div>
 
-                    <li>
+                    <div class="swiper-slide w-full">
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Số điện thoai</h3>
                         <div>
                             <p>0584843998</p>
                         </div>
-                    </li>
+                    </div>
                 </ul>
             </div>
 
@@ -90,7 +95,8 @@
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="content">
                                 Nội dung bạn muốn trao đổi (<span class="text-red-500">*</span>)
                             </label>
-                                <textarea name="content" id="content" cols="30" rows="2" class="w-full rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
+                            <textarea name="content" id="content" cols="30" rows="2"
+                                class="w-full rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
 
                                 </textarea>
 
@@ -113,6 +119,83 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper mx-auto">
+            <!-- Slides -->
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cnO4m.img?w=710&h=361&m=6" alt="">
+            </div>
+
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cpqFr.img?w=650&h=433&m=6" alt="">
+            </div>
+
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cq5ea.img?w=640&h=595&m=6" alt="">
+            </div>
+
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1coK9G.img?w=800&h=415&q=60&m=2&f=jpg"
+                    alt="">
+            </div>
+
+
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1coWsY.img?w=800&h=415&q=60&m=2&f=jpg">
+            </div>
+            <div class="swiper-slide w-full" class="glide__slide ">
+                <img class=" h-full"
+                    src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cpXEh.img?w=700&h=461&m=6">
+            </div>
+
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev left-[-50px]"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                width: 400
+
+
+            });
+        });
+
+    </script>
 </body>
 
 </html>
