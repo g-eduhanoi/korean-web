@@ -1,6 +1,6 @@
 import { Column, Model, Table } from 'sequelize-typescript';
 
-@Table
+@Table({ tableName: 'tbl_accounts' })
 export class Account extends Model {
   @Column
   username: string;
@@ -16,4 +16,8 @@ export class Account extends Model {
 
   @Column({ defaultValue: true })
   isActive: boolean;
+
+  @Column({ defaultValue: false })
+  isApproved: boolean;
+
 }

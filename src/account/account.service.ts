@@ -12,7 +12,35 @@ import { LoginInput } from './input/login.input';
 
 @Injectable()
 export class AccountService {
-  constructor(@InjectModel(Account) private accountModel: typeof Account) {}
+  constructor(@InjectModel(Account) private accountModel: typeof Account) {
+    console.log('AccountService constructor');
+
+    // const adminUser = this.accountModel
+    //   .findOne({
+    //     where: { username: 'admin' },
+    //   })
+    //   .then((user) => {
+    //     console.log('user: ', user);
+    //     if (!user) {
+    //       this.accountModel.create({
+    //         username: 'admin',
+    //         password: 'admin',
+    //         email: 'admin@admin.com',
+    //         fullname: 'Administrator',
+    //         isActive: true,
+    //         isApproved: true,
+    //       });
+    //       }
+    //   })
+    //   .catch((error) => {
+    //     console.log('error: ', error);
+    //     throw new PreconditionFailedException('Something bad happened', {
+    //       cause: new Error(),
+    //       description: 'Some error description',
+    //     });
+    //   });
+
+  }
 
   async login(input: LoginInput): Promise<boolean> {
     const user: Account = await this.accountModel.findOne({
