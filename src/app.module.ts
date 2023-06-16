@@ -11,29 +11,20 @@ import { APP_GUARD } from '@nestjs/core';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AccountService } from './account/account.service';
 import { Account } from './account/entities/account.entity';
+import { PostController } from './post/post.controller';
+import { PostModule } from './post/post.module';
+import { DatabaseModule } from 'configure/db/database.providers';
 
 @Module({
   imports: [
-    SequelizeModule.forRoot({
-      dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'korean_web',
-      password: '1234',
-      database: 'korean_web',
-      models: [Account],
-      sync: { force: true },// not working
-    }),
-    ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 10,
-    }),
+    DatabaseModule,
     FileModule,
     AccountModule,
     RoleModule,
     AuthorityModule,
+    PostModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, PostController],
   providers: [
     {
       provide: APP_GUARD,

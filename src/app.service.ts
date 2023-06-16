@@ -12,6 +12,7 @@ export class AppService {
 
   async onApplicationBootstrap(signal: string) {
     console.log('signal: ', signal); // e.g. "SIGINT"
+    return;
     await this.sequelize.sync({ force: true });
     
     const accountRepo: typeof Account = this.sequelize.getRepository(Account);
