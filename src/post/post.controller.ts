@@ -14,8 +14,8 @@ export class PostController {
     return this.postService.create(createPostDto);
   }
 
-  @Get()
-  findAll(@Query("page") pageable: ReqPageableDto ) {
+  @Post("findAll")
+  findAll(@Body("page") pageable: ReqPageableDto ) {
     return this.postService.findAll(pageable);
   }
 

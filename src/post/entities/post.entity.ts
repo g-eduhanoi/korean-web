@@ -57,4 +57,8 @@ export const PostProviders = [
     provide: 'POST_REPO',
     useValue: Post,
   },
+  {
+    provide: 'POST_TAG_REPO',
+    useValue: PostTag,
+  }
 ];

@@ -5,6 +5,8 @@ import { UpdatePostDto } from './dto/update-post.dto';
 import { Post } from './entities/post.entity';
 import { Category } from 'category/entities/category.entity';
 import { Tag } from 'tag/entities/tag.entity';
+import { ResPostDto } from './dto/res-post.dto';
+import { ResPageDto } from 'configure/db/res-page.dto';
 
 @Injectable()
 export class PostService {
@@ -20,8 +22,7 @@ export class PostService {
       throw new Error("Category not found");
     createPostDto.category = category;
 
-    if(createPostDto.tagIds)
-    {
+    if (createPostDto.tagIds) {
       const tags = [];
       for (let i = 0; i < createPostDto.tagIds.length; i++) {
         const tag = await this.tagRepo.findByPk(createPostDto.tagIds[i]);
@@ -38,27 +39,27 @@ export class PostService {
     await this.checkDto(createPostDto);
     const result = await this.postRepo.create({
       ...createPostDto,
-      tags: createPostDto.tagIds,
       createdBy: 1,
       updatedBy: 1
     });
-    // if(createPostDto.tagIds)
-    //   {
-    //     // result.$set("tags", createPostDto.tagIds);
-    //     await result.update({
-    //       tags: createPostDto.tags
-    //     });
-    //   }
 
+    await result.$set("tags", createPostDto.tags, {
+      through: {
+        selfGranted: true
+      }
+    });
 
-   console.log(await result.$get("tags"));
-    
+    await result.save();
 
-    return result;
-    
+    return await ResPostDto;
+
   }
   async findAll(pageable: ReqPageableDto) {
-    return await this.postRepo.findAll({
+    if(!pageable)
+      pageable = new ReqPageableDto();
+    console.log(ReqPageableDto.toPageable(pageable));
+    
+    const result =  await this.postRepo.findAndCountAll({
       ...ReqPageableDto.toPageable(pageable),
       include: [
         {
@@ -71,6 +72,14 @@ export class PostService {
         }
       ]
     });
+
+    const resPage: ResPageDto<ResPostDto> = new ResPageDto();
+    resPage.content = await Promise.all(result.rows.map((post) => ResPostDto.fromPost(post)));
+    resPage.totalElements = result.count;
+    resPage.totalPages = Math.ceil(result.count / pageable.size);
+    resPage.numberOfElements = result.rows.length;
+
+    return resPage;
   }
 
   async findOne(id: number) {
@@ -83,11 +92,19 @@ export class PostService {
     const post = await this.postRepo.findByPk(id);
     if (!post) throw new Error("Post not found");
 
-    return await post.update({
+    const result = await post.update({
       ...updatePostDto,
       updatedBy: 1
     });
-  }
+
+    await result.$set("tags", updatePostDto.tags, {
+      through: {
+        selfGranted: true
+         } });
+    result.save();
+    
+    return await ResPostDto.fromPost(result);
+   }
 
   async remove(id: number) {
     const post = await this.postRepo.findByPk(id);

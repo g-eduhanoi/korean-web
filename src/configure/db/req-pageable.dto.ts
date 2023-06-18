@@ -5,7 +5,7 @@ export class ReqPageableDto {
     @ApiProperty({
         default: 0,
     })
-    page: number;
+    page: number ;
 
     @ApiProperty({
         default: 10,
@@ -19,8 +19,6 @@ export class ReqPageableDto {
 
 
     static toPageable(pageable: ReqPageableDto): FindOptions {
-        if(!pageable)
-            pageable = new ReqPageableDto();
         if (!pageable.page)
             pageable.page = 0;
 
@@ -28,8 +26,8 @@ export class ReqPageableDto {
             pageable.size = 10;
 
         return {
-            offset: pageable.page * pageable.size,
-            limit: pageable.size,
+            offset: Number(pageable.page) * Number(pageable.size),
+            limit: Number(pageable.size),
             // @ts-ignore
             order: this.sort != null ? [this.sort.split(",")] : null
         }
