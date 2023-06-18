@@ -2,7 +2,9 @@ import { Column, Model, Table } from 'sequelize-typescript';
 
 @Table({ tableName: 'tbl_accounts' })
 export class Account extends Model {
-  @Column
+  @Column({
+    comment: 'Username',
+  })
   username: string;
 
   @Column

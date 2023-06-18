@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
+import { ApiQuery } from '@nestjs/swagger';
+import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 
-@Controller('post')
+@Controller('api/posts')
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
@@ -13,8 +15,8 @@ export class PostController {
   }
 
   @Get()
-  findAll() {
-    return this.postService.findAll();
+  findAll(@Query("page") pageable: ReqPageableDto ) {
+    return this.postService.findAll(pageable);
   }
 
   @Get(':id')

@@ -1,26 +1,97 @@
-import { Injectable } from '@nestjs/common';
+import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
+import { Post } from './entities/post.entity';
+import { Category } from 'category/entities/category.entity';
+import { Tag } from 'tag/entities/tag.entity';
 
 @Injectable()
 export class PostService {
-  create(createPostDto: CreatePostDto) {
-    return 'This action adds a new post';
+  constructor(
+    @Inject("POST_REPO") private readonly postRepo: typeof Post,
+    @Inject("CATEGORY_REPO") private readonly categoryRepo: typeof Category,
+    @Inject("TAG_REPO") private readonly tagRepo: typeof Tag
+  ) { }
+
+  async checkDto(createPostDto: CreatePostDto | UpdatePostDto) {
+    const category = await this.categoryRepo.findByPk(createPostDto.categoryId);
+    if (!category)
+      throw new Error("Category not found");
+    createPostDto.category = category;
+
+    if(createPostDto.tagIds)
+    {
+      const tags = [];
+      for (let i = 0; i < createPostDto.tagIds.length; i++) {
+        const tag = await this.tagRepo.findByPk(createPostDto.tagIds[i]);
+        if (!tag)
+          throw new Error("Tag not found");
+        tags.push(tag);
+      }
+      createPostDto.tags = tags;
+    }
+
   }
 
-  findAll() {
-    return `This action returns all post`;
+  async create(createPostDto: CreatePostDto) {
+    await this.checkDto(createPostDto);
+    const result = await this.postRepo.create({
+      ...createPostDto,
+      tags: createPostDto.tagIds,
+      createdBy: 1,
+      updatedBy: 1
+    });
+    // if(createPostDto.tagIds)
+    //   {
+    //     // result.$set("tags", createPostDto.tagIds);
+    //     await result.update({
+    //       tags: createPostDto.tags
+    //     });
+    //   }
+
+
+   console.log(await result.$get("tags"));
+    
+
+    return result;
+    
+  }
+  async findAll(pageable: ReqPageableDto) {
+    return await this.postRepo.findAll({
+      ...ReqPageableDto.toPageable(pageable),
+      include: [
+        {
+          model: Category,
+          as: "category"
+        },
+        {
+          model: Tag,
+          as: "tags"
+        }
+      ]
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: number) {
+    return await this.postRepo.findByPk(id);
   }
 
-  update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post`;
+  async update(id: number, updatePostDto: UpdatePostDto) {
+    await this.checkDto(updatePostDto);
+
+    const post = await this.postRepo.findByPk(id);
+    if (!post) throw new Error("Post not found");
+
+    return await post.update({
+      ...updatePostDto,
+      updatedBy: 1
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} post`;
+  async remove(id: number) {
+    const post = await this.postRepo.findByPk(id);
+    if (!post) throw new Error("Post not found");
+    return await post.destroy();
   }
 }

@@ -14,6 +14,13 @@ import { Account } from './account/entities/account.entity';
 import { PostController } from './post/post.controller';
 import { PostModule } from './post/post.module';
 import { DatabaseModule } from 'configure/db/database.providers';
+import { PostService } from 'post/post.service';
+import { AccountProviders } from 'account/entities/account.providers';
+import { PostProviders } from 'post/entities/post.entity';
+import { CategoryModule } from './category/category.module';
+import { TagModule } from './tag/tag.module';
+import { CategoryRepo } from 'category/entities/category.entity';
+import { TagRepo } from 'tag/entities/tag.entity';
 
 @Module({
   imports: [
@@ -23,6 +30,9 @@ import { DatabaseModule } from 'configure/db/database.providers';
     RoleModule,
     AuthorityModule,
     PostModule,
+    CategoryModule,
+    TagModule,
+    
   ],
   controllers: [AppController, PostController],
   providers: [
@@ -32,6 +42,11 @@ import { DatabaseModule } from 'configure/db/database.providers';
     },
     AppService,
     AccountService,
+    ...AccountProviders,
+    PostService,
+    ...PostProviders,
+    CategoryRepo,
+    TagRepo
   ],
 })
 export class AppModule { }

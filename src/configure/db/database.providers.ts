@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { Account } from 'account/entities/account.entity';
+import { Category } from 'category/entities/category.entity';
+import { Post, PostTag,  } from 'post/entities/post.entity';
 import { Sequelize } from 'sequelize-typescript';
+import { Tag } from 'tag/entities/tag.entity';
 
 const databaseProviders = [
     {
@@ -14,8 +17,13 @@ const databaseProviders = [
                 password: '1234',
                 database: 'korean_web',
             });
-            sequelize.addModels([Account]);
-            await sequelize.sync();
+            sequelize.addModels([
+                Account, Post, Category, Tag,
+                PostTag
+            ]);
+            await sequelize.sync({
+                force: true
+            });
             return sequelize;
         },
     },
