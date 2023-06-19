@@ -2,8 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
+import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 
-@Controller('tag')
+@Controller('api/tags')
 export class TagController {
   constructor(private readonly tagService: TagService) {}
 
@@ -12,9 +13,9 @@ export class TagController {
     return this.tagService.create(createTagDto);
   }
 
-  @Get()
-  findAll() {
-    return this.tagService.findAll();
+  @Post("findAll")
+  findAll(@Body() pageable: ReqPageableDto) {
+    return this.tagService.findAll(pageable);
   }
 
   @Get(':id')
