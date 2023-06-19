@@ -2,19 +2,20 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 
-@Controller('category')
+@Controller('api/categories')
 export class CategoryController {
-  constructor(private readonly categoryService: CategoryService) {}
+  constructor(private readonly categoryService: CategoryService) { }
 
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {
     return this.categoryService.create(createCategoryDto);
   }
 
-  @Get()
-  findAll() {
-    return this.categoryService.findAll();
+  @Post("findAll")
+  findAll(@Body() pageable: ReqPageableDto) {
+    return this.categoryService.findAll(pageable);
   }
 
   @Get(':id')

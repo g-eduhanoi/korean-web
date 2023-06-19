@@ -3,13 +3,16 @@ import { Account } from './account/entities/account.entity';
 import { hashSync } from 'bcrypt';
 import { Category } from 'category/entities/category.entity';
 import { Tag } from 'tag/entities/tag.entity';
+import { CategoryService } from 'category/category.service';
 
 @Injectable()
 export class AppService {
   constructor(
     @Inject("ACCOUNT_REPO") private readonly accountRepo: typeof Account,
     @Inject("CATEGORY_REPO") private readonly categoryRepo: typeof Category,
-    @Inject("TAG_REPO") private readonly tagRepo: typeof Tag) { }
+    @Inject("TAG_REPO") private readonly tagRepo: typeof Tag,
+    private readonly categoryService: CategoryService
+    ) { }
   getHello(): string {
     return 'Hello World!';
   }
@@ -29,14 +32,7 @@ export class AppService {
       isApproved: true,
     });
 
-    const category = await this.categoryRepo.findByPk(1);
-    if (!category) {
-      await this.categoryRepo.create({
-        id: 1,
-        name: "Default",
-        slug: "default",
-      });
-    }
+    await this.categoryService.init();
 
     const tag = await this.tagRepo.findByPk(1);
     if (!tag) {

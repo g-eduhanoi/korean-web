@@ -21,6 +21,7 @@ import { CategoryModule } from './category/category.module';
 import { TagModule } from './tag/tag.module';
 import { CategoryRepo } from 'category/entities/category.entity';
 import { TagRepo } from 'tag/entities/tag.entity';
+import { CategoryService } from 'category/category.service';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { TagRepo } from 'tag/entities/tag.entity';
     ...AccountProviders,
     PostService,
     ...PostProviders,
+    CategoryService,
     CategoryRepo,
     TagRepo
   ],
