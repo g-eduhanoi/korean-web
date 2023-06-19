@@ -3,7 +3,9 @@ import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Tag')
 @Controller('api/tags')
 export class TagController {
   constructor(private readonly tagService: TagService) {}

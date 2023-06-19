@@ -3,7 +3,9 @@ import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Category')
 @Controller('api/categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) { }

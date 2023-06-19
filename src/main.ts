@@ -81,10 +81,11 @@ async function bootstrap() {
 
   // config swagger
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Korean Education center example')
+    .setDescription('The Korean Education center API description')
     .setVersion('1.0')
-    .addTag('cats')
+    .addApiKey({ type: 'apiKey', name: 'x-access-token', in: 'header' })
+    .setBasePath('api')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

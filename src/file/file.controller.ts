@@ -3,8 +3,10 @@ import { FileService } from './file.service';
 import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('file')
+@ApiTags('File')
+@Controller('api/files')
 export class FileController {
   constructor(private readonly fileService: FileService) { }
 

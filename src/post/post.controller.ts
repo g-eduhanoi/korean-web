@@ -2,9 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { PostService } from './post.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
-import { ApiQuery } from '@nestjs/swagger';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 
+@ApiTags('Post')
 @Controller('api/posts')
 export class PostController {
   constructor(private readonly postService: PostService) {}

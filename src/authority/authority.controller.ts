@@ -2,8 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AuthorityService } from './authority.service';
 import { CreateAuthorityDto } from './dto/create-authority.dto';
 import { UpdateAuthorityDto } from './dto/update-authority.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('authority')
+@ApiTags('Authority')
+@Controller('api/authorities')
 export class AuthorityController {
   constructor(private readonly authorityService: AuthorityService) {}
 
