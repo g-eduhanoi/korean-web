@@ -18,7 +18,7 @@ const multerStorage = diskStorage({
     // const currentDate = new Date();
     // console.log(currentDate.getFullYear() + '/' + currentDate.getMonth()+1);
     const uniqueSuffix = Date.now() + '_' + file.originalname;
-    file.urlLink = 'http://localhost:3000/uploads/' + uniqueSuffix;
+    file.urlLink = '/uploads/' + uniqueSuffix;
     cb(null, uniqueSuffix)
   }
 });

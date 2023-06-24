@@ -51,7 +51,7 @@ export class PostService {
 
     await result.save();
 
-    return await ResPostDto;
+    return await ResPostDto.fromPost(result);
 
   }
   async findAll(pageable: ReqPageableDto) {
@@ -83,7 +83,7 @@ export class PostService {
   }
 
   async findOne(id: number) {
-    return await this.postRepo.findByPk(id);
+    return await ResPostDto.fromPost(await this.postRepo.findByPk(id));
   }
 
   async update(id: number, updatePostDto: UpdatePostDto) {
