@@ -4,6 +4,24 @@ import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags } from '@nestjs/swagger';
+import {diskStorage} from 'multer';
+import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+
+
+const ASSET_DIR = './assets/public/uploads/';
+const multerStorage = diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, ASSET_DIR)
+  },
+  filename: function (req, file: any, cb) {
+    // need create date folder berfore insert
+    // const currentDate = new Date();
+    // console.log(currentDate.getFullYear() + '/' + currentDate.getMonth()+1);
+    const uniqueSuffix = Date.now() + '_' + file.originalname;
+    file.urlLink = 'http://localhost:3000/uploads/' + uniqueSuffix;
+    cb(null, uniqueSuffix)
+  }
+});
 
 @ApiTags('File')
 @Controller('api/files')
@@ -11,10 +29,9 @@ export class FileController {
   constructor(private readonly fileService: FileService) { }
 
   @Post('upload')
-  @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile() file: Express.Multer.File) {
-    console.log(file);
-    return file.buffer;
+  @UseInterceptors(FileInterceptor('file', { storage: multerStorage }))
+  uploadFile(@UploadedFile() fileDto: CreateFileDto) {
+    return this.fileService.create(fileDto);
   }
 
   @Post()
@@ -22,9 +39,16 @@ export class FileController {
     return this.fileService.create(createFileDto);
   }
 
-  @Get()
-  findAll() {
-    return this.fileService.findAll();
+  @Post("findAll")
+  findAll(pageable: ReqPageableDto) {
+
+    //   {
+    //     content: fileData.rows,
+    //     totalElements: fileData.count,
+    //     totalPages: Math.ceil(fileData.count / size),
+    //     numberOfElements: fileData.rows.length,
+    //  }
+    return this.fileService.findAll(pageable);
   }
 
   @Get(':id')

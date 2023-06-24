@@ -1,3 +1,4 @@
+import { FileRepo } from './file/entities/file.entity';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -48,7 +49,8 @@ import { CategoryService } from 'category/category.service';
     ...PostProviders,
     CategoryService,
     CategoryRepo,
-    TagRepo
+    TagRepo,
+    FileRepo
   ],
 })
 export class AppModule { }
