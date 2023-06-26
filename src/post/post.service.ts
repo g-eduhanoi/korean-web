@@ -43,6 +43,7 @@ export class PostService {
       updatedBy: 1
     });
 
+    if (createPostDto.tagIds) 
     await result.$set("tags", createPostDto.tags, {
       through: {
         selfGranted: true
@@ -97,6 +98,7 @@ export class PostService {
       updatedBy: 1
     });
 
+    if (updatePostDto.tagIds) 
     await result.$set("tags", updatePostDto.tags, {
       through: {
         selfGranted: true

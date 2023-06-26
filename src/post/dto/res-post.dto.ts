@@ -3,6 +3,7 @@ import { Post } from "post/entities/post.entity";
 import { Tag } from "tag/entities/tag.entity";
 
 export class ResPostDto {
+    id: number;
     title: string;
     content: string;
     excerpt: string;
@@ -17,8 +18,9 @@ export class ResPostDto {
 
     static async fromPost(post: Post): Promise<ResPostDto> {
         const res = new ResPostDto();
+        res.id = post.id;
         res.title = post.title;
-        res.content = post.content;
+        // res.content = post.content;
         res.excerpt = post.excerpt;
         res.slug = post.slug;
         res.status = post.status;
