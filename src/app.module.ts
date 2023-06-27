@@ -23,6 +23,7 @@ import { TagModule } from './tag/tag.module';
 import { CategoryRepo } from 'category/entities/category.entity';
 import { TagRepo } from 'tag/entities/tag.entity';
 import { CategoryService } from 'category/category.service';
+import { WebViewsController } from './web-views/web-views.controller';
 
 @Module({
   imports: [
@@ -36,7 +37,7 @@ import { CategoryService } from 'category/category.service';
     TagModule,
     
   ],
-  controllers: [AppController, PostController],
+  controllers: [AppController, PostController, WebViewsController],
   providers: [
     {
       provide: APP_GUARD,
