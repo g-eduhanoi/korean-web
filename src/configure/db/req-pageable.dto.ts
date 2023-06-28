@@ -19,6 +19,8 @@ export class ReqPageableDto {
 
 
     static toPageable(pageable: ReqPageableDto): FindOptions {
+        console.log("is page null? ", pageable.page == null);
+        
         if (!pageable.page)
             pageable.page = 0;
 
@@ -29,7 +31,7 @@ export class ReqPageableDto {
             offset: Number(pageable.page) * Number(pageable.size),
             limit: Number(pageable.size),
             // @ts-ignore
-            order: this.sort != null ? [this.sort.split(",")] : null
+            order: this.sort != null ? [this.sort.split(",")] : [["id", "desc"]]
         }
     }
 }

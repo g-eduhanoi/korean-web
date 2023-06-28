@@ -34,4 +34,9 @@ export class TagController {
   remove(@Param('id') id: string) {
     return this.tagService.remove(+id);
   }
+
+  @Get("search/:keyword")
+  search(@Param('keyword') keyword: string) {
+    return this.tagService.search(keyword);
+  }
 }

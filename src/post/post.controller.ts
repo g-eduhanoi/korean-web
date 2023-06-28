@@ -16,7 +16,7 @@ export class PostController {
   }
 
   @Post("findAll")
-  findAll(@Body("page") pageable: ReqPageableDto ) {
+  findAll(@Body() pageable: ReqPageableDto ) {
     return this.postService.findAll(pageable);
   }
 

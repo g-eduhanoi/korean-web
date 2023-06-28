@@ -25,7 +25,7 @@ export class CreatePostDto {
     slug: string;
 
     @ApiProperty({
-        default: "This is a content",
+        enum: ["PUBLISHED", "DRAFTED"],
     })
     status: string;
 

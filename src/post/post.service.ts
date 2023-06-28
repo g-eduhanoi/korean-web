@@ -58,6 +58,9 @@ export class PostService {
   async findAll(pageable: ReqPageableDto) {
     if(!pageable)
       pageable = new ReqPageableDto();
+
+      console.log("pageable: ",typeof pageable);
+      
     console.log(ReqPageableDto.toPageable(pageable));
     
     const result =  await this.postRepo.findAndCountAll({
