@@ -10,6 +10,7 @@ import { AllExceptionsFilter } from './configure/security/exception/http-excepti
 import hbs, { handlebars } from 'hbs';
 import { readFileSync } from 'fs';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as moment from 'moment';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -54,6 +55,29 @@ async function bootstrap() {
       'utf8',
     ),
   );
+
+  handlebars.registerHelper("inc", function (value, options) {
+    return parseInt(value) + 1;
+  });
+  handlebars.registerHelper("ifNot", function (value, options) {
+    return (value == false) ? options.fn(this) : options.inverse(this);
+  });
+  handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+    console.log(arg1, arg2, arg1 == arg2);
+
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
+  handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
+    console.log(arg1, arg2);
+    return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+  });
+  handlebars.registerHelper('recentDate', function (value, options) {
+    return moment(value).fromNow();
+  });
+  moment.locale('vi');
+
+  
+
   app.setViewEngine('hbs');
 
   //  configure session
@@ -92,3 +116,5 @@ async function bootstrap() {
   await app.listen(3000);
 }
 bootstrap();
+
+

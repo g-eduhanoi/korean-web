@@ -13,4 +13,13 @@ export class ResPageDto<T> {
     @ApiProperty({description: "total items in content array", default: 0})
     numberOfElements: number;
 
+    @ApiProperty({description: "current page", default: 0})
+    number: number;
+
+    @ApiProperty({description: "is first page", default: false})
+    isFirst: boolean;
+
+    @ApiProperty({description: "is last page", default: false})
+    isLast: boolean;
+
 }

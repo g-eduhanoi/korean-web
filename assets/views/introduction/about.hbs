@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- head -->
+    {{> head_component}}
+    <title>Về chúng tôi - G-EDU</title>
+</head>
+
+<body>
+    {{> header_component}}
+
+
+    <div class=" my-[20px] px-[15px] lg:px-[100px]">
+
+        <!--Second breadcrumb-->
+        <nav class="w-full rounded-md my-[20px] ">
+            <ol class="list-reset flex">
+                <li>
+                    <a href="/"
+                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                        Trang chủ
+                    </a>
+                </li>
+                <li>
+                    <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
+                </li>
+                <li class="text-neutral-500 dark:text-neutral-400"> {{title}}</li>
+            </ol>
+        </nav>
+
+        <div class="max-w-[1100px] mx-auto">
+            <img src="https://hklangstudio.com/gallery_gen/5dcea710121b0a6b7de24d9ced815faf.jpg">
+
+            <img src="https://hklangstudio.com/gallery_gen/7c24b8af218f445c8eda167920181a9d_1800x766.jpg" />
+
+        </div>
+
+    </div>
+
+    {{> footer_component}}
+</body>
+
+</html>

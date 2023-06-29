@@ -7,6 +7,8 @@ import { Category } from 'category/entities/category.entity';
 import { Tag } from 'tag/entities/tag.entity';
 import { ResPostDto } from './dto/res-post.dto';
 import { ResPageDto } from 'configure/db/res-page.dto';
+import { PostFilterReqDto } from './dto/post-filter-req.dto';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class PostService {
@@ -43,27 +45,69 @@ export class PostService {
       updatedBy: 1
     });
 
-    if (createPostDto.tagIds) 
-    await result.$set("tags", createPostDto.tags, {
-      through: {
-        selfGranted: true
-      }
-    });
+    if (createPostDto.tagIds)
+      await result.$set("tags", createPostDto.tags, {
+        through: {
+          selfGranted: true
+        }
+      });
 
     await result.save();
 
     return await ResPostDto.fromPost(result);
 
   }
-  async findAll(pageable: ReqPageableDto) {
-    if(!pageable)
+
+  async filter(reqDto: PostFilterReqDto, pageable: ReqPageableDto) {
+    if (!pageable)
       pageable = new ReqPageableDto();
 
-      console.log("pageable: ",typeof pageable);
-      
+
+    let whereBuilder: {
+      categoryId?: object
+    } = {};
+    if (reqDto != null && reqDto.categoryId)
+      whereBuilder.categoryId = {
+        [Op.eq]: reqDto.categoryId
+      }
+
+
+    const result = await this.postRepo.findAndCountAll({
+      ...ReqPageableDto.toPageable(pageable),
+      where: whereBuilder,
+      include: [
+        {
+          model: Category,
+          as: "category"
+        },
+        {
+          model: Tag,
+          as: "tags"
+        }
+      ]
+    });
+
+    const resPage: ResPageDto<ResPostDto> = new ResPageDto();
+    resPage.content = await Promise.all(result.rows.map((post) => ResPostDto.fromPost(post)));
+    resPage.totalElements = result.count;
+    resPage.totalPages = Math.ceil(result.count / pageable.size);
+    resPage.numberOfElements = result.rows.length;
+    resPage.number = pageable.page;
+    resPage.isFirst = pageable.page == 0;
+    resPage.isLast = pageable.page == resPage.totalPages - 1;
+
+    return resPage;
+  }
+
+  async findAll(pageable: ReqPageableDto) {
+    if (!pageable)
+      pageable = new ReqPageableDto();
+
+    console.log("pageable: ", typeof pageable);
+
     console.log(ReqPageableDto.toPageable(pageable));
-    
-    const result =  await this.postRepo.findAndCountAll({
+
+    const result = await this.postRepo.findAndCountAll({
       ...ReqPageableDto.toPageable(pageable),
       include: [
         {
@@ -82,7 +126,7 @@ export class PostService {
     resPage.totalElements = result.count;
     resPage.totalPages = Math.ceil(result.count / pageable.size);
     resPage.numberOfElements = result.rows.length;
-
+    resPage.number = pageable.page;
     return resPage;
   }
 
@@ -101,15 +145,16 @@ export class PostService {
       updatedBy: 1
     });
 
-    if (updatePostDto.tagIds) 
-    await result.$set("tags", updatePostDto.tags, {
-      through: {
-        selfGranted: true
-         } });
+    if (updatePostDto.tagIds)
+      await result.$set("tags", updatePostDto.tags, {
+        through: {
+          selfGranted: true
+        }
+      });
     result.save();
-    
+
     return await ResPostDto.fromPost(result);
-   }
+  }
 
   async remove(id: number) {
     const post = await this.postRepo.findByPk(id);

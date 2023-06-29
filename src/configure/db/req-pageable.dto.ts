@@ -5,17 +5,17 @@ export class ReqPageableDto {
     @ApiProperty({
         default: 0,
     })
-    page: number ;
+    page?: number ;
 
     @ApiProperty({
         default: 10,
     })
-    size: number;
+    size?: number;
 
     @ApiProperty({
         default: "id,desc",
     })
-    sort: string;
+    sort?: string;
 
 
     static toPageable(pageable: ReqPageableDto): FindOptions {
