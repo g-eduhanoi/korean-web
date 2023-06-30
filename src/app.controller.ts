@@ -33,12 +33,16 @@ export class AppController {
     @Session() session: Record<string, any>,
   ): object {
     console.log('session homepage', req.session);
+    
     return {};
   }
 
   @Get('contact')
   @Render('contact')
-  getContactPage(): void {
+  getContactPage(): object {
+    return {
+      title: 'Liên hệ với chúng tôi',
+    };
   }
 
 

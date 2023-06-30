@@ -135,11 +135,19 @@ export class WebViewsController {
     }
 
 
+    @Get('mang-xa-hoi')
+    @Render('introduction/sns_page')
+    async snsPage(): Promise<object> {
+        return {
+            ...await this.filterPost(12),
+            title: 'G-EDU - Mạng xã hội',
+        }
+    }
+
 
     @Get('ve-chung-toi')
     @Render('introduction/about')
     async aboutPage(): Promise<object> {
-
 
         return {
             ...await this.filterPost(12),
