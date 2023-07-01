@@ -7,11 +7,29 @@
     <title>Contact page</title>
 </head>
 
-<body class="bg-[#fafafa]">
+<body>
     
     {{> header_component}}
+    <div class="main_content px-[15px] lg:px-[50px] xl:px-[100px] mx-auto bg-white">
 
-    <div class="main_content px-[30px] grid justify-center lg:px-[50px] xl:px-[180px] py-[120px] mx-auto bg-white">
+        <!--Second breadcrumb-->
+        <nav class="w-full rounded-md my-[20px] text-[14px]">
+            <ol class="list-reset flex">
+                <li>
+                    <a href="/"
+                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                        Trang chủ
+                    </a>
+                </li>
+                <li>
+                    <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
+                </li>
+                <li class="text-neutral-500 dark:text-neutral-400"> {{title}}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="main_content px-[30px] grid justify-center lg:px-[50px] xl:px-[180px] pt-[90px] pb-[120px] mx-auto bg-white">
 
         <h1 class="text-5xl text-center font-semibold mb-[100px]">G-EDU - Social Medias</h1>
 

@@ -20,6 +20,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'assets/public'));
   app.setBaseViewsDir(join(__dirname, '..', 'assets/views'));
 
+
   handlebars.registerPartial(
     'head_component',
     readFileSync(
@@ -113,6 +114,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  console.log("root prj: ", process.cwd());
+  
   await app.listen(3000);
 }
 bootstrap();

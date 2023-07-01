@@ -4,21 +4,32 @@ import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags } from '@nestjs/swagger';
-import {diskStorage} from 'multer';
+import { diskStorage } from 'multer';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+import * as fs from 'fs';
 
+const ASSET_DIR = process.cwd() + '/assets/public/uploads/';
+if(!fs.existsSync(ASSET_DIR))
+  fs.mkdirSync(ASSET_DIR);
 
-const ASSET_DIR = './assets/public/uploads/';
 const multerStorage = diskStorage({
   destination: function (req, file, cb) {
-    cb(null, ASSET_DIR)
+    // need create date folder berfore insert
+    const currentDate = new Date();
+    console.log(currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1));
+    const monthlyDir = currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1);
+    if(!fs.existsSync(ASSET_DIR + currentDate.getFullYear()))
+      fs.mkdirSync(ASSET_DIR + currentDate.getFullYear());
+    if (!fs.existsSync(ASSET_DIR + monthlyDir)) {
+      fs.mkdirSync(ASSET_DIR + monthlyDir);
+    }
+
+    cb(null, ASSET_DIR + monthlyDir)
   },
   filename: function (req, file: any, cb) {
-    // need create date folder berfore insert
-    // const currentDate = new Date();
-    // console.log(currentDate.getFullYear() + '/' + currentDate.getMonth()+1);
+
     const uniqueSuffix = Date.now() + '_' + file.originalname;
-    file.urlLink = '/uploads/' + uniqueSuffix;
+    file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
     cb(null, uniqueSuffix)
   }
 });
