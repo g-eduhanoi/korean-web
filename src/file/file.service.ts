@@ -48,14 +48,18 @@ export class FileService {
       pageable = new ReqPageableDto();
     console.log(ReqPageableDto.toPageable(pageable));
 
-    const whereBuilder = {
-      fileCode: {
-        [Op.eq] : reqDto.fileCode
-      },
-      category: {
+    const whereBuilder: any = {};
+
+    if(reqDto.category) {
+      whereBuilder.category = {
         [Op.eq] : reqDto.category
-      },
-    };
+      }
+    }
+    if(reqDto.fileCode) {
+      whereBuilder.fileCode = {
+        [Op.eq] : reqDto.fileCode
+      }
+    }
 
     const result = await this.fileRepo.findAndCountAll({
       ...ReqPageableDto.toPageable(pageable),

@@ -24,6 +24,7 @@ import { CategoryRepo } from 'category/entities/category.entity';
 import { TagRepo } from 'tag/entities/tag.entity';
 import { CategoryService } from 'category/category.service';
 import { WebViewsController } from './web-views/web-views.controller';
+import { FileService } from 'file/file.service';
 
 @Module({
   imports: [
@@ -51,7 +52,8 @@ import { WebViewsController } from './web-views/web-views.controller';
     CategoryService,
     CategoryRepo,
     TagRepo,
-    FileRepo
+    FileService,
+    FileRepo,
   ],
 })
 export class AppModule { }

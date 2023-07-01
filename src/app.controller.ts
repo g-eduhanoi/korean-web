@@ -14,27 +14,37 @@ import { Request, Response } from 'express';
 import { AccountService } from './account/account.service';
 import { LoginInput } from './account/input/login.input';
 import { AppService } from './app.service';
-import { Roles } from './configure/security/roles.decorator';
-import { Role } from './role/enum/role.enum';
+import { FileService } from 'file/file.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly accountService: AccountService,
+    private readonly fileService: FileService
   ) { }
 
 
   // for home-page
   @All()
   @Render('index')
-  getHomepage(
+  async getHomepage(
     @Req() req: Request,
     @Session() session: Record<string, any>,
-  ): object {
-    console.log('session homepage', req.session);
+  ): Promise<object> {
     
-    return {};
+    const galleryImages = await this.fileService.findAll({
+      fileCode: "GALLERY"
+    }, {
+      page: 0,
+      size: 18
+    });
+    
+    console.log(galleryImages);
+    
+    return {
+      galleryImages: galleryImages.content
+    };
   }
 
   @Get('contact')
