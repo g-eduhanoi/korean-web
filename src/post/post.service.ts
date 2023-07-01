@@ -12,6 +12,18 @@ import { Op } from 'sequelize';
 
 @Injectable()
 export class PostService {
+  async findRelatedPost(categoryId: number, postId: number) {
+    return await this.postRepo.findAll({
+      where: {
+        categoryId: {
+          [Op.eq]: categoryId
+        },
+        id: {
+          [Op.ne]: postId
+        }
+      }
+    })
+  }
   constructor(
     @Inject("POST_REPO") private readonly postRepo: typeof Post,
     @Inject("CATEGORY_REPO") private readonly categoryRepo: typeof Category,
@@ -131,7 +143,11 @@ export class PostService {
   }
 
   async findOne(id: number) {
-    return await ResPostDto.fromPost(await this.postRepo.findByPk(id));
+    const post = await this.postRepo.findByPk(id);
+    const res =  await ResPostDto.fromPost(post);
+
+    res.content = post.content;
+    return res;
   }
 
   async update(id: number, updatePostDto: UpdatePostDto) {
@@ -140,6 +156,16 @@ export class PostService {
     const post = await this.postRepo.findByPk(id);
     if (!post) throw new Error("Post not found");
 
+    // const result = await this.postRepo.update({
+    //   ...updatePostDto,
+    //   updatedBy: 1
+    // }, {
+    //   where: {
+    //     id: {
+    //       [Op.eq]: id
+    //     }
+    //   }
+    // });
     const result = await post.update({
       ...updatePostDto,
       updatedBy: 1

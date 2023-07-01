@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { TagService } from './tag.service';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { UpdateTagDto } from './dto/update-tag.dto';
@@ -20,10 +20,10 @@ export class TagController {
     return this.tagService.findAll(pageable);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tagService.findOne(+id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: string) {
+  //   return this.tagService.findOne(+id);
+  // }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTagDto: UpdateTagDto) {
@@ -35,8 +35,11 @@ export class TagController {
     return this.tagService.remove(+id);
   }
 
-  @Get("search/:keyword")
-  search(@Param('keyword') keyword: string) {
+  @Get("search")
+  async search(@Query('keyword') keyword: string) {
+    console.log("keyword: ", keyword);
+    if(!keyword)
+      keyword = "";
     return this.tagService.search(keyword);
   }
 }

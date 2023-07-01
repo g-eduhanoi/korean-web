@@ -15,13 +15,15 @@ import { AccountService } from './account/account.service';
 import { LoginInput } from './account/input/login.input';
 import { AppService } from './app.service';
 import { FileService } from 'file/file.service';
+import { PostService } from 'post/post.service';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly accountService: AccountService,
-    private readonly fileService: FileService
+    private readonly fileService: FileService,
+    private readonly postService: PostService
   ) { }
 
 
@@ -84,5 +86,15 @@ export class AppController {
   @All('error')
   errorPage(@Param() name: string, @Res() res: Response): void {
     res.render(`exception/${name}`);
+  }
+
+  @Render('posts/detail_post_page')
+  @Get("bai-viet/:slug/:id")
+  async getDetailPost(@Param('id') id: number){
+    const post =  await this.postService.findOne(id)
+    return {
+      post,
+      relatedPosts: await this.postService.findRelatedPost(post.category.id, id)
+    }
   }
 }

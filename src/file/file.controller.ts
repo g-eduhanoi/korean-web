@@ -10,7 +10,7 @@ import * as fs from 'fs';
 import { FileFilterReqDto } from './dto/file-filter-req.dto';
 
 const ASSET_DIR = process.cwd() + '/assets/public/uploads/';
-if(!fs.existsSync(ASSET_DIR))
+if (!fs.existsSync(ASSET_DIR))
   fs.mkdirSync(ASSET_DIR);
 
 const multerStorage = diskStorage({
@@ -19,7 +19,7 @@ const multerStorage = diskStorage({
     const currentDate = new Date();
     const monthlyDir = currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1);
 
-    if(!fs.existsSync(ASSET_DIR + currentDate.getFullYear()))
+    if (!fs.existsSync(ASSET_DIR + currentDate.getFullYear()))
       fs.mkdirSync(ASSET_DIR + currentDate.getFullYear());
     if (!fs.existsSync(ASSET_DIR + monthlyDir)) {
       fs.mkdirSync(ASSET_DIR + monthlyDir);
@@ -30,7 +30,7 @@ const multerStorage = diskStorage({
   filename: function (req, file: any, cb) {
     const currentDate = new Date();
     const monthlyDir = currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1);
-    
+
     const uniqueSuffix = Date.now() + '_' + file.originalname;
     // file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
     file.urlLink = "http://206.189.40.102:3000" + `/uploads/${monthlyDir}/` + uniqueSuffix;
@@ -58,6 +58,10 @@ export class FileController {
 
   @Post("findAll")
   findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: FileFilterReqDto) {
+    if (!reqDto)
+      reqDto = {
+        fileCode: "NORMAL",
+      }
     return this.fileService.findAll(reqDto, pageable);
   }
 
