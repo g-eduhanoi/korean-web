@@ -7,6 +7,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { diskStorage } from 'multer';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import * as fs from 'fs';
+import { FileFilterReqDto } from './dto/file-filter-req.dto';
 
 const ASSET_DIR = process.cwd() + '/assets/public/uploads/';
 if(!fs.existsSync(ASSET_DIR))
@@ -27,9 +28,9 @@ const multerStorage = diskStorage({
     cb(null, ASSET_DIR + monthlyDir)
   },
   filename: function (req, file: any, cb) {
-
     const uniqueSuffix = Date.now() + '_' + file.originalname;
-    file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
+    // file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
+    file.urlLink = "http://206.189.40.102:3000" + '/uploads/' + uniqueSuffix;
     cb(null, uniqueSuffix)
   }
 });
@@ -45,21 +46,16 @@ export class FileController {
     return this.fileService.create(fileDto);
   }
 
-  @Post()
-  create(@Body() createFileDto: CreateFileDto) {
-    return this.fileService.create(createFileDto);
+  @Post("gallery/upload")
+  @UseInterceptors(FileInterceptor('file', { storage: multerStorage }))
+  create(@UploadedFile() createFileDto: CreateFileDto) {
+    return this.fileService.createForGallery(createFileDto);
   }
 
-  @Post("findAll")
-  findAll(pageable: ReqPageableDto) {
 
-    //   {
-    //     content: fileData.rows,
-    //     totalElements: fileData.count,
-    //     totalPages: Math.ceil(fileData.count / size),
-    //     numberOfElements: fileData.rows.length,
-    //  }
-    return this.fileService.findAll(pageable);
+  @Post("findAll")
+  findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: FileFilterReqDto) {
+    return this.fileService.findAll(reqDto, pageable);
   }
 
   @Get(':id')

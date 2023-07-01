@@ -4,11 +4,28 @@ import { UpdateFileDto } from './dto/update-file.dto';
 import { File } from './entities/file.entity';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { ResPageDto } from 'configure/db/res-page.dto';
+import { FileFilterReqDto } from './dto/file-filter-req.dto';
+import {Op} from 'sequelize';
 
 @Injectable()
 export class FileService {
-
   constructor(@Inject("FILE_REPO") private readonly fileRepo: typeof File) { }
+
+
+  async createForGallery(createFileDto: CreateFileDto) {
+    const fileData = await this.fileRepo.create({
+      title: createFileDto.originalname,
+      alt: createFileDto.originalname,
+      originalname: createFileDto.originalname,
+      fileName: createFileDto.filename,
+      fileType: createFileDto.mimetype,
+      serverPath: createFileDto.path,
+      web_url: createFileDto.urlLink,
+      fileCode: "GALLERY",
+      category: "NORMAL",
+    });
+    return fileData;
+  }
 
   async create(createFileDto: CreateFileDto) {
     const fileData = await this.fileRepo.create({
@@ -18,19 +35,31 @@ export class FileService {
       fileName: createFileDto.filename,
       fileType: createFileDto.mimetype,
       serverPath: createFileDto.path,
-      web_url: createFileDto.urlLink
+      web_url: createFileDto.urlLink,
+      fileCode: "NORMAL",
+      category: "NORMAL",
     });
     return fileData;
   }
 
-  async findAll(pageable: ReqPageableDto) {
+  async findAll(reqDto: FileFilterReqDto, pageable: ReqPageableDto) {
     
     if (!pageable)
       pageable = new ReqPageableDto();
     console.log(ReqPageableDto.toPageable(pageable));
 
+    const whereBuilder = {
+      fileCode: {
+        [Op.eq] : reqDto.fileCode
+      },
+      category: {
+        [Op.eq] : reqDto.category
+      },
+    };
+
     const result = await this.fileRepo.findAndCountAll({
-      ...ReqPageableDto.toPageable(pageable)
+      ...ReqPageableDto.toPageable(pageable),
+      where: whereBuilder
     });
 
     const resPage: ResPageDto<File> = new ResPageDto();

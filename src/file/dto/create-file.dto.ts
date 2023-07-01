@@ -11,7 +11,7 @@ export class CreateFileDto implements Express.Multer.File {
     filename: string;
     path: string;
     buffer: Buffer;
-    
+
     // custom field
     urlLink: string;
 }

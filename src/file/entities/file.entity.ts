@@ -23,6 +23,12 @@ export class File extends Model {
     
     @Column
     serverPath: string;
+
+    @Column
+    category: string;
+
+    @Column
+    fileCode: string; // NORMAL, GALLERY
 }
 
 export const FileRepo = {
