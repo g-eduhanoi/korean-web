@@ -17,8 +17,8 @@ const multerStorage = diskStorage({
   destination: function (req, file, cb) {
     // need create date folder berfore insert
     const currentDate = new Date();
-    console.log(currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1));
     const monthlyDir = currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1);
+
     if(!fs.existsSync(ASSET_DIR + currentDate.getFullYear()))
       fs.mkdirSync(ASSET_DIR + currentDate.getFullYear());
     if (!fs.existsSync(ASSET_DIR + monthlyDir)) {
@@ -28,9 +28,12 @@ const multerStorage = diskStorage({
     cb(null, ASSET_DIR + monthlyDir)
   },
   filename: function (req, file: any, cb) {
+    const currentDate = new Date();
+    const monthlyDir = currentDate.getFullYear() + '/' + (Number(currentDate.getMonth()) + 1);
+    
     const uniqueSuffix = Date.now() + '_' + file.originalname;
     // file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
-    file.urlLink = "http://206.189.40.102:3000" + '/uploads/' + uniqueSuffix;
+    file.urlLink = "http://206.189.40.102:3000" + `/uploads/${monthlyDir}/` + uniqueSuffix;
     cb(null, uniqueSuffix)
   }
 });
