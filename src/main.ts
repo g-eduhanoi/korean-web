@@ -17,8 +17,9 @@ async function bootstrap() {
   app.enableCors();
 
   //  configure view engine and static assets
-  app.useStaticAssets(join(__dirname, '..', 'assets/public'));
-  app.setBaseViewsDir(join(__dirname, '..', 'assets/views'));
+  
+  app.useStaticAssets(process.cwd() + '/assets/public');
+  app.setBaseViewsDir(process.cwd() + '/assets/views');
 
 
   handlebars.registerPartial(
