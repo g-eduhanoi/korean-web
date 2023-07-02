@@ -7,85 +7,107 @@
 </head>
 
 <body>
-     {{> header_component}}
+    {{> header_component}}
 
     <div class="main_content px-[15px] lg:px-[50px] xl:px-[100px] mx-auto bg-white">
 
-        <!--Second breadcrumb-->
-        <nav class="w-full rounded-md my-[20px] text-[14px]">
-            <ol class="list-reset flex">
-                <li>
-                    <a href="/"
-                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
-                        Trang chủ
-                    </a>
-                </li>
-                <li>
-                    <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
-                </li>
-                <li class="text-neutral-500 dark:text-neutral-400">
-                    {{post.category.name}}
-                </li>
-                <li>
-                    <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
-                </li>
-                <li class="text-neutral-500 dark:text-neutral-400">
-                    {{post.title}}
-                </li>
+        <div class=" max-w-[1100px] mx-auto">
+            <!--Second breadcrumb-->
+            <nav class="w-full rounded-md my-[20px] text-[14px]">
+                <ol class="list-reset flex">
+                    <li>
+                        <a href="/"
+                            class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li>
+                        <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
+                    </li>
+                    <li>
+                        <a href="/{{post.category.slug}}"
+                            class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                            {{post.category.name}}
+                        </a>
+                    </li>
 
-            </ol>
-        </nav>
+                    <li>
+                        <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
+                    </li>
+                    <li class="text-neutral-500 dark:text-neutral-400">
+                        {{post.title}}
+                    </li>
 
-        <div>
+                </ol>
+            </nav>
 
             <div class="post_title">
                 <h1 class="text-3xl font-semibold text-center">
                     {{post.title}}
                 </h1>
-                <img class="mx-auto w-[950px] h-[450px] mt-[20px] block" src="{{post.thumbnail}}">
+
+                {{!-- <p class="text-neutral-200 text-[13px]">
+                    <span>
+                        Ngày đăng:
+                    </span>
+                    <span>
+                        {{dateTimeFormat post.createdAt }}
+                    </span>
+                </p> --}}
+
+                <figure class="grid gap-[5px]">
+                    <img class="mx-auto w-[950px] h-[450px] mt-[20px] block" src="{{post.thumbnail}}">
+                    <figcaption>{{post.imageCaption}}</figcaption>
+                </figure>
+
             </div>
 
-            <div class="post_content mt-[20px] max-w-[1100px] mx-auto bg-[#FAFAFA] p-[20px]">
+            <div class="post_content mt-[20px] bg-[#FAFAFA] p-[20px]">
 
                 <div>
                     {{{post.content}}}
                 </div>
 
-                <ul class="post_tags flex gap-2">
-                    {{#each post.tags}}
-                    <li
-                        class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                        {{name}}
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
 
+                <div class="flex gap-2 items-center mt-3">
+                    <span class="pt-[10px] font-semibold">Thẻ: </span>
+
+                    <ul class="post_tags flex gap-2">
+                        {{#each post.tags}}
+                        <li
+                            class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
+                            {{name}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+            </div>
 
             <section class="my-[50px]">
                 <h3 class="text-2xl font-semibold">Tin Lien Quan</h3>
 
                 <div class="flex flex-wrap gap-[20px] mt-4">
 
+                    {{#each relatedPosts}}
                     <div class="w-[100%] sm:w-[30%] lg:w-[18%]">
-                        <a href="/fas">
+                        <a href="/bai-viet/{{title}}/{{id}}">
                             <img class="w-full h-[250px] sm:h-[170px] hover:scale-[1.05] duration-200 ease-in-out"
-                                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cZWnu.img?w=730&h=487&m=6&x=449&y=343&s=45&d=45"
-                                alt="">
+                                src="{{thumbnail}}" alt="">
                         </a>
 
                         <div class="post_info grid gap-3 mt-3">
                             <div class="post_meta text-[14px] text-[#6941C6]">
-                                <span class="post_meta_item">Thời sự</span>
+                                <span class="post_meta_item"> {{ category.name }} </span>
                                 -
-                                <span class="post_meta_item">2 giờ trước</span>
+                                <span class="post_meta_item"> {{recentDate createdAt }} </span>
                             </div>
 
                             <div class="post_content">
                                 <a href="/faf/fas"
                                     class="hover:underline flex justify-between items-center duration-200 ease-in-out">
                                     <h2 class="post_title text-[25px] text-[#101828]">
-                                        Ux presetion
+                                        {{title}}
                                     </h2>
 
                                     <svg width="25" height="25" viewBox="0 0 33 39" fill="none"
@@ -99,267 +121,34 @@
 
                                 </a>
 
-                                <a href="/faf/fas" class="hover:underline duration-200 ease-in-out">
+                                <a href="/bai-viet/{{title}}/{{id}}" class="hover:underline duration-200 ease-in-out">
 
                                     <p class="post_excerpt text-[16px] text-[#667085]">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quas iure
-                                        sed officia voluptatibus aspernatur numquam, adipisci facere dolores distinctio
+                                        {{excerpt}}
                                     </p>
                                 </a>
 
                             </div>
 
                             <ul class="post_tags flex gap-2">
+                                {{#each tags}}
                                 <li
                                     class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
+                                    {{name}}
                                 </li>
-
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
+                                {{/each}}
                             </ul>
 
                         </div>
                     </div>
-
-                    <div class="w-[100%] sm:w-[30%] lg:w-[18%]">
-                        <a href="/fas">
-                            <img class="w-full h-[250px] sm:h-[170px] hover:scale-[1.05] duration-200 ease-in-out"
-                                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cZWnu.img?w=730&h=487&m=6&x=449&y=343&s=45&d=45"
-                                alt="">
-                        </a>
-
-                        <div class="post_info grid gap-3 mt-3">
-                            <div class="post_meta text-[14px] text-[#6941C6]">
-                                <span class="post_meta_item">Thời sự</span>
-                                -
-                                <span class="post_meta_item">2 giờ trước</span>
-                            </div>
-
-                            <div class="post_content">
-                                <a href="/faf/fas"
-                                    class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
-                                        Ux presetion
-                                    </h2>
-
-                                    <svg width="25" height="25" viewBox="0 0 33 39" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0508 28.8506L23.3557 15.5456M23.3557 15.5456H10.0508M23.3557 15.5456V28.8506"
-                                            stroke="#101828" stroke-width="2.66099" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-
-                                </a>
-
-                                <a href="/faf/fas" class="hover:underline duration-200 ease-in-out">
-
-                                    <p class="post_excerpt text-[16px] text-[#667085]">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quas iure
-                                        sed officia voluptatibus aspernatur numquam, adipisci facere dolores distinctio
-                                    </p>
-                                </a>
-
-                            </div>
-
-                            <ul class="post_tags flex gap-2">
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-                    <div class="w-[100%] sm:w-[30%] lg:w-[18%]">
-                        <a href="/fas">
-                            <img class="w-full h-[250px] sm:h-[170px] hover:scale-[1.05] duration-200 ease-in-out"
-                                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cZWnu.img?w=730&h=487&m=6&x=449&y=343&s=45&d=45"
-                                alt="">
-                        </a>
-
-                        <div class="post_info grid gap-3 mt-3">
-                            <div class="post_meta text-[14px] text-[#6941C6]">
-                                <span class="post_meta_item">Thời sự</span>
-                                -
-                                <span class="post_meta_item">2 giờ trước</span>
-                            </div>
-
-                            <div class="post_content">
-                                <a href="/faf/fas"
-                                    class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
-                                        Ux presetion
-                                    </h2>
-
-                                    <svg width="25" height="25" viewBox="0 0 33 39" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0508 28.8506L23.3557 15.5456M23.3557 15.5456H10.0508M23.3557 15.5456V28.8506"
-                                            stroke="#101828" stroke-width="2.66099" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-
-                                </a>
-
-                                <a href="/faf/fas" class="hover:underline duration-200 ease-in-out">
-
-                                    <p class="post_excerpt text-[16px] text-[#667085]">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quas iure
-                                        sed officia voluptatibus aspernatur numquam, adipisci facere dolores distinctio
-                                    </p>
-                                </a>
-
-                            </div>
-
-                            <ul class="post_tags flex gap-2">
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-
-                    <div class="w-[100%] sm:w-[30%] lg:w-[18%]">
-                        <a href="/fas">
-                            <img class="w-full h-[250px] sm:h-[170px] hover:scale-[1.05] duration-200 ease-in-out"
-                                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cZWnu.img?w=730&h=487&m=6&x=449&y=343&s=45&d=45"
-                                alt="">
-                        </a>
-
-                        <div class="post_info grid gap-3 mt-3">
-                            <div class="post_meta text-[14px] text-[#6941C6]">
-                                <span class="post_meta_item">Thời sự</span>
-                                -
-                                <span class="post_meta_item">2 giờ trước</span>
-                            </div>
-
-                            <div class="post_content">
-                                <a href="/faf/fas"
-                                    class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
-                                        Ux presetion
-                                    </h2>
-
-                                    <svg width="25" height="25" viewBox="0 0 33 39" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0508 28.8506L23.3557 15.5456M23.3557 15.5456H10.0508M23.3557 15.5456V28.8506"
-                                            stroke="#101828" stroke-width="2.66099" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-
-                                </a>
-
-                                <a href="/faf/fas" class="hover:underline duration-200 ease-in-out">
-
-                                    <p class="post_excerpt text-[16px] text-[#667085]">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quas iure
-                                        sed officia voluptatibus aspernatur numquam, adipisci facere dolores distinctio
-                                    </p>
-                                </a>
-
-                            </div>
-
-                            <ul class="post_tags flex gap-2">
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-                    <div class="w-[100%] sm:w-[30%] lg:w-[18%]">
-                        <a href="/fas">
-                            <img class="w-full h-[250px] sm:h-[170px] hover:scale-[1.05] duration-200 ease-in-out"
-                                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1cZWnu.img?w=730&h=487&m=6&x=449&y=343&s=45&d=45"
-                                alt="">
-                        </a>
-
-                        <div class="post_info grid gap-3 mt-3">
-                            <div class="post_meta text-[14px] text-[#6941C6]">
-                                <span class="post_meta_item">Thời sự</span>
-                                -
-                                <span class="post_meta_item">2 giờ trước</span>
-                            </div>
-
-                            <div class="post_content">
-                                <a href="/faf/fas"
-                                    class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
-                                        Ux presetion
-                                    </h2>
-
-                                    <svg width="25" height="25" viewBox="0 0 33 39" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0508 28.8506L23.3557 15.5456M23.3557 15.5456H10.0508M23.3557 15.5456V28.8506"
-                                            stroke="#101828" stroke-width="2.66099" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                    </svg>
-
-
-                                </a>
-
-                                <a href="/faf/fas" class="hover:underline duration-200 ease-in-out">
-
-                                    <p class="post_excerpt text-[16px] text-[#667085]">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quas iure
-                                        sed officia voluptatibus aspernatur numquam, adipisci facere dolores distinctio
-                                    </p>
-                                </a>
-
-                            </div>
-
-                            <ul class="post_tags flex gap-2">
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    Design
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-
+                    {{/each}}
 
                 </div>
             </section>
         </div>
     </div>
 
-     {{> footer_component}}
+    {{> footer_component}}
 </body>
 
 </html>

@@ -76,6 +76,10 @@ async function bootstrap() {
   handlebars.registerHelper('recentDate', function (value, options) {
     return moment(value).fromNow();
   });
+
+  handlebars.registerHelper('dateTimeFormat', function (value, options) {
+    return moment(value).format("yyyy-MM-dd HH:mm:ss");
+  });
   moment.locale('vi');
 
   

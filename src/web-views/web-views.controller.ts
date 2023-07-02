@@ -59,7 +59,7 @@ export class WebViewsController {
         }
     }
 
-    @Get('cong-dong-du-hoc')
+    @Get('cong-dong')
     @Render('posts/post_list_page')
     async communityPage(): Promise<object> {
         return {

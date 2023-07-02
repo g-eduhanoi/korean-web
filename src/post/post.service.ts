@@ -21,7 +21,17 @@ export class PostService {
         id: {
           [Op.ne]: postId
         }
-      }
+      },
+      include: [
+        {
+          model: Category,
+          as: "category"
+        },
+        {
+          model: Tag,
+          as: "tags"
+        }
+      ]
     })
   }
   constructor(

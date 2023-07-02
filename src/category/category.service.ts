@@ -21,7 +21,6 @@ export class CategoryService {
       });
     }
 
-
     await this.categoryRepo.findOrCreate({
       where: {
         id: 2,
@@ -29,7 +28,7 @@ export class CategoryService {
       defaults: {
         id: 2,
         name: "Chuyên ngành học",
-        slug: "major",
+        slug: "chuyen-nganh-hoc",
       }
     });
 
@@ -40,7 +39,7 @@ export class CategoryService {
       defaults: {
         id: 3,
         name: "Thông tin học bổng",
-        slug: "scholarship-news",
+        slug: "thong-tin-hoc-bong",
       }
     });
 
@@ -51,7 +50,7 @@ export class CategoryService {
       defaults: {
         id: 4,
         name: "Hiểu về Hàn Quốc",
-        slug: "about-korea",
+        slug: "hieu-ve-han-quoc",
       }
     });
 
@@ -62,7 +61,7 @@ export class CategoryService {
       defaults: {
         id: 5,
         name: "Cộng đồng",
-        slug: "community",
+        slug: "cong-dong",
       }
     });
 
@@ -73,7 +72,7 @@ export class CategoryService {
       defaults: {
         id: 6,
         name: "Sơ-Trung-Cao cấp",
-        slug: "normal-courses",
+        slug: "khoa-hoc-tieng",
       }
     });
 
@@ -84,7 +83,7 @@ export class CategoryService {
       defaults: {
         id: 7,
         name: "TOPIK",
-        slug: "topik-course",
+        slug: "khoa-hoc-topik",
       }
     });
 
@@ -95,7 +94,7 @@ export class CategoryService {
       defaults: {
         id: 8,
         name: "OPIC",
-        slug: "opic-course",
+        slug: "khoa-hoc-opic",
       }
     });
 
@@ -106,7 +105,7 @@ export class CategoryService {
       defaults: {
         id: 9,
         name: "Khách mời - Thuyết giảng",
-        slug: "event",
+        slug: "su-kien",
       }
     });
 
@@ -117,7 +116,7 @@ export class CategoryService {
       defaults: {
         id: 10,
         name: "Cố vấn học tập",
-        slug: "mentor",
+        slug: "co-van-hoc-tap",
       }
     });
 
@@ -131,6 +130,8 @@ export class CategoryService {
         slug: "workshop",
       }
     });
+
+    console.log("faskflasfmklafkl 1412");
 
   }
   async create(createCategoryDto: CreateCategoryDto) {

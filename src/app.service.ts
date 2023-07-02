@@ -19,6 +19,7 @@ export class AppService {
 
   async onApplicationBootstrap(signal: string) {
     console.log('signal: ', signal); // e.g. "SIGINT"
+    await this.categoryService.init();
 
     if (await this.accountRepo.findOne({ where: { username: 'admin' } })) {
       return;
@@ -31,8 +32,6 @@ export class AppService {
       isActive: true,
       isApproved: true,
     });
-
-    await this.categoryService.init();
 
     const tag = await this.tagRepo.findByPk(1);
     if (!tag) {

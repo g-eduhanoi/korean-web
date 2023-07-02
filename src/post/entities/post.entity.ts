@@ -8,7 +8,7 @@ export class Post extends Model {
   @Column
   title: string;
 
-  @Column
+  @Column("LONGTEXT")
   content: string;
 
   @Column
@@ -25,6 +25,9 @@ export class Post extends Model {
 
   @Column
   thumbnail: string;
+
+  @Column
+  imageCaption: string;
 
   @BelongsTo(() => Category, "categoryId")
   category: Category;

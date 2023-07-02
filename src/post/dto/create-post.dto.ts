@@ -40,6 +40,11 @@ export class CreatePostDto {
     thumbnail: string;
 
     @ApiProperty({
+        default: "This is a content",
+    })
+    imageCaption: string
+
+    @ApiProperty({
         default: 1,
     })
     categoryId: number;

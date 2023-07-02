@@ -91,10 +91,15 @@ export class AppController {
   @Render('posts/detail_post_page')
   @Get("bai-viet/:slug/:id")
   async getDetailPost(@Param('id') id: number){
-    const post =  await this.postService.findOne(id)
+    const post =  await this.postService.findOne(id);
+    const relatedPosts = await this.postService.findRelatedPost(post.category.id, id);
+
+    console.log(relatedPosts.length);
+    
     return {
       post,
-      relatedPosts: await this.postService.findRelatedPost(post.category.id, id)
+      relatedPosts
+      
     }
   }
 }
