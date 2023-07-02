@@ -11,6 +11,7 @@ export class ResPostDto {
     status: string;
     viewCount: number;
     thumbnail: string;
+    imageCaption: string;
     category: Category;
     tags: Tag[];
     createdAt: Date;
@@ -26,6 +27,7 @@ export class ResPostDto {
         res.status = post.status;
         res.viewCount = post.viewCount;
         res.thumbnail = post.thumbnail;
+        res.imageCaption = post.imageCaption;
         res.category = await post.$get("category");
         res.tags = await post.$get("tags");
         res.createdAt = post.createdAt;

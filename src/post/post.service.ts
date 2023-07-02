@@ -9,6 +9,7 @@ import { ResPostDto } from './dto/res-post.dto';
 import { ResPageDto } from 'configure/db/res-page.dto';
 import { PostFilterReqDto } from './dto/post-filter-req.dto';
 import { Op } from 'sequelize';
+import removeVietnameseTones from 'configure/utils/AsciiConverter';
 
 @Injectable()
 export class PostService {
@@ -61,6 +62,7 @@ export class PostService {
 
   async create(createPostDto: CreatePostDto) {
     await this.checkDto(createPostDto);
+    createPostDto.slug = removeVietnameseTones(createPostDto.title);
     const result = await this.postRepo.create({
       ...createPostDto,
       createdBy: 1,
@@ -162,6 +164,8 @@ export class PostService {
 
   async update(id: number, updatePostDto: UpdatePostDto) {
     await this.checkDto(updatePostDto);
+    updatePostDto.slug = removeVietnameseTones(updatePostDto.title);
+    console.log("slug->>>", updatePostDto.slug);
 
     const post = await this.postRepo.findByPk(id);
     if (!post) throw new Error("Post not found");
