@@ -23,7 +23,7 @@ const databaseProviders = [
                 PostTag
             ]);
             await sequelize.sync({
-                alter: true
+                // alter: true
             });
             return sequelize;
         },

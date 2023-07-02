@@ -82,10 +82,12 @@ async function bootstrap() {
   });
   moment.locale('vi');
 
-  
-
   app.setViewEngine('hbs');
 
+
+
+
+  
   //  configure session
   app.use(
     session({
