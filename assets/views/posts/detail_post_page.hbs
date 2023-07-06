@@ -11,7 +11,7 @@
 
     <div class="main_content px-[15px] lg:px-[50px] xl:px-[100px] mx-auto bg-white">
 
-        <div class=" max-w-[1100px] mx-auto">
+        <div class=" max-w-[1300px] mx-auto">
             <!--Second breadcrumb-->
             <nav class="w-full rounded-md my-[20px] text-[14px]">
                 <ol class="list-reset flex">
@@ -70,7 +70,7 @@
                     {{{post.content}}}
                 </div>
 
-
+                {{#if post.tags.length}}
                 <div class="flex gap-2 items-center mt-3">
                     <span class="pt-[10px] font-semibold">Thẻ: </span>
 
@@ -83,6 +83,8 @@
                         {{/each}}
                     </ul>
                 </div>
+                {{/if}}
+
 
             </div>
 

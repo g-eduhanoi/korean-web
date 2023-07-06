@@ -21,7 +21,7 @@ export class WebViewsController {
 
 
         const pageDto = await this.postService.filter({
-            categoryId: 2
+            categoryId
         }, {
             page: 0, size: 12
         });
@@ -69,11 +69,14 @@ export class WebViewsController {
     }
 
 
-    // @Get('hoc-tieng-han')
-    // @Render('posts/post_list_page')
-    // async koreanLearningPage(): Promise<object> {
-    //     return await this.filterPost(2);
-    // }
+    @Get('hoc-tieng-han')
+    @Render('posts/post_list_page')
+    async koreanLearningPage(): Promise<object> {
+        return {
+            ...await this.filterPost(12),
+            title: 'Học tiếng Hàn',
+        }
+    }
 
     @Get('khoa-hoc-tieng')
     @Render('posts/post_list_page')
@@ -93,12 +96,12 @@ export class WebViewsController {
         }
     }
 
-    @Get('khoa-hoc-opic')
+    @Get('khoa-hoc-dac-biet')
     @Render('posts/post_list_page')
     async opicCoursePage(): Promise<object> {
         return {
             ...await this.filterPost(8),
-            title: 'Khóa học tiếng Hàn Opic',
+            title: 'Khóa học đặc biệt',
         }
     }
 

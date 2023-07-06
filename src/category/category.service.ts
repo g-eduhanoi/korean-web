@@ -93,8 +93,8 @@ export class CategoryService {
       },
       defaults: {
         id: 8,
-        name: "OPIC",
-        slug: "khoa-hoc-opic",
+        name: "Khóa đặc biệt",
+        slug: "khoa-hoc-dac-biet",
       }
     });
 
@@ -128,6 +128,17 @@ export class CategoryService {
         id: 11,
         name: "Workshop",
         slug: "workshop",
+      }
+    });
+
+    await this.categoryRepo.findOrCreate({
+      where: {
+        id: 12,
+      },
+      defaults: {
+        id: 12,
+        name: "Học tiếng Hàn",
+        slug: "hoc-tieng-han",
       }
     });
 
