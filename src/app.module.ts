@@ -25,6 +25,9 @@ import { TagRepo } from 'tag/entities/tag.entity';
 import { CategoryService } from 'category/category.service';
 import { WebViewsController } from './web-views/web-views.controller';
 import { FileService } from 'file/file.service';
+import { ClassModule } from './class/class.module';
+import { ClassService } from 'class/class.service';
+import { ClassRepos } from 'class/entities/class.entity';
 
 @Module({
   imports: [
@@ -36,6 +39,7 @@ import { FileService } from 'file/file.service';
     PostModule,
     CategoryModule,
     TagModule,
+    ClassModule,
     
   ],
   controllers: [AppController, PostController, WebViewsController],
@@ -54,6 +58,9 @@ import { FileService } from 'file/file.service';
     TagRepo,
     FileService,
     FileRepo,
+    ClassService,
+    ...ClassRepos
+    
   ],
 })
 export class AppModule { }
