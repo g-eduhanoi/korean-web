@@ -28,6 +28,9 @@ import { FileService } from 'file/file.service';
 import { ClassModule } from './class/class.module';
 import { ClassService } from 'class/class.service';
 import { ClassRepos } from 'class/entities/class.entity';
+import { OptionModule } from './option/option.module';
+import { OptionService } from 'option/option.service';
+import { OptionRepo } from 'option/entities/option.entity';
 
 @Module({
   imports: [
@@ -40,6 +43,7 @@ import { ClassRepos } from 'class/entities/class.entity';
     CategoryModule,
     TagModule,
     ClassModule,
+    OptionModule,
     
   ],
   controllers: [AppController, PostController, WebViewsController],
@@ -59,7 +63,9 @@ import { ClassRepos } from 'class/entities/class.entity';
     FileService,
     FileRepo,
     ClassService,
-    ...ClassRepos
+    ...ClassRepos,
+    OptionService,
+    OptionRepo
     
   ],
 })

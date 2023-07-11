@@ -2,9 +2,17 @@ import { Column, Model, Table } from 'sequelize-typescript';
 
 @Table({tableName: 'tbl_categories'})
 export class Category extends Model{
-    @Column
+    @Column({
+        validate: {
+            isNull: false
+        }
+    })
     name: string;
-    @Column
+    @Column({
+        validate: {
+            isNull: false
+        }
+    })
     slug: string;
 }
 

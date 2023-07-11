@@ -3,6 +3,7 @@ import { Account } from 'account/entities/account.entity';
 import { Category } from 'category/entities/category.entity';
 import { Class, ClassRegistration } from 'class/entities/class.entity';
 import { File } from 'file/entities/file.entity';
+import { Option } from 'option/entities/option.entity';
 import { Post, PostTag,  } from 'post/entities/post.entity';
 import { Sequelize } from 'sequelize-typescript';
 import { Tag } from 'tag/entities/tag.entity';
@@ -22,10 +23,12 @@ const databaseProviders = [
             sequelize.addModels([
                 Account, Post, Category, Tag, File,
                 PostTag,
-                Class, ClassRegistration
+                Class, ClassRegistration,
+                Option
             ]);
             await sequelize.sync({
                 // alter: true
+            
             });
             return sequelize;
         },
