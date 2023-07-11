@@ -7,4 +7,10 @@ export class ClassFilterReqDto{
         default: 1
     })
     categoryId: number;
+
+    @ApiProperty({
+        description: "search val",
+        default: 'lop sc1'
+    })
+    q: string;
 }

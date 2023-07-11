@@ -88,11 +88,17 @@ export class PostService {
 
 
     let whereBuilder: {
-      categoryId?: object
+      categoryId?: object,
+      title?: object,
     } = {};
+
     if (reqDto != null && reqDto.categoryId)
       whereBuilder.categoryId = {
         [Op.eq]: reqDto.categoryId
+      }
+    if (reqDto != null && reqDto.q)
+      whereBuilder.title = {
+        [Op.like]: `%${reqDto.q}%`
       }
 
 
@@ -156,7 +162,7 @@ export class PostService {
 
   async findOne(id: number) {
     const post = await this.postRepo.findByPk(id);
-    const res =  await ResPostDto.fromPost(post);
+    const res = await ResPostDto.fromPost(post);
 
     res.content = post.content;
     return res;

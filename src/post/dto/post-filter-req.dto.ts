@@ -1,4 +1,15 @@
+import { ApiProperty } from "@nestjs/swagger";
 
 export class PostFilterReqDto {
-    categoryId?: string | number
+    @ApiProperty({
+        description: 'category id',
+        default: 1
+    })
+    categoryId?: string | number;
+
+    @ApiProperty({
+        description: 'key search',
+        default: 'post mm'
+    })
+    q?: string;
 }

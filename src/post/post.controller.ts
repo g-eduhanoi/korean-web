@@ -4,11 +4,12 @@ import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { ApiQuery, ApiTags } from '@nestjs/swagger';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
+import { PostFilterReqDto } from './dto/post-filter-req.dto';
 
 @ApiTags('Post')
 @Controller('api/posts')
 export class PostController {
-  constructor(private readonly postService: PostService) {}
+  constructor(private readonly postService: PostService) { }
 
   @Post()
   create(@Body() createPostDto: CreatePostDto) {
@@ -16,8 +17,8 @@ export class PostController {
   }
 
   @Post("findAll")
-  findAll(@Body() pageable: ReqPageableDto ) {
-    return this.postService.findAll(pageable);
+  findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: PostFilterReqDto) {
+    return this.postService.filter(reqDto, pageable);
   }
 
   @Get(':id')
