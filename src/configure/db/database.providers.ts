@@ -14,7 +14,7 @@ const databaseProviders = [
         useFactory: async () => {
             const sequelize = new Sequelize({
                 dialect: 'mysql',
-                host: '206.189.40.102',
+                host: '35.247.148.144',
                 port: 3306,
                 username: 'korean_web',
                 password: '$Korean1234',
