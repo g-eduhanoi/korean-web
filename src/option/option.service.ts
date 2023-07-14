@@ -5,6 +5,7 @@ import { Op } from 'sequelize';
 
 @Injectable()
 export class OptionService {
+
   constructor(@Inject('OPTION_REPO') readonly optionRepo: typeof Option) { }
 
   async save(createOptionDto: CreateOptionDto) {
@@ -24,7 +25,18 @@ export class OptionService {
 
     return option;
   }
- 
+
+
+  async getOptionByKey(key: string) {
+    return await this.optionRepo.findOne({
+      where: {
+        optionKey: {
+          [Op.eq]: key
+        }
+      }
+    });
+  }
+
   remove(id: number) {
     return `This action removes a #${id} option`;
   }

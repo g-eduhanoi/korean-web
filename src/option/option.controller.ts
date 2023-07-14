@@ -13,6 +13,10 @@ export class OptionController {
     return this.optionService.save(createOptionDto);
   }
 
+  @Get('optionKey/:key')
+  getOptionByKey(@Param('key') optionKey: string) {
+    return this.optionService.getOptionByKey(optionKey);
+  }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
