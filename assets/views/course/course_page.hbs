@@ -2,19 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact page</title>
-    <link class="swiper-slide w-full" nk rel="stylesheet" href="./public/css/taildwin-out.css" />
-
-    <link class="swiper-slide w-full" nk rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
+    <!-- head -->
+    {{> head_component}}
+    <title>{{pageTitle}}</title>
 </head>
 
 <body>
+    {{> header_component}}
 
     <div class="max-w-[1300px] mx-auto bg-white px-[20px]">
         <!--Second breadcrumb-->
@@ -30,9 +24,9 @@
                     <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
                 </li>
                 <li>
-                    <a href="/{{post.category.slug}}"
+                    <a
                         class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
-                        {{post.category.name}}
+                        Khoá học 
                     </a>
                 </li>
 
@@ -40,7 +34,7 @@
                     <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
                 </li>
                 <li class="text-neutral-500 dark:text-neutral-400">
-                    {{post.title}}
+                    {{pageTitle}}
                 </li>
 
             </ol>
@@ -50,38 +44,38 @@
             <img class="w-full h-full" src="https://g-eduhanoi.com/images/homepage/image_slide.png" alt="">
         </div>
         <ul class="flex justify-center flex-wrap gap-x-[20px] gap-y-[10px] md:gap-[30px] mt-8">
-            <a href="/fas">
+            <a href="/khoa-hoc/khoa-so-cap/1">
                 <li
                 class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Sơơ cấpp
+                Khoá Sơ Cấp
             </li>
             </a>
 
-            <a href="/fas">
+            <a href="/khoa-hoc/khoa-so-cap/2">
                 <li
                 class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Sơơ cấpp
+                Khoá Trung Cấp
             </li>
             </a>
 
-            <a href="/fas">
+            <a href="/khoa-hoc/khoa-so-cap/3">
                 <li
                 class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Sơơ cấpp
+                Khoá Cao Cấp
             </li>
             </a>
 
-            <a href="/fas">
+            <a href="/khoa-hoc/khoa-so-cap/4">
                 <li
                 class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Sơơ cấpp
+                Khoá Topik
             </li>
             </a>
 
-            <a href="/fas">
+            <a href="/khoa-hoc/khoa-so-cap/5">
                 <li
                 class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Sơơ cấpp
+                Khoá Đặc Biệt
             </li>
             </a>
             
@@ -90,7 +84,7 @@
 
         <div class="course_content mt-5">
             <h1 class="uppercase text-3xl font-semibold">
-                Primary course
+                {{pageTitle}}
             </h1>
             <div class="course_detail mt-3">
                 Trình độ: Tiếng Hàn Trung cấp
@@ -655,4 +649,5 @@
 
     </div>
 
+    {{> footer_component}}
 </body>

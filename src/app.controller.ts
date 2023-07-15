@@ -102,4 +102,12 @@ export class AppController {
       
     }
   }
+
+  @Render('course/course_page')
+  @Get("khoa-hoc/:slug/:id")
+  getKhoaHoc(){
+    return {
+      pageTitle: 'Khoa hoc 1'
+    };
+  }
 }
