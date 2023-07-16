@@ -16,6 +16,8 @@ import { LoginInput } from './account/input/login.input';
 import { AppService } from './app.service';
 import { FileService } from 'file/file.service';
 import { PostService } from 'post/post.service';
+import { ClassService } from 'class/class.service';
+import { OptionService } from 'option/option.service';
 
 @Controller()
 export class AppController {
@@ -23,7 +25,9 @@ export class AppController {
     private readonly appService: AppService,
     private readonly accountService: AccountService,
     private readonly fileService: FileService,
-    private readonly postService: PostService
+    private readonly postService: PostService,
+    private readonly classService: ClassService,
+    private readonly optionService: OptionService
   ) { }
 
 
@@ -34,16 +38,16 @@ export class AppController {
     @Req() req: Request,
     @Session() session: Record<string, any>,
   ): Promise<object> {
-    
+
     const galleryImages = await this.fileService.findAll({
       fileCode: "GALLERY"
     }, {
       page: 0,
       size: 18
     });
-    
+
     console.log(galleryImages);
-    
+
     return {
       galleryImages: galleryImages.content
     };
@@ -90,24 +94,59 @@ export class AppController {
 
   @Render('posts/detail_post_page')
   @Get("bai-viet/:slug/:id")
-  async getDetailPost(@Param('id') id: number){
-    const post =  await this.postService.findOne(id);
+  async getDetailPost(@Param('id') id: number) {
+    const post = await this.postService.findOne(id);
     const relatedPosts = await this.postService.findRelatedPost(post.category.id, id);
 
     console.log(relatedPosts.length);
-    
+
     return {
       post,
       relatedPosts
-      
+
     }
   }
 
   @Render('course/course_page')
   @Get("khoa-hoc/:slug/:id")
-  getKhoaHoc(){
+  async getKhoaHoc(@Param('id') id: number) {
+    console.log(`course id: `, id);
+
+    let pageContent = await this.optionService.getOptionByKey(`page_course-c${id}`);
+
+    const pageData: {
+      image: string,
+      content: string
+    } = pageContent ? JSON.parse(pageContent.optionValue) : {
+      image: '',
+      content: ''
+    };
+
+    let pageTitle: string = 'Khoá học sơ cấp';
+    if (id == 2)
+      pageTitle = 'Khoá học trung cấp';
+    if (id == 3)
+      pageTitle = 'Khoá học cao cấp';
+    if (id == 4)
+      pageTitle = 'Khoá học Topik';
+    else if (id == 5)
+      pageTitle = 'Khoá học đặc biệt'
+
+    const classData = await this.classService.findAll({
+      categoryId: id,
+      q: undefined
+    }, {
+      page: 0,
+      size: 9999
+    });
+
+    console.log('class data', classData.content);
+    
     return {
-      pageTitle: 'Khoa hoc 1'
+      id,
+      pageTitle,
+      pageData,
+      classData: classData.content
     };
   }
 }

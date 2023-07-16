@@ -77,6 +77,14 @@ async function bootstrap() {
     return moment(value).fromNow();
   });
 
+  handlebars.registerHelper('classSessionDay', function (value: string, options) {
+    let days: string[]= value.split(',').map(d => 'T'+ (Number(d.replace('day', '')) + 1));
+    return days.join('-');
+  });
+  handlebars.registerHelper('classSessionTime', function (value, options) {
+    return 'Từ ' + value.split(",")[0] + "h" + '-' + value.split(",")[1] + "h"
+  });
+
   handlebars.registerHelper('dateTimeFormat', function (value, options) {
     return moment(value).format("yyyy-MM-dd HH:mm:ss");
   });

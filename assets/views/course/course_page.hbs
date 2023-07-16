@@ -26,7 +26,7 @@
                 <li>
                     <a
                         class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
-                        Khoá học 
+                        Khoá học
                     </a>
                 </li>
 
@@ -41,130 +41,79 @@
         </nav>
 
         <div class="md:w-[850px] md:h-[450px] mx-auto border">
-            <img class="w-full h-full" src="https://g-eduhanoi.com/images/homepage/image_slide.png" alt="">
+            <img class="w-full h-full" src="{{pageData.image}}" alt="">
         </div>
         <ul class="flex justify-center flex-wrap gap-x-[20px] gap-y-[10px] md:gap-[30px] mt-8">
-            <a href="/khoa-hoc/khoa-so-cap/1">
+            <a href="/khoa-hoc/khoa-so-cap/1" class="class_1">
                 <li
-                class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Khoá Sơ Cấp
-            </li>
+                    class="h-full px-[10px] py-[5px] rounded-[30px] text-[14px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out ">
+                    Khoá Sơ Cấp
+                </li>
             </a>
 
-            <a href="/khoa-hoc/khoa-so-cap/2">
+            <a href="/khoa-hoc/khoa-hoc-trung-cap/2" class="class_2">
                 <li
-                class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Khoá Trung Cấp
-            </li>
+                    class="h-full px-[10px] py-[5px] rounded-[30px] text-[14px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
+                    Khoá Trung Cấp
+                </li>
             </a>
 
-            <a href="/khoa-hoc/khoa-so-cap/3">
+            <a href="/khoa-hoc/khoa-hoc-cao-cap/3" class="class_3">
                 <li
-                class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Khoá Cao Cấp
-            </li>
+                    class="h-full px-[10px] py-[5px] rounded-[30px] text-[14px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
+                    Khoá Cao Cấp
+                </li>
             </a>
 
-            <a href="/khoa-hoc/khoa-so-cap/4">
+            <a href="/khoa-hoc/khoa-hoc-topik/4" class="class_4">
                 <li
-                class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Khoá Topik
-            </li>
+                    class="h-full px-[10px] py-[5px] rounded-[30px] text-[14px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
+                    Khoá Topik
+                </li>
             </a>
 
-            <a href="/khoa-hoc/khoa-so-cap/5">
+            <a href="/khoa-hoc/khoa-dac-biet/5" class="class_5">
                 <li
-                class="h-full px-[20px] py-[10px] rounded-[30px] text-[14px] md:text-[16px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
-                Khoá Đặc Biệt
-            </li>
+                    class="h-full px-[10px] py-[5px] rounded-[30px] text-[14px] border border-[#7A53E2] cursor-pointer hover:bg-[#7A53E2] hover:text-white duration-150 ease-in-out">
+                    Khoá Đặc Biệt
+                </li>
             </a>
-            
-            
+
+
         </ul>
+        <style>
+            .class_{{id}} li {
+                background: #7A53E2;
+                cursor: unset;
+                color: white
+            }
+        </style>
 
-        <div class="course_content mt-5">
+        <div class="course_content mt-10">
             <h1 class="uppercase text-3xl font-semibold">
                 {{pageTitle}}
             </h1>
             <div class="course_detail mt-3">
-                Trình độ: Tiếng Hàn Trung cấp
-                Mục tiêu khóa học:
-                - Trang bị cho người học kiến thức đầy đủ cả về từ vựng, ngữ pháp, các biểu hiện thường dùng trong giao
-                tiếp hàng ngày cấp độ từ Trung cấp cơ bản đến nâng cao.
-                - Khóa học giúp học viên làm quen với đề thi TOPIK II và cung cấp kỹ năng để học viên chinh phục TOPIK
-                II
-                - Bên cạnh đó khóa học còn cung cấp các kiến thức về văn hóa, lịch sử, phong cách làm việc và sinh hoạt
-                của người Hàn Quốc, đồng thời bổ sung những lưu ý trong sự khách biệt cơ bản về văn hóa giữa hai quốc
-                gia nhằm nâng cao hiệu quả giao tiếp và công việc.
-                Đối tượng học viên:
-                - Học viên đã hoàn thành xong chương trình học tiếng Hàn sơ cấp
-                - Học viên muốn thi lấy chứng chỉ TOPIK II
-                Thời gian học:
-                Số buổi học: 54 buổi = 2 giờ/ buổi; 58 buổi = 3 giờ/buổi;
-                Thời gian dự kiến: 4 ~ 5 tháng
-                Giáo trình học:
-                - Giáo trình tiếng Hàn tổng hợp cho người Việt Nam Trung cấp (quyển 3 + 4)
-                - Giáo trình Bổ trợ dịch
-                - Tài liệu bổ trợ TOPIK
-                - Khóa học tiếng Hàn video
-                Số lượng học viên: 20 học viên/lớp
-                Địa điểm học tập:
-                Đầu ra khóa học:
-                - Nắm được khoảng 2000 – 2500 từ vựng và 300 cấu trúc ngữ pháp
-                - Hoàn toàn có thể tự tin đọc và hiểu được nội dung của báo, tạp chí tiếng Hàn
-                - Hòa nhập nhanh chóng với cuộc sống Hàn Quốc, tự tin tham gia các hoạt động cùng người Hàn trong các
-                trường Đại học.
-                - Hiểu được nội dung các bộ phim, Gameshow của Hàn Quốc.
-                - Giao tiếp tiếng Hàn thành thạo trong công việc và cuộc sống hàng ngày.
-                - Tự tin tham dự kỳ thi lấy chứng chỉ TOPIK II
-                Định hướng nghề nghiệp:
-                Cơ hội nghề nghiệp sau khi hoàn thành khóa học:
-                - Quản lý, phục vụ trong nhà hàng Hàn Quốc
-                - Đi du học
-                - Có cơ hội trở thành trợ giảng tại trung tâm
-                - Cộng tác viên dịch những show/ chương trình thực tế của Hàn Quốc tại các công ty giải trí.
-                - Cộng tác viên tại các Công ty dịch thuật Hàn - Việt
-                - Cộng tác viên dịch phim Hàn
-                - Xin việc tại các công ty Hàn Quốc
-                - Cơ hội nhận được học bổng du học Hàn Quốc toàn phần/bán phần
-                Nội dung khóa học:
-                - Bài kiểm tra đầu vào
-                - Tìm hiểu từ vựng, ngữ pháp trung cấp theo các chủ đề trong giáo trình và tài liệu bổ trợ dịch của
-                Trung tâm tiếng Hàn SOFL
-                - Luyện phản xạ, thực hành giao tiếp các chủ đề đã học và chủ đề nâng cao cùng giáo viên bản ngữ(xen
-                kẽ).
-                - Hình thức luyện tập: Chơi trò chơi, làm bài trắc nghiệm, xem video, đi thực tế - ngoại khóa, thực hành
-                nghe – nói theo nhóm,…
-                - Hướng dẫn các dạng câu hỏi xuất hiện trong đề thi TOPIK II
-                - Tìm hiểu về văn hóa của Hàn Quốc, so sánh điểm giống và khác nhau giữa nền văn hóa của 2 nước
-                1. Cam kết đỗ TOPIK
-                Cam kết đỗ TOPIK từ 1-5 với điếm số cao
-                2. Cấp chứng nhận
-                Học viên được cấp chứng nhận sau khi hoàn thành khóa học
-                3. Học lại miễn phí
-                Học viên được MIỄN PHÍ học lại nếu chưa thành thạo
-                4. Bảo lưu khóa học
-                Học viên được BẢO LƯU khóa học trong thời gian 2 tháng nếu học viên đã đăng ký nhưng chưa thể đi học
-                ngay được
-                5. Hỗ trợ giải đáp(24/7)
-                Hỗ trợ giải đáp mọi thắc mắc của học viên về các vấn đề trong học tập cũng như đi du học Hàn Quốc
+                {{{pageData.content}}}
             </div>
         </div>
 
 
         <section class="related_classes mt-10">
-            <h3 class="text-2xl font-semibold text-center">
-                Lich Khai Giang
+            <h3 class="text-2xl font-semibold text-center mb-3">
+                Lịch Khai Giảng
             </h3>
 
             <ul class="grid justify-center gap-[10px] bg-[#F8FAFE] py-[50px] px-[10px] md:px-[80px] w-fit mx-auto">
-                <li class="flex gap-[30px] items-center text-[14px]">
+
+                {{#each classData}}
+                <li class="flex gap-[30px] items-center text-[16px]">
                     <span class="grid md:block">
                         <span class="font-bold">
-                            Class name:
+                            Lớp:
                         </span>
                         <span>
-                            faf so
+                            {{name}}
                         </span>
                     </span>
 
@@ -172,10 +121,12 @@
 
                     <span class="grid md:block">
                         <span class="font-bold">
-                            Time :
+                            Thời gian học:
                         </span>
                         <span>
-                            T2-4-6 19-20h
+                            {{classSessionDay sessionDays}}
+                            -
+                            {{classSessionTime sessionTime}}
                         </span>
                     </span>
 
@@ -183,17 +134,21 @@
 
                     <button
                         class="text-[13px] border-[#7A53E2] bg-[#7A53E2] hover:bg-[#825ee2] duration-150 ease-in-out text-white rounded-[20px] px-[10px] py-[5px]">
-                        Register
+                        Đăng ký
                     </button>
                 </li>
+                {{/each}}
 
+                {{#ifEquals classData.length 0}}
+                <p>Khoá học hiện chưa có lớp!</p>
+                {{/ifEquals}}
             </ul>
         </section>
 
         <section class="register_form my-[20px] md:flex justify-between md:p-[20px]">
             <div class="md:w-[40%]">
                 <h3 class="text-2xl font-semibold">
-                    Dang ky hoc
+                    Đăng ký học
                 </h3>
                 <p>
                     G-ININ liên tục tuyển sinh học viên tham gia khóa học
@@ -278,13 +233,19 @@
 
                         <div>
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="phone">
-                                Course (<span class="text-red-500">*</span>)
+                                Lớp (<span class="text-red-500">*</span>)
                             </label>
                             <select required
                                 class="shadow border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
                                 <option selected value="">
-                                    choose course
+                                    Chọn lớp
                                 </option>
+
+                                {{#each classData}}
+                                <option value="{{id}}">
+                                    {{name}}
+                                </option>
+                                {{/each}}
                             </select>
                         </div>
 
@@ -300,7 +261,7 @@
                         <button
                             class="bg-[#524FD5] hover:bg-[#605ecb] mt-[15px] text-white font-bold py-[10px] px-[30px] rounded-[30px] duration-200 ease-in-out"
                             type="button">
-                            Regis
+                            Gửi
                         </button>
                     </div>
                 </form>
