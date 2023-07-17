@@ -2,18 +2,10 @@ import { Column, Model, Table } from 'sequelize-typescript';
 
 @Table({tableName: 'tbl_tags'})
 export class Tag extends Model{
-    @Column({
-        validate: {
-            isNull: false
-        }
-    })
+    @Column
     name: string;
 
-    @Column({
-        validate: {
-            isNull: false
-        }
-    })
+    @Column
     slug: string;
 }
 
