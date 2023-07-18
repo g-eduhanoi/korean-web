@@ -65,38 +65,6 @@ export class CategoryService {
       }
     });
 
-    await this.categoryRepo.findOrCreate({
-      where: {
-        id: 6,
-      },
-      defaults: {
-        id: 6,
-        name: "Sơ-Trung-Cao cấp",
-        slug: "khoa-hoc-tieng",
-      }
-    });
-
-    await this.categoryRepo.findOrCreate({
-      where: {
-        id: 7,
-      },
-      defaults: {
-        id: 7,
-        name: "TOPIK",
-        slug: "khoa-hoc-topik",
-      }
-    });
-
-    await this.categoryRepo.findOrCreate({
-      where: {
-        id: 8,
-      },
-      defaults: {
-        id: 8,
-        name: "Khóa đặc biệt",
-        slug: "khoa-hoc-dac-biet",
-      }
-    });
 
     await this.categoryRepo.findOrCreate({
       where: {
@@ -139,6 +107,28 @@ export class CategoryService {
         id: 12,
         name: "Học tiếng Hàn",
         slug: "hoc-tieng-han",
+      }
+    });
+
+    await this.categoryRepo.findOrCreate({
+      where: {
+        id: 13,
+      },
+      defaults: {
+        id: 13,
+        name: "Câu lạc bộ",
+        slug: "clb",
+      }
+    });
+
+    await this.categoryRepo.findOrCreate({
+      where: {
+        id: 14,
+      },
+      defaults: {
+        id: 14,
+        name: "Thư viện nhỏ",
+        slug: "thu-vien-nho",
       }
     });
 

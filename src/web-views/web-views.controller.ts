@@ -78,35 +78,6 @@ export class WebViewsController {
         }
     }
 
-    @Get('khoa-hoc-tieng')
-    @Render('posts/post_list_page')
-    async normalCoursePage(): Promise<object> {
-        return {
-            ...await this.filterPost(6),
-            title: 'Khóa học tiếng Hàn Sơ-Trung-Cao cấp',
-        }
-    }
-
-    @Get('khoa-hoc-topik')
-    @Render('posts/post_list_page')
-    async topikCoursePage(): Promise<object> {
-        return {
-            ...await this.filterPost(7),
-            title: 'Khóa học tiếng Hàn Topik',
-        }
-    }
-
-    @Get('khoa-hoc-dac-biet')
-    @Render('posts/post_list_page')
-    async opicCoursePage(): Promise<object> {
-        return {
-            ...await this.filterPost(8),
-            title: 'Khóa học đặc biệt',
-        }
-    }
-
-
-
     @Get('su-kien')
     @Render('posts/post_list_page')
     async eventPage(): Promise<object> {
@@ -134,6 +105,24 @@ export class WebViewsController {
         return {
             ...await this.filterPost(11),
             title: 'Workshop',
+        }
+    }
+
+    @Get('clb')
+    @Render('posts/post_list_page')
+    async topikCoursePage(): Promise<object> {
+        return {
+            ...await this.filterPost(7),
+            title: 'Câu lạc bộ',
+        }
+    }
+
+    @Get('thu-vien-nho')
+    @Render('posts/post_list_page')
+    async opicCoursePage(): Promise<object> {
+        return {
+            ...await this.filterPost(8),
+            title: 'Thư viện nhỏ',
         }
     }
 
