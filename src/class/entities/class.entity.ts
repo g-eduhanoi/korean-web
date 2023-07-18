@@ -1,5 +1,5 @@
 
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, Model, Table, BelongsTo } from 'sequelize-typescript';
 
 @Table({tableName: 'tbl_classes'})
 export class Class extends Model{
@@ -17,6 +17,7 @@ export class Class extends Model{
 
     @Column 
     categoryId: number;
+
 }
 
 @Table({tableName: 'tbl_class_registration'})
@@ -33,8 +34,12 @@ export class ClassRegistration extends Model{
     @Column
     note: string;
 
+    @BelongsTo(() => Class, "classId")
+    class: Class;
+
     @Column
-    classId: number;
+    status: string;
+    
 }
 
 export const ClassRepos = [

@@ -6,11 +6,12 @@ import { ApiTags } from '@nestjs/swagger';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { filter } from 'rxjs';
 import { ClassFilterReqDto } from './dto/class-filter.dto';
+import { RegisClassReq } from './dto/regis-class-req.dto';
 
 @ApiTags('Class')
 @Controller('api/classes')
 export class ClassController {
-  constructor(private readonly classService: ClassService) {}
+  constructor(private readonly classService: ClassService) { }
 
   @Post("add")
   create(@Body() createClassDto: CreateClassDto) {
@@ -35,5 +36,18 @@ export class ClassController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.classService.remove(+id);
+  }
+
+  @Post("regis-class")
+  regisClass(@Body() reqDto: RegisClassReq) {
+    return this.classService.registerClass(reqDto);
+  }
+
+  @Post("regis-class/findAll")
+  findAllRegisClass(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: {
+    q: string,
+    status: "PENDING" | "COMPLETED"
+  }) {
+    return this.classService.findAllRegisClass(reqDto, pageable);
   }
 }

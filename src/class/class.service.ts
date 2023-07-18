@@ -7,6 +7,7 @@ import { ClassFilterReqDto } from './dto/class-filter.dto';
 import { Op } from 'sequelize';
 import { ResPageDto } from 'configure/db/res-page.dto';
 import { ClassResDto } from './dto/class-res.dto';
+import { RegisClassReq } from './dto/regis-class-req.dto';
 
 @Injectable()
 export class ClassService {
@@ -77,5 +78,69 @@ export class ClassService {
 
   remove(id: number) {
     return `This action removes a #${id} class`;
+  }
+
+  async registerClass(classRegisDto: RegisClassReq) {
+    const classEntity: Class = await this.classRepo.findByPk(classRegisDto.classId);
+    if (!classEntity)
+      throw "Class doesn't exist!";
+
+    await this.classRegisRepo.create({
+      ...classRegisDto,
+      status: "PENDING"
+    });
+    // task: send mail to admin
+
+    return true;
+  }
+
+  async findAllRegisClass(reqDto: { q: string; status?: "PENDING" | "COMPLETED"; }, pageable: ReqPageableDto) {
+    if (!pageable)
+      pageable = new ReqPageableDto();
+
+    let whereBuilder: {
+      status?: object,
+      name?: object,
+      phone?: object,
+      email?: object,
+    } = {};
+    if (reqDto != null && reqDto.status)
+      whereBuilder.status = {
+        [Op.eq]: reqDto.status
+      }
+
+    if (reqDto != null && reqDto.q) {
+      whereBuilder.name = {
+        [Op.like]: `%${reqDto.q}%`
+      };
+      whereBuilder.phone = {
+        [Op.like]: `%${reqDto.q}%`
+      };
+      whereBuilder.email = {
+        [Op.like]: `%${reqDto.q}%`
+      };
+    }
+
+    const result = await this.classRegisRepo.findAndCountAll({
+      ...ReqPageableDto.toPageable(pageable),
+      where: whereBuilder,
+      include: [
+        {
+          model: Class,
+          as: "class"
+        }
+      ]
+    });
+
+    const resPage: ResPageDto<ClassRegistration> = new ResPageDto();
+    resPage.content = result.rows;
+    resPage.totalElements = result.count;
+    resPage.totalPages = Math.ceil(result.count / pageable.size);
+    resPage.numberOfElements = result.rows.length;
+    resPage.number = pageable.page;
+    resPage.isFirst = pageable.page == 0;
+    resPage.isLast = pageable.page == resPage.totalPages - 1;
+
+    return resPage;
   }
 }
