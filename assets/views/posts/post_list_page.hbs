@@ -13,7 +13,7 @@
 
     {{> header_component}}
 
-    <div class="main_content px-[15px] pb-[35px] lg:px-[100px] max-w-[1400px] mx-auto bg-white">
+    <div class="main_content px-[15px] pb-[35px] lg:px-[100px] max-w-[1200px] mx-auto bg-white">
         <!--Second breadcrumb-->
         <nav class="w-full rounded-md my-[20px] text-[14px]">
             <ol class="list-reset flex">
@@ -43,7 +43,7 @@
                 <div class="latest_post_list_left md:w-1/2">
                     <div class="">
                         <a href="/bai-viet/{{firstPost.slug}}/{{firstPost.id}}">
-                            <img class="w-full h-[300px] md:h-[400px] hover:scale-[1.05] duration-200 ease-in-out border rounded"
+                            <img class="w-full h-[200px] md:h-[300px] hover:scale-[1.05] duration-200 ease-in-out"
                                 src="{{ firstPost.thumbnail}}" alt="">
                         </a>
 
@@ -103,7 +103,7 @@
                 <div class="latest_post_list_right md:w-1/2 h-full grid gap-[26px]">
 
                     {{#each latestPosts}}
-                    <div class="md:flex gap-[10px] md:h-[250px]">
+                    <div class="md:flex gap-[10px] md:h-[150px]">
                         <a class="block md:w-[40%] md:h-full" href="/bai-viet/{{slug}}/{{id}}"> 
                             <img class="w-full h-[300px] md:h-full hover:scale-[1.05] duration-200 ease-in-out border rounded" src="{{ thumbnail }}"
                                 alt="">
