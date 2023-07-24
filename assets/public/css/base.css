@@ -2,7 +2,7 @@
 /*! component's theme wise override definitions and variables */
 /*! richtexteditor icons */
 
-.e-richtexteditor ul, ol {
+.e-richtexteditor ul, .e-richtexteditor ol {
   list-style: auto !important;
 }
 .e-richtexteditor ol {
