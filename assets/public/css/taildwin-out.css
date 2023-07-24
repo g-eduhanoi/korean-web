@@ -648,6 +648,16 @@ video {
   margin-bottom: 50px;
 }
 
+.mx-\[20px\] {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mx-\[30px\] {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 .-ml-\[1\.5rem\] {
   margin-left: -1.5rem;
 }
@@ -938,12 +948,12 @@ video {
   max-width: 1100px;
 }
 
-.max-w-\[1300px\] {
-  max-width: 1300px;
+.max-w-\[1200px\] {
+  max-width: 1200px;
 }
 
-.max-w-\[1400px\] {
-  max-width: 1400px;
+.max-w-\[1300px\] {
+  max-width: 1300px;
 }
 
 .max-w-\[300px\] {
@@ -964,10 +974,6 @@ video {
 
 .max-w-\[950px\] {
   max-width: 950px;
-}
-
-.max-w-\[1200px\] {
-  max-width: 1200px;
 }
 
 .transform {

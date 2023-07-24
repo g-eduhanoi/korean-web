@@ -64,8 +64,12 @@
 
             <div class="post_content mt-[20px] bg-[#FAFAFA] p-[20px] pt-[5px]">
 
-                <div>
-                    {{{post.content}}}
+                <div class=" e-control e-richtexteditor">
+                    <div class="e-rte-content">
+                        <div class="e-content e-lib e-keyboard custom-ul px-[30px]">
+                            {{{post.content}}}
+                        </div>
+                    </div>
                 </div>
 
                 {{#if post.tags.length}}
