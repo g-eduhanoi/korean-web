@@ -50,4 +50,10 @@ export class ClassController {
   }) {
     return this.classService.findAllRegisClass(reqDto, pageable);
   }
+
+  @Patch("regis-class/mark-completed/:id")
+  async markRegistrationCompleted(@Param("id") id: number)
+  {
+    await this.classService.markRegistrationCompleted(id);
+  }
 }

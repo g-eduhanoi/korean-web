@@ -11,6 +11,7 @@ import { RegisClassReq } from './dto/regis-class-req.dto';
 
 @Injectable()
 export class ClassService {
+  
 
   constructor(
     @Inject("CLASS_REPO") private readonly classRepo: typeof Class,
@@ -100,26 +101,34 @@ export class ClassService {
 
     let whereBuilder: {
       status?: object,
-      name?: object,
-      phone?: object,
-      email?: object,
     } = {};
+
+    if (reqDto != null && reqDto.q) {
+      whereBuilder = {
+        // @ts-ignore
+        [Op.or]: [
+          {
+            name: {
+              [Op.like]: `%${reqDto.q}%`
+            }
+          },
+          {
+            phone: {
+              [Op.like]: `%${reqDto.q}%`
+            }
+          },
+          {
+            email: {
+              [Op.like]: `%${reqDto.q}%`
+            }
+          }
+        ]
+      }
+    }
     if (reqDto != null && reqDto.status)
       whereBuilder.status = {
         [Op.eq]: reqDto.status
       }
-
-    if (reqDto != null && reqDto.q) {
-      whereBuilder.name = {
-        [Op.like]: `%${reqDto.q}%`
-      };
-      whereBuilder.phone = {
-        [Op.like]: `%${reqDto.q}%`
-      };
-      whereBuilder.email = {
-        [Op.like]: `%${reqDto.q}%`
-      };
-    }
 
     const result = await this.classRegisRepo.findAndCountAll({
       ...ReqPageableDto.toPageable(pageable),
@@ -142,5 +151,17 @@ export class ClassService {
     resPage.isLast = pageable.page == resPage.totalPages - 1;
 
     return resPage;
+  }
+
+  async markRegistrationCompleted(id: number) {
+    const regis = await this.classRegisRepo.findByPk(id);
+    if(!regis)
+      throw 'regis class not found!'
+
+    regis.update({
+      status: 'COMPLETED'
+    });
+
+    await regis.save();
   }
 }
