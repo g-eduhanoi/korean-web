@@ -1,10 +1,12 @@
+import { OptionService } from 'option/option.service';
 import { PostService } from './../post/post.service';
 import { Controller, Get, Render } from '@nestjs/common';
 
 @Controller()
 export class WebViewsController {
 
-    constructor(private readonly postService: PostService ){}
+    constructor(private readonly postService: PostService,
+        private readonly optionService: OptionService ){}
 
     @Get('chuyen-nganh-hoc')
     @Render('posts/post_list_page')
@@ -140,9 +142,17 @@ export class WebViewsController {
     @Get('ve-chung-toi')
     @Render('introduction/about')
     async aboutPage(): Promise<object> {
-
+        let pageContent = await this.optionService.getOptionByKey(`page_introduction`);
+        const pageData: {
+            images: string[],
+            content: string
+          } = pageContent ? JSON.parse(pageContent.optionValue) : {
+            images: [],
+            content: ''
+          };
+      
         return {
-            ...await this.filterPost(12),
+            pageData,
             title: 'Về chúng tôi',
         }
     }
