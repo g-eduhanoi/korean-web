@@ -553,6 +553,10 @@ video {
   }
 }
 
+.collapse {
+  visibility: collapse;
+}
+
 .fixed {
   position: fixed;
 }
@@ -646,16 +650,6 @@ video {
 .my-\[50px\] {
   margin-top: 50px;
   margin-bottom: 50px;
-}
-
-.mx-\[20px\] {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.mx-\[30px\] {
-  margin-left: 30px;
-  margin-right: 30px;
 }
 
 .-ml-\[1\.5rem\] {
@@ -776,6 +770,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .grid {
@@ -974,6 +972,10 @@ video {
 
 .max-w-\[950px\] {
   max-width: 950px;
+}
+
+.border-collapse {
+  border-collapse: collapse;
 }
 
 .transform {

@@ -82,7 +82,13 @@
 
         </ul>
         <style>
-            .class_{{id}} li {
+            .class_ {
+                    {
+                    id
+                }
+            }
+
+            li {
                 background: #7A53E2;
                 cursor: unset;
                 color: white
@@ -104,45 +110,67 @@
                 Lịch Khai Giảng
             </h3>
 
+            <script>
+                function scrollToElement(elementId) {
+                    const targetElement = document.getElementById(elementId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
+                function regisThisClass(classId) {
+                    console.log("click regis class id: ", classId);
+
+                    document.getElementById("class_input").value = classId;
+
+                    scrollToElement("regis_class_form");
+                }
+            </script>
             <ul class="grid justify-center gap-[10px] bg-[#F8FAFE] py-[50px] px-[10px] md:px-[80px] w-fit mx-auto">
 
-                {{#each classData}}
-                <li class="flex gap-[30px] items-center text-[16px]">
-                    <span class="grid md:block">
-                        <span class="font-bold">
-                            Lớp:
-                        </span>
-                        <span>
-                            {{name}}
-                        </span>
-                    </span>
+                <style>
+                    table {
+                        border-collapse: collapse;
+                    }
 
-                    <span>|</span>
-
-                    <span class="grid md:block">
-                        <span class="font-bold">
-                            Thời gian học:
-                        </span>
-                        <span>
+                    th,
+                    td {
+                        padding: 10px 35px;
+                        text-align: center;
+                    }
+                </style>
+                <table class="w-full">
+                    <tr>
+                        <th>Lớp</th>
+                        <th>Thời gian học</th>
+                        <th>Đăng ký</th>
+                    </tr>
+                    {{#each classData}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
                             {{classSessionDay sessionDays}}
                             -
                             {{classSessionTime sessionTime}}
-                        </span>
-                    </span>
+                        </td>
+                        <td>
+                            <button onclick="regisThisClass({{id}})"
+                                class="text-[13px] border-[#7A53E2] bg-[#7A53E2] hover:bg-[#825ee2] duration-150 ease-in-out text-white rounded-[20px] px-[10px] py-[5px]">
+                                Đăng ký
+                            </button>
+                        </td>
+                    </tr>
+                    {{/each}}
 
-                    <span>|</span>
-
-                    <button
-                        class="text-[13px] border-[#7A53E2] bg-[#7A53E2] hover:bg-[#825ee2] duration-150 ease-in-out text-white rounded-[20px] px-[10px] py-[5px]">
-                        Đăng ký
-                    </button>
-                </li>
-                {{/each}}
+                </table>
 
                 {{#ifEquals classData.length 0}}
                 <p>Khoá học hiện chưa có lớp!</p>
                 {{/ifEquals}}
+
             </ul>
+
+
         </section>
 
         <section class="register_form my-[20px] md:flex justify-between md:p-[20px]">
@@ -207,8 +235,9 @@
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="fullName" type="text" required placeholder="Họ và tên">
-                            <p class="fullName_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
+                                id="fullName_input" type="text" required placeholder="Họ và tên">
+                            <p id="fullName_error" class="text-red-500 text-[13px] px-[10px] hidden">Vui lòng nhập tên
+                                của bạn!</p>
                         </div>
 
                         <div>
@@ -217,8 +246,8 @@
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="phone" type="text" required placeholder="Số điện thoại">
-                            <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
+                                id="phone_input" type="text" required placeholder="Số điện thoại">
+                            <p id="phone_error" class="text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                         </div>
 
                         <div>
@@ -227,15 +256,15 @@
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="phone" type="text" required placeholder="Số điện thoại">
-                            <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
+                                id="email_input" type="text" required placeholder="Email">
+                            <p id="email_error" class="text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                         </div>
 
                         <div>
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="phone">
                                 Lớp (<span class="text-red-500">*</span>)
                             </label>
-                            <select required
+                            <select required id="class_input"
                                 class="shadow border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">
                                 <option selected value="">
                                     Chọn lớp
@@ -247,18 +276,21 @@
                                 </option>
                                 {{/each}}
                             </select>
+                            <p id="class_error" class="text-red-500 text-[13px] px-[10px] hidden">Vui lòng chọn lớp!</p>
                         </div>
 
 
 
                     </div>
-                    <p class="leave_info_message hidden text-green-500 text-[13px] px-[10px] max-w-[350px] mt-[10px]">
-                        Cảm ơn
-                        bạn đã quan tâm đến chương trình học, chúng tôi liên hệ lại với bạn trong thời gian sớm nhất!
+                    <p id="regis_success" class=" hidden text-green-500 text-[13px] px-[10px] max-w-[350px] mt-[10px]">
+                        Đăng ký thành công, chúng tôi liên hệ lại với bạn trong thời gian sớm nhất!
+                    </p>
+                    <p id="regis_failed" class=" hidden text-red-500 text-[13px] px-[10px] max-w-[350px] mt-[10px]">
+                        Đăng ký thất bại, vui lòng thử lại!
                     </p>
 
                     <div class="flex justify-start">
-                        <button
+                        <button id="button_submit"
                             class="bg-[#524FD5] hover:bg-[#605ecb] mt-[15px] text-white font-bold py-[10px] px-[30px] rounded-[30px] duration-200 ease-in-out"
                             type="button">
                             Gửi
@@ -604,6 +636,108 @@
                     </svg>
                 </div>
             </div>
+
+            <script>
+                function isValidVietnamPhoneNumber(phoneNumber) {
+                    console.log("checking phone: ", phoneNumber)
+                    // Remove any non-digit characters from the phone number
+                    const cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
+                    // Regular expression to match valid Vietnam mobile phone numbers
+                    const vietnamPhoneRegex = /^(03|05|07|08|09)\d{8}$/;
+
+                    // Check if the cleaned phone number matches the Vietnam phone regex
+                    return vietnamPhoneRegex.test(cleanedPhoneNumber);
+                }
+                document.addEventListener("DOMContentLoaded", () => {
+
+                    let isSubmiting = false;
+                    const fullName = document.getElementById("fullName_input");
+                    const phone = document.getElementById("phone_input");
+                    const email = document.getElementById("email_input");
+                    const classId = document.getElementById("class_input");
+
+                    const fullNameErr = document.getElementById("fullName_error");
+                    const phoneErr = document.getElementById("phone_error");
+                    const emailErr = document.getElementById("email_error");
+                    const classIdErr = document.getElementById("class_error");
+                    const regisSuccessMss = document.getElementById("regis_success");
+                    const regisFailedMss = document.getElementById("regis_failed");
+
+
+                    function resetRegisForm() {
+                        fullName.value = "";
+                        phone.value = "";
+                        email.value = "";
+                        classId.value = "";
+                    }
+                    document.getElementById("button_submit")
+                        .addEventListener("click", () => {
+                            if (isSubmiting) return;
+
+                            regisSuccessMss.classList.add("hidden");
+                            regisFailedMss.classList.add("hidden");
+                            let errCnt = 0;
+                            if (!fullName.value) {
+                                fullNameErr.classList.remove("hidden");
+                                errCnt++;
+                            }
+                            else
+                                fullNameErr.classList.add("hidden");
+
+                            if (!phone.value) {
+                                phoneErr.classList.remove("hidden");
+                                phoneErr.innerText = "Vui lòng nhập số điện thoại!";
+                                errCnt++;
+                            }
+                            else {
+                                if (!isValidVietnamPhoneNumber(phone.value)) {
+                                    phoneErr.innerText = "Số điện thoại không chính xác!";
+                                    errCnt++;
+                                }
+                            }
+
+                            if (!classId.value) {
+                                classIdErr.classList.remove("hidden");
+                                errCnt++;
+                            }
+                            else
+                                classIdErr.classList.add("hidden");
+
+                            if (errCnt == 0) {
+                                isSubmiting = true;
+                                fetch("https://g-eduhanoi.com/api/classes/regis-class", {
+                                    method: "POST",
+                                    mode: "cors",
+                                    cache: "no-cache",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        classId: classId.value,
+                                        name: fullName.value.trim(),
+                                        phone: phone.value.trim(),
+                                        email: email.value.trim()
+                                    })
+                                })
+                                    .then((res) => {
+                                        if (res.status == 201) {
+                                            regisSuccessMss.classList.remove("hidden");
+                                            resetRegisForm()
+                                        }
+                                        else throw "error";
+                                    })
+                                    .catch(err => {
+                                        console.log("regis failed: ", err);
+                                        regisFailedMss.classList.remove("hidden");
+                                    })
+                                    .finally(() => isSubmiting = false);
+                            }
+                            else {
+                                alert('Vui lòng kiểm tra lại thông tin!');
+                            }
+                        });
+                });
+            </script>
 
         </section>
 
