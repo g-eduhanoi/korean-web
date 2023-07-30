@@ -55,9 +55,14 @@ export class AppController {
 
   @Get('contact')
   @Render('contact')
-  getContactPage(): object {
+   async getContactPage() {
+    let pageContent = await this.optionService.getOptionByKey(`page_contact`);
+    const pageData = JSON.parse(pageContent.optionValue);
+
+    console.log(pageData);
     return {
       title: 'Liên hệ với chúng tôi',
+      pageData
     };
   }
 

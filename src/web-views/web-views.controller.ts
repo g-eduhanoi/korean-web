@@ -132,8 +132,12 @@ export class WebViewsController {
     @Get('mang-xa-hoi')
     @Render('introduction/sns_page')
     async snsPage(): Promise<object> {
+        let pageContent = await this.optionService.getOptionByKey(`page_sns`);
+        const pageData = JSON.parse(pageContent.optionValue);
+        console.log(pageData);
+        
         return {
-            ...await this.filterPost(12),
+            pageData,
             title: 'G-EDU - Mạng xã hội',
         }
     }

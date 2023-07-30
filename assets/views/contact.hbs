@@ -36,10 +36,9 @@
                     <div class="swiper-slide w-full">
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Thời gian làm việc</h3>
                         <div>
-                            <p>Thứ 2 đến thứ 6
-                                <br>
-                                8:00 - 17:00
-                            </p>
+                            {{{
+                                pageData.wt.val
+                            }}}
                         </div>
                     </div>
 
@@ -47,7 +46,9 @@
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Địa chỉ</h3>
                         <div>
                             <p>
-                                Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội
+                                {{{
+                                pageData.ad.val
+                            }}}
                             </p>
                         </div>
                     </div>
@@ -57,7 +58,9 @@
                         <div>
                             <p>
                                 <a href="mailto:trungtam.gedu@gmail.com" class="hover:text-[#524FD5]">
-                                    trungtam.gedu@gmail.com
+                                    {{{
+                                pageData.em.val
+                            }}}
                                 </a>
                             </p>
                         </div>
@@ -67,8 +70,10 @@
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Số điện thoai</h3>
                         <div>
                             <p>
-                                <a href="tel:0584843998" class="hover:text-[#524FD5]">
-                                    098 123 4567
+                                <a href="tel:{{pageData.ph.val}}" class="hover:text-[#524FD5]">
+                                    {{{
+                                pageData.ph.val
+                            }}}
                                 </a>
                             </p>
                         </div>
