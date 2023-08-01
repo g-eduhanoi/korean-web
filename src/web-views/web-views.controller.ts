@@ -156,7 +156,7 @@ export class WebViewsController {
           };
       
         return {
-            pageData,
+            pageData, 
             title: 'Về chúng tôi',
         }
     }

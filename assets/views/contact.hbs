@@ -37,7 +37,7 @@
                         <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Thời gian làm việc</h3>
                         <div>
                             {{{
-                                pageData.wt.val
+                            pageData.wt.val
                             }}}
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                             <p>
                                 {{{
                                 pageData.ad.val
-                            }}}
+                                }}}
                             </p>
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                             <p>
                                 <a href="mailto:trungtam.gedu@gmail.com" class="hover:text-[#524FD5]">
                                     {{{
-                                pageData.em.val
-                            }}}
+                                    pageData.em.val
+                                    }}}
                                 </a>
                             </p>
                         </div>
@@ -72,8 +72,8 @@
                             <p>
                                 <a href="tel:{{pageData.ph.val}}" class="hover:text-[#524FD5]">
                                     {{{
-                                pageData.ph.val
-                            }}}
+                                    pageData.ph.val
+                                    }}}
                                 </a>
                             </p>
                         </div>
@@ -142,6 +142,50 @@
                 </form>
             </div>
         </div>
+
+        <section class="flex md:justify-between mt-10 flex-col md:flex-row items-center md:items-start gap-[40px]">
+            <div>
+                <h1 class="text-4xl font-semibold mb-10">G-EDU SNS</h1>
+
+                <ul class="flex flex-wrap gap-[30px]">
+                    <li
+                        class="cursor-pointer hover:scale-[1.05] border duration-150 ease-in-out bg-white shadow p-[15px] rounded-[15px]">
+                        <a href="{{snsData.fb.link}}" target="_blank">
+                            <img class="w-[50px] h-[50px]" src="/images/sns_icons/facebook.png" />
+                        </a>
+                    </li>
+
+                    <li
+                        class="cursor-pointer hover:scale-[1.05] border duration-150 ease-in-out bg-white shadow p-[15px] rounded-[15px]">
+                        <a href="{{snsData.in.link}}" target="_blank">
+                            <img class="w-[50px] h-[50px]" src="/images/sns_icons/instagram.png" />
+                        </a>
+                    </li>
+
+                    <li
+                        class="cursor-pointer hover:scale-[1.05] border duration-150 ease-in-out bg-white shadow p-[15px] rounded-[15px]">
+                        <a href="{{snsData.tw.link}}" target="_blank">
+                            <img class="w-[50px] h-[50px]" src="/images/sns_icons/twitter.png" />
+                        </a>
+                    </li>
+
+                    <li
+                        class="cursor-pointer hover:scale-[1.05] border duration-150 ease-in-out bg-white shadow p-[15px] rounded-[15px]">
+                        <a href="{{snsData.tk.link}}" target="_blank">
+                            <img class="w-[50px] h-[50px]" src="/images/sns_icons/tik-tok.png" />
+                        </a>
+                    </li>
+
+                    <li
+                        class="cursor-pointer hover:scale-[1.05] border duration-150 ease-in-out bg-white shadow p-[15px] rounded-[15px]">
+                        <a href="{{snsData.yt.link}}" target="_blank">
+                            <img class="w-[50px] h-[50px]" src="/images/sns_icons/youtube.png" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <img class="max-w-[400px]" src="/images/sns_icons/multi_icon.png" >
+        </section>
     </div>
 
     {{> footer_component}}

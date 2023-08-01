@@ -45,9 +45,6 @@ export class AppController {
       page: 0,
       size: 18
     });
-
-    console.log(galleryImages);
-
     return {
       galleryImages: galleryImages.content
     };
@@ -58,11 +55,12 @@ export class AppController {
    async getContactPage() {
     let pageContent = await this.optionService.getOptionByKey(`page_contact`);
     const pageData = JSON.parse(pageContent.optionValue);
-
-    console.log(pageData);
+    let snsContent = await this.optionService.getOptionByKey(`page_sns`);
+    const snsData = JSON.parse(snsContent.optionValue);
     return {
       title: 'Liên hệ với chúng tôi',
-      pageData
+      pageData,
+      snsData
     };
   }
 
