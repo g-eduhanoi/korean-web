@@ -11,6 +11,8 @@ export class WebViewsController {
     @Get('chuyen-nganh-hoc')
     @Render('posts/post_list_page')
     async majorPage(): Promise<object> {
+
+        
         return {...await this.filterPost(2), title: 'Chuyên ngành học'};
     }
 
