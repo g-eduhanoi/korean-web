@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   Get,
+  Headers,
   Param,
   Post,
   Render,
@@ -18,6 +19,8 @@ import { FileService } from 'file/file.service';
 import { PostService } from 'post/post.service';
 import { ClassService } from 'class/class.service';
 import { OptionService } from 'option/option.service';
+import { I18n, I18nContext, I18nService } from 'nestjs-i18n';
+import createLocaleRoute from 'configure/utils/I18nRoute';
 
 @Controller()
 export class AppController {
@@ -27,18 +30,18 @@ export class AppController {
     private readonly fileService: FileService,
     private readonly postService: PostService,
     private readonly classService: ClassService,
-    private readonly optionService: OptionService
+    private readonly optionService: OptionService,
+    private readonly i18n: I18nService
   ) { }
 
 
   // for home-page
-  @All()
+  @All(['/', '/en', '/ko'])
   @Render('index')
   async getHomepage(
     @Req() req: Request,
     @Session() session: Record<string, any>,
   ): Promise<object> {
-
     const galleryImages = await this.fileService.findAll({
       fileCode: "GALLERY"
     }, {
@@ -50,9 +53,9 @@ export class AppController {
     };
   }
 
-  @Get('contact')
+  @Get(['lien-he', ...createLocaleRoute('contact')])
   @Render('contact')
-   async getContactPage() {
+  async getContactPage() {
     let pageContent = await this.optionService.getOptionByKey(`page_contact`);
     const pageData = JSON.parse(pageContent.optionValue);
     let snsContent = await this.optionService.getOptionByKey(`page_sns`);
@@ -96,7 +99,7 @@ export class AppController {
   }
 
   @Render('posts/detail_post_page')
-  @Get("bai-viet/:slug/:id")
+  @Get(["bai-viet/:slug/:id", ...createLocaleRoute('post/:slug/:id')])
   async getDetailPost(@Param('id') id: number) {
     const post = await this.postService.findOne(id);
     const relatedPosts = await this.postService.findRelatedPost(post.category.id, id);
@@ -111,7 +114,7 @@ export class AppController {
   }
 
   @Render('course/course_page')
-  @Get("khoa-hoc/:slug/:id")
+  @Get(["khoa-hoc/:slug/:id", ...createLocaleRoute('course/:slug/:id')])
   async getKhoaHoc(@Param('id') id: number) {
     console.log(`course id: `, id);
 
@@ -144,7 +147,7 @@ export class AppController {
     });
 
     console.log('class data', classData.content);
-    
+
     return {
       id,
       pageTitle,
