@@ -20,6 +20,7 @@ const databaseProviders = [
                 password: '$Korean1234',
                 database: 'korean_web',
             });
+            
             sequelize.addModels([
                 Account, Post, Category, Tag, File,
                 PostTag,
