@@ -1,17 +1,19 @@
 import { OptionService } from 'option/option.service';
 import { PostService } from './../post/post.service';
 import { Controller, Get, Render } from '@nestjs/common';
+import createLocaleRoute from 'configure/utils/I18nRoute';
+import { I18n, I18nContext } from 'nestjs-i18n';
 
 @Controller()
 export class WebViewsController {
 
     constructor(private readonly postService: PostService,
-        private readonly optionService: OptionService ){}
+        private readonly optionService: OptionService) { }
 
-    @Get('chuyen-nganh-hoc')
+    @Get(['chuyen-nganh-hoc', ...createLocaleRoute('major')])
     @Render('posts/post_list_page')
     async majorPage(): Promise<object> {
-        return {...await this.filterPost(2), title: 'Chuyên ngành học'};
+        return { ...await this.filterPost(2), title: 'Chuyên ngành học' };
     }
 
     async filterPost(categoryId: number) {
@@ -30,12 +32,12 @@ export class WebViewsController {
         pageDto.content = pageDto.content.slice(2);
 
         const firstPost = latestPosts.content[0];
-        latestPosts.content =  latestPosts.content.slice(1);
+        latestPosts.content = latestPosts.content.slice(1);
 
-        
-        let pageList = Array.from({length: pageDto.totalPages}).map((_, i) => i + 1);
 
-        
+        let pageList = Array.from({ length: pageDto.totalPages }).map((_, i) => i + 1);
+
+
         return {
             firstPost,
             latestPosts: latestPosts.content,
@@ -44,15 +46,15 @@ export class WebViewsController {
         }
     }
 
-    @Get('thong-tin-hoc-bong')
+    @Get(['thong-tin-hoc-bong', ...createLocaleRoute('scholarship')])
     @Render('posts/post_list_page')
     async scholarshipInfo(): Promise<object> {
-        return {...await this.filterPost(3), title: 'Thông tin học bổng'};
+        return { ...await this.filterPost(3), title: 'Thông tin học bổng' };
     }
 
 
 
-    @Get('hieu-ve-han-quoc')
+    @Get(['hieu-ve-han-quoc', ...createLocaleRoute('learn-about-korea')])
     @Render('posts/post_list_page')
     async knownAboutKoreaPage(): Promise<object> {
         return {
@@ -61,7 +63,7 @@ export class WebViewsController {
         }
     }
 
-    @Get('cong-dong')
+    @Get(['cong-dong', ...createLocaleRoute('community')])
     @Render('posts/post_list_page')
     async communityPage(): Promise<object> {
         return {
@@ -71,7 +73,7 @@ export class WebViewsController {
     }
 
 
-    @Get('hoc-tieng-han')
+    @Get(['hoc-tieng-han', ...createLocaleRoute('learn-korean')])
     @Render('posts/post_list_page')
     async koreanLearningPage(): Promise<object> {
         return {
@@ -80,7 +82,7 @@ export class WebViewsController {
         }
     }
 
-    @Get('su-kien')
+    @Get(['su-kien', ...createLocaleRoute('event')])
     @Render('posts/post_list_page')
     async eventPage(): Promise<object> {
         return {
@@ -90,7 +92,7 @@ export class WebViewsController {
     }
 
 
-    @Get('co-van-hoc-tap')
+    @Get(['co-van-hoc-tap', ...createLocaleRoute('mentor')] )
     @Render('posts/post_list_page')
     async mentorPage(): Promise<object> {
 
@@ -101,7 +103,7 @@ export class WebViewsController {
     }
 
 
-    @Get('workshop')
+    @Get(['workshop', ...createLocaleRoute('workshop')])
     @Render('posts/post_list_page')
     async workshopPage(): Promise<object> {
         return {
@@ -110,7 +112,7 @@ export class WebViewsController {
         }
     }
 
-    @Get('clb')
+    @Get(['cau-lac-bo', ...createLocaleRoute('club')])
     @Render('posts/post_list_page')
     async topikCoursePage(): Promise<object> {
         return {
@@ -119,7 +121,7 @@ export class WebViewsController {
         }
     }
 
-    @Get('thu-vien-nho')
+    @Get(['thu-vien-nho', ...createLocaleRoute('library')])
     @Render('posts/post_list_page')
     async opicCoursePage(): Promise<object> {
         return {
@@ -129,13 +131,13 @@ export class WebViewsController {
     }
 
 
-    @Get('mang-xa-hoi')
+    @Get(['mang-xa-hoi', ...createLocaleRoute('social-network')])
     @Render('introduction/sns_page')
     async snsPage(): Promise<object> {
         let pageContent = await this.optionService.getOptionByKey(`page_sns`);
         const pageData = JSON.parse(pageContent.optionValue);
         console.log(pageData);
-        
+
         return {
             pageData,
             title: 'G-EDU - Mạng xã hội',
@@ -143,23 +145,22 @@ export class WebViewsController {
     }
 
 
-    @Get('ve-chung-toi')
+    @Get(['ve-chung-toi', ...createLocaleRoute('about_g-edu')])
     @Render('introduction/about')
     async aboutPage(): Promise<object> {
         let pageContent = await this.optionService.getOptionByKey(`page_introduction`);
         const pageData: {
             images: string[],
             content: string
-          } = pageContent ? JSON.parse(pageContent.optionValue) : {
+        } = pageContent ? JSON.parse(pageContent.optionValue) : {
             images: [],
             content: ''
-          };
-      
+        };
+
         return {
-            pageData, 
+            pageData,
             title: 'Về chúng tôi',
         }
     }
 
-    
 }

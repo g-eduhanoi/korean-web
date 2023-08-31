@@ -1,5 +1,5 @@
 import { FileRepo } from './file/entities/file.entity';
-import { Module } from '@nestjs/common';
+import { ExecutionContext, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FileModule } from './file/file.module';
@@ -31,9 +31,42 @@ import { ClassRepos } from 'class/entities/class.entity';
 import { OptionModule } from './option/option.module';
 import { OptionService } from 'option/option.service';
 import { OptionRepo } from 'option/entities/option.entity';
+import { QueryResolver, AcceptLanguageResolver, I18nModule, I18nResolver } from 'nestjs-i18n';
+import { Request } from 'express';
 
+
+
+class TestI18n implements I18nResolver {
+  resolve(context: ExecutionContext): string | string[] | Promise<string | string[]> {
+    const req: Request = context.switchToHttp().getRequest();
+    // @ts-ignore
+    req.langa = 'en';
+    let lang = '';
+    if (req.baseUrl.startsWith('/en'))
+      lang = 'en';
+    else if (req.baseUrl.startsWith('/ko'))
+      lang = 'en';
+    else lang = 'vi';
+
+    req.headers['custom-lang'] = lang;
+    console.log(req.headers);
+    
+    return lang;
+  }
+
+}
 @Module({
   imports: [
+    I18nModule.forRoot({
+      fallbackLanguage: 'en',
+      loaderOptions: {
+        path: process.cwd() + '/src/i18n/',
+        watch: true,
+      },
+      resolvers: [
+        TestI18n
+      ],
+    }),
     DatabaseModule,
     FileModule,
     AccountModule,
@@ -44,7 +77,7 @@ import { OptionRepo } from 'option/entities/option.entity';
     TagModule,
     ClassModule,
     OptionModule,
-    
+
   ],
   controllers: [AppController, PostController, WebViewsController],
   providers: [
@@ -66,7 +99,7 @@ import { OptionRepo } from 'option/entities/option.entity';
     ...ClassRepos,
     OptionService,
     OptionRepo
-    
+
   ],
 })
 export class AppModule { }
