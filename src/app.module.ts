@@ -31,7 +31,7 @@ import { ClassRepos } from 'class/entities/class.entity';
 import { OptionModule } from './option/option.module';
 import { OptionService } from 'option/option.service';
 import { OptionRepo } from 'option/entities/option.entity';
-import { QueryResolver, AcceptLanguageResolver, I18nModule, I18nResolver } from 'nestjs-i18n';
+import { QueryResolver, AcceptLanguageResolver, I18nModule, I18nResolver, HeaderResolver } from 'nestjs-i18n';
 import { Request } from 'express';
 
 
@@ -40,16 +40,17 @@ class TestI18n implements I18nResolver {
   resolve(context: ExecutionContext): string | string[] | Promise<string | string[]> {
     const req: Request = context.switchToHttp().getRequest();
     // @ts-ignore
-    req.langa = 'en';
     let lang = '';
     if (req.baseUrl.startsWith('/en'))
       lang = 'en';
     else if (req.baseUrl.startsWith('/ko'))
-      lang = 'en';
+      lang = 'ko';
     else lang = 'vi';
 
     req.headers['custom-lang'] = lang;
+    req.headers['lang'] = lang;
     console.log(req.headers);
+    console.log("base", req.baseUrl.startsWith('/ko'));
     
     return lang;
   }
@@ -64,8 +65,11 @@ class TestI18n implements I18nResolver {
         watch: true,
       },
       resolvers: [
-        TestI18n
+        TestI18n,
+
       ],
+      viewEngine: 'hbs'
+      
     }),
     DatabaseModule,
     FileModule,

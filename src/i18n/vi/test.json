@@ -1,0 +1,107 @@
+{
+    "testmmm": "test1122",
+    "pages": {
+      "homepage": {
+        "meta": {},
+        "header": {
+          "menu": {
+            "about": "Về G-EDU",
+            "study": "Học tại Hàn Quốc",
+            "living": "Sống tại Hàn Quốc",
+            "course": "Khoá học",
+            "activity": "Các hoạt động",
+            "contact": "Liên hệ",
+            "vi": "Tiếng Việt",
+            "ko": "Tiếng Hàn",
+            "en": "Tiếng Anh"
+          },
+          "menu-item": {
+            "item1.1": "Học tiếng Hàn",
+            "item1.2": "Chuyên ngành học",
+            "item1.3": "Thông tin học bổng",
+            "item2.1": "Hiểu về Hàn Quốc",
+            "item2.2": "Cộng đồng",
+            "item3.1": "Khoá học sơ-trung-cao cấp",
+            "item3.2": "Khoá học Topik",
+            "item3.3": "Khoá đặc biệt",
+            "item4.1": "Khách mời - Thuyết giảng",
+            "item4.2": "Cố vấn học tập",
+            "item4.3": "Workshop",
+            "item4.4": "Câu lạc bộ",
+            "item4.5": "Thư việt nhỏ"
+          }
+        },
+        "body": {
+          "section-skill": {
+            "title": "Kỹ năng đạt được",
+            "grammar": {
+              "title": "Ngữ pháp",
+              "desc": "Là nền tảng quan trọng nhất của ngôn ngữ, “gốc rễ” phải chắc thì cây mới vững chãi và ra hoa kết trái."
+            },
+            "speaking": {
+              "title": "Phát âm - Nói",
+              "desc": "Giao tiếp là sự qua lại hai chiều, thực hành Phát âm đúng và chuẩn là bước đệm để Nói hay và Nghe giỏi."
+            },
+            "listening": {
+              "title": "Nghe",
+              "desc": "Thực hành nghe một cách chủ động để tăng độ tiếp xúc với ngôn ngữ, nâng cao khả năng nghe và hiểu ngôn ngữ."
+            },
+            "writing": {
+              "title": "Viết",
+              "desc": "Bước thực hành tiếng tổng hợp của học ngôn ngữ. Viết giỏi mới thực sự là giỏi!"
+            }
+          },
+          "section-itinerary": {
+            "title": "Hành trình với G-EDU"
+          },
+          "section-img": {
+            "title": "Thư viện ảnh"
+          },
+          "section-faq": {
+            "title": "Câu hỏi thường gặp",
+            "questions": {
+              "ques1": {
+                "title": "KHÓA HỌC NÀY DÀNH CHO NHỮNG AI?",
+                "ans": "G-EDU có đầy đủ các khóa học dành cho mọi đối tượng quan tâm đến tiếng Hàn. Hãy liên hệ để được tư vấn khóa học phù hợp."
+              },
+              "ques2": {
+                "title": "TÔI CÓ THỂ TRẢI NGHIỆM HỌC THỬ KHÔNG?",
+                "ans": "G-EDU không cung cấp riêng biệt tiết học thử. Học viên đăng ký học và sau khi kết thúc buổi học đầu tiên, nếu học viên không hài lòng, chúng tôi sẽ HOÀN TRẢ TOÀN BỘ số tiền khóa học bạn đã đóng."
+              },
+              "ques3": {
+                "title": "THỦ TỤC ĐĂNG KÍ NHƯ THẾ NÀO?",
+                "ans": "Sự chuẩn bị rõ ràng về mục đích học của bạn là hành trang đủ để bắt đầu ngay với G-EDU."
+              },
+              "ques4": {
+                "title": "TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?",
+                "ans": "G-EDU thiết kế các lớp học ONLINE và OFFLINE riêng biệt, nhưng không kết hợp đồng thời Online và Offline."
+              },
+              "ques5": {
+                "title": "TRUNG TÂM CÓ HỖ TRỢ HỌC VIÊN NGOÀI GIỜ HỌC KHÔNG?",
+                "ans": "Tại tầng 3 của G-EDU, các học viên sẽ thoải mái sử dụng 'Góc thư viện' để đọc sách tiếng Hàn, thực hành tiếng theo cá nhân hoặc theo nhóm. <br> Đặc biệt, học viên sẽ được tư vấn với những người sáng lập trung tâm về “mọi nỗi lo” (định hướng sau học tiếng Hàn, dự định du học, chọn nghề nghiệp v.v)"
+              },
+              "ques6": {
+                "title": "VÌ SAO NÊN CHỌN G-EDU ĐỂ HỌC TIẾNG HÀN?",
+                "ans": "Tại G-EDU, chúng tôi chọn phương châm 'thực dạy' và 'thực học'. <br> Sự tâm huyết, giàu chuyên môn và tầm nhìn của đội ngũ sáng lập trung tâm sẽ là nguồn lực quý giá và 'mở' cho tất cả học viên của G-EDU 'tận dụng'. <br> G-EDU cung cấp các bài giảng đặc biệt, các buổi nói chuyện, workshop giao lưu dành cho học viên."
+              }
+            }
+          }
+        },
+        "footer": {
+          "block1": {
+            "title": "Trung tâm tiếng Hàn G-EDU",
+            "phone": "Điện thoại: 098 123 4567",
+            "Địa chỉ": "Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội"
+          },
+          "block2": {
+            "title": "Để lại thông tin liên hệ",
+            "desc": "Nếu bạn có thắc mắc hay băn khoăn về chương trình học, hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!",
+            "form": {
+              "label1": "Họ và tên",
+              "label2": "Số điện thoại"
+            }
+          }
+        }
+      }
+    }
+  }

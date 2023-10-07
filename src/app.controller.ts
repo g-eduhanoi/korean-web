@@ -41,7 +41,12 @@ export class AppController {
   async getHomepage(
     @Req() req: Request,
     @Session() session: Record<string, any>,
+    @I18n() i18n: I18nContext
   ): Promise<object> {
+    console.log("lang: ", i18n.lang);
+    console.log("tss", await i18n.translate('test.testmmm', {lang: i18n.lang}));
+
+
     const galleryImages = await this.fileService.findAll({
       fileCode: "GALLERY"
     }, {

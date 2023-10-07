@@ -1,3 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+    <link class="swiper-slide w-full" nk rel="stylesheet" href="../public/css/taildwin-out.css" />
+
+    <link class="swiper-slide w-full" nk rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+</head>
+
+<body class="bg-neutral-100">
 <header class=" pt-[20px] pb-[10px] md:pt-[30px] px-[15px] lg:px-[70px]" style="border-bottom: 1px solid #d3d3d3;">
 
     <div class="flex justify-between items-center">
@@ -66,9 +84,7 @@
                 class="grid md:flex gap-[10px] lg:gap-[20px] font-[700] px-[30px] py-[50px] md:p-0 md:justify-center items-center text-[#666680]">
                 <li class="relative cursor-pointer">
                     <a href="/ve-chung-toi" class=" flex space-x-1 items-center hover:text-[#130D4B]">
-                        <span>
-                            {{ t 'test.pages.homepage.header.menu.about' }}
-                        </span>
+                        <span>Về G-EDU</span>
                     </a>
 
                 </li>
@@ -76,9 +92,7 @@
 
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
-                        <span>
-                            {{ t 'test.pages.homepage.header.menu.study' }}
-                        </span>
+                        <span>Học tại Hàn Quốc</span>
                         <span class="pt-1">
                             <i class="fas fa-chevron-down"></i>
                         </span>
@@ -86,26 +100,19 @@
 
                     <ul
                         class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                        <li class="sub_menu_item"><a href="/hoc-tieng-han" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item1.1' }}
-                            </a></li>
+                        <li class="sub_menu_item"><a href="/hoc-tieng-han"
+                                class=" hover:text-[#130D4B] block mt-[5px]">Học tiếng Hàn</a></li>
                         <li class="sub_menu_item"><a href="/chuyen-nganh-hoc"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item1.2' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Chuyên ngành học</a></li>
 
                         <li class="sub_menu_item"><a href="/thong-tin-hoc-bong"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item1.3' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Thông tin học bổng</a></li>
                     </ul>
                 </li>
 
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
-                        <span>
-                            {{ t 'test.pages.homepage.header.menu.living' }}
-                        </span>
+                        <span>Sống tại Hàn Quốc</span>
                         <span class="pt-1">
                             <i class="fas fa-chevron-down"></i>
                         </span>
@@ -114,21 +121,16 @@
                     <ul
                         class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                         <li class="sub_menu_item"><a href="/hieu-ve-han-quoc"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item2.1' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Hiểu về Hàn Quốc</a></li>
 
-                        <li class="sub_menu_item"><a href="/cong-dong" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item2.2' }}
-                            </a></li>
+                        <li class="sub_menu_item"><a href="/cong-dong" class=" hover:text-[#130D4B] block mt-[5px]">Cộng
+                                đồng</a></li>
                     </ul>
                 </li>
 
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
-                        <span>
-                            {{ t 'test.pages.homepage.header.menu.course' }}
-                        </span>
+                        <span>Khóa học</span>
                         <span class="pt-1">
                             <i class="fas fa-chevron-down"></i>
                         </span>
@@ -137,73 +139,50 @@
                     <ul
                         class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
                         <li class="sub_menu_item"><a href="/khoa-hoc/khoa-hoc-tieng/1"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item3.1' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Sơ-Trung-Cao cấp</a></li>
 
                         <li class="sub_menu_item"><a href="/khoa-hoc/khoa-hoc-topik/4"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{{{ t 'test.pages.homepage.header.menu-item.item3.2' }}}}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">TOPIK</a></li>
 
                         <li class="sub_menu_item"><a href="/khoa-hoc/khoa-hoc-dac-biet/5"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item3.3' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Khóa đặc biệt</a></li>
                     </ul>
                 </li>
 
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
-                        <span>
-                            {{ t 'test.pages.homepage.header.menu.activity' }}
-                        </span>
+                        <span>Activities</span>
                         <span class="pt-1">
                             <i class="fas fa-chevron-down"></i>
                         </span>
                     </a>
                     <ul
                         class="sub_menu hidden relative shadow md:absolute top-[10px] mb-[15px] md:mb-0 md:top-[40px] left-0 border border-[#f1e9ff] px-[10px] pt-[15px] pb-[25px] bg-white min-w-[200px] rounded divide-y grid gap-[5px]">
-                        <li class="sub_menu_item"><a href="/su-kien" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item4.1' }}
-                            </a>
+                        <li class="sub_menu_item"><a href="/su-kien" class=" hover:text-[#130D4B] block mt-[5px]">Khách
+                                mời - Thuyết giảng</a>
                         </li>
 
                         <li class="sub_menu_item"><a href="/co-van-hoc-tap"
-                                class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item4.2' }}
-                            </a></li>
+                                class=" hover:text-[#130D4B] block mt-[5px]">Cố vấn học tập</a></li>
 
-                        <li class="sub_menu_item"><a href="/workshop" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item4.3' }}
-                            </a></li>
+                        <li class="sub_menu_item"><a href="/workshop"
+                                class=" hover:text-[#130D4B] block mt-[5px]">Workshop</a></li>
 
-                        <li class="sub_menu_item"><a href="/clb" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item4.3' }}
-                            </a></li>
-                        <li class="sub_menu_item"><a href="/thu-vien-nho" class=" hover:text-[#130D4B] block mt-[5px]">
-                                {{ t 'test.pages.homepage.header.menu-item.item4.4' }}
-                            </a></li>
+                        <li class="sub_menu_item"><a href="/clb" class=" hover:text-[#130D4B] block mt-[5px]">Câu lạc
+                                bộ</a></li>
+                        <li class="sub_menu_item"><a href="/thu-vien-nho" class=" hover:text-[#130D4B] block mt-[5px]">Thư viện nhỏ</a></li>
                     </ul>
                 </li>
 
-                <li><a href="/lien-he" class=" hover:text-[#130D4B]">
-                        {{ t 'test.pages.homepage.header.menu.contact' }}
-                    </a></li>
-
-                <li>
+                 <li><a href="/lien-he" class=" hover:text-[#130D4B]">Liên hệ</a></li>
+                 
+                 <li>
                     <select class="text-[12px] border p-1 rounded">
-                        <option>
-                            {{ t 'test.pages.homepage.header.menu.vi' }}
-                        </option>
-                        <option>
-                            {{ t 'test.pages.homepage.header.menu.ko' }}
-                        </option>
-                        <option>
-                            {{ t 'test.pages.homepage.header.menu.en' }}
-                        </option>
+                        <option>Tiếng Việt</option>
+                        <option>Tiếng Hàn</option>
+                        <option>Tiếng Anh</option>
                     </select>
-                </li>
+                 </li>
 
 
             </ul>
@@ -222,10 +201,12 @@
 
         </div>
 
-
+        
 
         <button id="open_header_menu" class="hover:text-violet-500 duration-150 ease-in-out text-xl md:hidden">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 </header>
+
+</body>

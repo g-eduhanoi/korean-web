@@ -13,6 +13,7 @@ export class WebViewsController {
     @Get(['chuyen-nganh-hoc', ...createLocaleRoute('major')])
     @Render('posts/post_list_page')
     async majorPage(): Promise<object> {
+        
         return { ...await this.filterPost(2), title: 'Chuyên ngành học' };
     }
 
@@ -92,7 +93,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['co-van-hoc-tap', ...createLocaleRoute('mentor')] )
+    @Get(['co-van-hoc-tap', ...createLocaleRoute('mentor')])
     @Render('posts/post_list_page')
     async mentorPage(): Promise<object> {
 

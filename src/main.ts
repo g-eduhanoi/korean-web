@@ -11,6 +11,7 @@ import hbs, { handlebars } from 'hbs';
 import { readFileSync } from 'fs';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as moment from 'moment';
+import { I18nContext } from 'nestjs-i18n';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -87,6 +88,12 @@ async function bootstrap() {
 
   handlebars.registerHelper('dateTimeFormat', function (value, options) {
     return moment(value).format("yyyy-MM-dd HH:mm:ss");
+  });
+
+  handlebars.registerHelper('trans', function (value, options) {
+    I18nContext.current().lang 
+    return moment(value).format("yyyy-MM-dd HH:mm:ss");
+    
   });
   moment.locale('vi');
 
