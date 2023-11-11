@@ -33,6 +33,7 @@ import { OptionService } from 'option/option.service';
 import { OptionRepo } from 'option/entities/option.entity';
 import { QueryResolver, AcceptLanguageResolver, I18nModule, I18nResolver, HeaderResolver } from 'nestjs-i18n';
 import { Request } from 'express';
+import { ConfigModule } from '@nestjs/config';
 
 
 
@@ -70,6 +71,9 @@ class TestI18n implements I18nResolver {
       ],
       viewEngine: 'hbs'
       
+    }),
+    ConfigModule.forRoot({
+      isGlobal: true
     }),
     DatabaseModule,
     FileModule,

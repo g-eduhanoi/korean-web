@@ -137,10 +137,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  console.log("root prj: ", process.cwd());
   
   await app.listen(3000);
 }
+console.log("root prj: ", process.env);
 bootstrap();
-
 

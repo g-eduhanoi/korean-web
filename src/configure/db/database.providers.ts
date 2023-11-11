@@ -12,14 +12,18 @@ const databaseProviders = [
     {
         provide: 'SEQUELIZE',
         useFactory: async () => {
-            const sequelize = new Sequelize({
-                dialect: 'mysql',
-                host: '35.221.182.124',
-                port: 3306,
-                username: 'korean_web',
-                password: '$Korean1234',
-                database: 'korean_web',
+            const dialect: any = process.env.DATABASE_DIALECT;
+            const sequelize =  new Sequelize({
+                dialect: dialect,
+                host: process.env.DATABASE_HOST,
+                port: Number(process.env.DATABASE_PORT),
+                username: process.env.DATABASE_USER,
+                password: process.env.DATABASE_PASSWORD,
+                database: process.env.DATABASE_DB,
             });
+
+            // const sequelize = new Sequelize(`${process.env.DATABASE_DIALECT}://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_DB}`);
+
             
             sequelize.addModels([
                 Account, Post, Category, Tag, File,
