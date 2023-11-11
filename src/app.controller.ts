@@ -53,6 +53,8 @@ export class AppController {
       page: 0,
       size: 18
     });
+
+    
     return {
       galleryImages: galleryImages.content
     };

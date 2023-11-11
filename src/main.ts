@@ -140,6 +140,6 @@ async function bootstrap() {
   
   await app.listen(3000);
 }
-console.log("root prj: ", process.env);
+
 bootstrap();
 
