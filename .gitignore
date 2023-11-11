@@ -36,3 +36,5 @@ lerna-debug.log*
 
 assets/public/uploads/*
 .env
+yarn.lock
+package-lock.json
