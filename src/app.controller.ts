@@ -44,7 +44,7 @@ export class AppController {
     @I18n() i18n: I18nContext
   ): Promise<object> {
     console.log("lang: ", i18n.lang);
-    console.log("tss", await i18n.translate('test.testmmm', {lang: i18n.lang}));
+    console.log("tss", await i18n.translate('test.testmmm', { lang: i18n.lang }));
 
 
     const galleryImages = await this.fileService.findAll({
@@ -54,13 +54,15 @@ export class AppController {
       size: 18
     });
 
-    
+    let snsContent = await this.optionService.getOptionByKey(`page_sns`);
+    const snsData = JSON.parse(snsContent.optionValue);
     return {
-      galleryImages: galleryImages.content
+      galleryImages: galleryImages.content,
+      snsData
     };
   }
 
-  @Get(['lien-he', ...createLocaleRoute('contact')])
+  @Get(['lien-he', ...createLocaleRoute(['contact', 'lien-he'])])
   @Render('contact')
   async getContactPage() {
     let pageContent = await this.optionService.getOptionByKey(`page_contact`);
@@ -106,7 +108,7 @@ export class AppController {
   }
 
   @Render('posts/detail_post_page')
-  @Get(["bai-viet/:slug/:id", ...createLocaleRoute('post/:slug/:id')])
+  @Get(["bai-viet/:slug/:id", ...createLocaleRoute(['post/:slug/:id', 'bai-viet/:slug/:id'])])
   async getDetailPost(@Param('id') id: number) {
     const post = await this.postService.findOne(id);
     const relatedPosts = await this.postService.findRelatedPost(post.category.id, id);
@@ -121,7 +123,7 @@ export class AppController {
   }
 
   @Render('course/course_page')
-  @Get(["khoa-hoc/:slug/:id", ...createLocaleRoute('course/:slug/:id')])
+  @Get(["khoa-hoc/:slug/:id", ...createLocaleRoute(['course/:slug/:id', 'khoa-hoc/:slug/:id'])])
   async getKhoaHoc(@Param('id') id: number) {
     console.log(`course id: `, id);
 

@@ -10,10 +10,10 @@ export class WebViewsController {
     constructor(private readonly postService: PostService,
         private readonly optionService: OptionService) { }
 
-    @Get(['chuyen-nganh-hoc', ...createLocaleRoute('major')])
+    @Get(['chuyen-nganh-hoc', ...createLocaleRoute(['major', 'chuyen-nganh-hoc'])])
     @Render('posts/post_list_page')
     async majorPage(): Promise<object> {
-        
+
         return { ...await this.filterPost(2), title: 'Chuyên ngành học' };
     }
 
@@ -47,7 +47,7 @@ export class WebViewsController {
         }
     }
 
-    @Get(['thong-tin-hoc-bong', ...createLocaleRoute('scholarship')])
+    @Get(['thong-tin-hoc-bong', ...createLocaleRoute(['scholarship', 'thong-tin-hoc-bong'])])
     @Render('posts/post_list_page')
     async scholarshipInfo(): Promise<object> {
         return { ...await this.filterPost(3), title: 'Thông tin học bổng' };
@@ -55,7 +55,7 @@ export class WebViewsController {
 
 
 
-    @Get(['hieu-ve-han-quoc', ...createLocaleRoute('learn-about-korea')])
+    @Get(['hieu-ve-han-quoc', ...createLocaleRoute(['learn-about-korea', 'hieu-ve-han-quoc'])])
     @Render('posts/post_list_page')
     async knownAboutKoreaPage(): Promise<object> {
         return {
@@ -64,7 +64,7 @@ export class WebViewsController {
         }
     }
 
-    @Get(['cong-dong', ...createLocaleRoute('community')])
+    @Get(['cong-dong', ...createLocaleRoute(['community', 'cong-dong'])])
     @Render('posts/post_list_page')
     async communityPage(): Promise<object> {
         return {
@@ -74,7 +74,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['hoc-tieng-han', ...createLocaleRoute('learn-korean')])
+    @Get(['hoc-tieng-han', ...createLocaleRoute(['learn-korean', 'hoc-tieng-han'])])
     @Render('posts/post_list_page')
     async koreanLearningPage(): Promise<object> {
         return {
@@ -83,7 +83,7 @@ export class WebViewsController {
         }
     }
 
-    @Get(['su-kien', ...createLocaleRoute('event')])
+    @Get(['su-kien', ...createLocaleRoute(['event', 'su-kien'])])
     @Render('posts/post_list_page')
     async eventPage(): Promise<object> {
         return {
@@ -93,7 +93,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['co-van-hoc-tap', ...createLocaleRoute('mentor')])
+    @Get(['co-van-hoc-tap', ...createLocaleRoute(['mentor', 'co-van-hoc-tap'])])
     @Render('posts/post_list_page')
     async mentorPage(): Promise<object> {
 
@@ -104,7 +104,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['workshop', ...createLocaleRoute('workshop')])
+    @Get(['workshop', ...createLocaleRoute(['workshop'])])
     @Render('posts/post_list_page')
     async workshopPage(): Promise<object> {
         return {
@@ -113,7 +113,7 @@ export class WebViewsController {
         }
     }
 
-    @Get(['cau-lac-bo', ...createLocaleRoute('club')])
+    @Get(['cau-lac-bo', ...createLocaleRoute(['club', 'cau-lac-bo'])])
     @Render('posts/post_list_page')
     async topikCoursePage(): Promise<object> {
         return {
@@ -122,7 +122,7 @@ export class WebViewsController {
         }
     }
 
-    @Get(['thu-vien-nho', ...createLocaleRoute('library')])
+    @Get(['thu-vien-nho', ...createLocaleRoute(['library', 'thu-vien-nho'])])
     @Render('posts/post_list_page')
     async opicCoursePage(): Promise<object> {
         return {
@@ -132,7 +132,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['mang-xa-hoi', ...createLocaleRoute('social-network')])
+    @Get(['mang-xa-hoi', ...createLocaleRoute(['social-network', 'mang-xa-hoi'])])
     @Render('introduction/sns_page')
     async snsPage(): Promise<object> {
         let pageContent = await this.optionService.getOptionByKey(`page_sns`);
@@ -146,7 +146,7 @@ export class WebViewsController {
     }
 
 
-    @Get(['ve-chung-toi', ...createLocaleRoute('about_g-edu')])
+    @Get(['ve-chung-toi', ...createLocaleRoute(['about_g-edu', 've-chung-toi'])])
     @Render('introduction/about')
     async aboutPage(): Promise<object> {
         let pageContent = await this.optionService.getOptionByKey(`page_introduction`);
