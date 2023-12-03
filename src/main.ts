@@ -16,12 +16,10 @@ import { I18nContext } from 'nestjs-i18n';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors();
-
   //  configure view engine and static assets
   
   app.useStaticAssets(process.cwd() + '/assets/public');
   app.setBaseViewsDir(process.cwd() + '/assets/views');
-
 
   handlebars.registerPartial(
     'head_component',
@@ -90,11 +88,12 @@ async function bootstrap() {
     return moment(value).format("yyyy-MM-dd HH:mm:ss");
   });
 
-  handlebars.registerHelper('trans', function (value, options) {
-    I18nContext.current().lang 
-    return moment(value).format("yyyy-MM-dd HH:mm:ss");
-    
+  handlebars.registerHelper('currentLang', function (value, options) {
+    return I18nContext.current().lang ;
   });
+
+  
+  
   moment.locale('vi');
 
   app.setViewEngine('hbs');

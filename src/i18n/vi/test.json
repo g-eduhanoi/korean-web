@@ -90,15 +90,17 @@
         "footer": {
           "block1": {
             "title": "Trung tâm tiếng Hàn G-EDU",
-            "phone": "Điện thoại: 038 318 5291",
-            "Địa chỉ": "Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội"
+            "phone": "Điện thoại:",
+            "address": "Địa chỉ:"
           },
           "block2": {
             "title": "Để lại thông tin liên hệ",
             "desc": "Nếu bạn có thắc mắc hay băn khoăn về chương trình học, hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!",
             "form": {
               "label1": "Họ và tên",
-              "label2": "Số điện thoại"
+              "label2": "Số điện thoại",
+              "successMss": "Cảm ơn bạn đã quan tâm đến chương trình học, chúng tôi liên hệ lại với bạn trong thời gian sớm nhất!",
+              "button": "Gửi"
             }
           }
         }

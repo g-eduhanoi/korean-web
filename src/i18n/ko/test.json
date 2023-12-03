@@ -32,72 +32,74 @@
       },
       "body": {
         "section-skill": {
-          "title": "Kỹ năng đạt được",
+          "title": "습득할 것",
           "grammar": {
-            "title": "Ngữ pháp",
-            "desc": "Là nền tảng quan trọng nhất của ngôn ngữ, “gốc rễ” phải chắc thì cây mới vững chãi và ra hoa kết trái."
+            "title": "문법",
+            "desc": "언어의 가장 중요한 기초로서 '뿌리'가 튼튼해야 나무가 튼튼하고 열매를 맺을 수 있다."
           },
           "speaking": {
-            "title": "Phát âm - Nói",
-            "desc": "Giao tiếp là sự qua lại hai chiều, thực hành Phát âm đúng và chuẩn là bước đệm để Nói hay và Nghe giỏi."
+            "title": "발음 - 말하기",
+            "desc": "의사소통은 양방향 소통입니다. 올바른 발음과 표준 발음은 말하기와 듣기를 위한 발판입니다."
           },
           "listening": {
-            "title": "Nghe",
-            "desc": "Thực hành nghe một cách chủ động để tăng độ tiếp xúc với ngôn ngữ, nâng cao khả năng nghe và hiểu ngôn ngữ."
+            "title": "듣기",
+            "desc": "능동적인 듣기 연습은 언어와의 접촉을 증가시키고, 언어를 듣고 이해하는 능력을 향상시킨다."
           },
           "writing": {
-            "title": "Viết",
-            "desc": "Bước thực hành tiếng tổng hợp của học ngôn ngữ. Viết giỏi mới thực sự là giỏi!"
+            "title": "쓰기",
+            "desc": "언어 학습의 통합 언어 연습 단계. 글을 잘 쎠야 정말 잘는다!"
           }
         },
         "section-itinerary": {
-          "title": "Hành trình với G-EDU"
+          "title": "G-EDU와 코스"
         },
         "section-img": {
-          "title": "Thư viện ảnh"
+          "title": "사진 갤러리"
         },
         "section-faq": {
-          "title": "Câu hỏi thường gặp",
+          "title": "자주 묻는 질문",
           "questions": {
             "ques1": {
-              "title": "KHÓA HỌC NÀY DÀNH CHO NHỮNG AI?",
-              "ans": "G-EDU có đầy đủ các khóa học dành cho mọi đối tượng quan tâm đến tiếng Hàn. Hãy liên hệ để được tư vấn khóa học phù hợp."
+              "title": "이 코스는 누구를 위한 것입니까?",
+              "ans": "G-EDU는 한국어에 관심이 있는 모든 사람들을 위한 충분한 강좌를 가지고 있다. 적절한 코스 상담을 위해 연락하세요."
             },
             "ques2": {
-              "title": "TÔI CÓ THỂ TRẢI NGHIỆM HỌC THỬ KHÔNG?",
-              "ans": "G-EDU không cung cấp riêng biệt tiết học thử. Học viên đăng ký học và sau khi kết thúc buổi học đầu tiên, nếu học viên không hài lòng, chúng tôi sẽ HOÀN TRẢ TOÀN BỘ số tiền khóa học bạn đã đóng."
+              "title": "체험학습 할 수 있을까요?",
+              "ans": "G-U는 별도의 수업을 제공하지 않는다.입학시험은 첫 번째 수업이 끝난 후, 학생들은 만족하지 않으면 모든 수업료를 완전히 갚지 않을 것이다."
             },
             "ques3": {
-              "title": "THỦ TỤC ĐĂNG KÍ NHƯ THẾ NÀO?",
-              "ans": "Sự chuẩn bị rõ ràng về mục đích học của bạn là hành trang đủ để bắt đầu ngay với G-EDU."
+              "title": "등록 절차는 어떻게 됩니까?",
+              "ans": "당신의 학습 목적에 대한 명확한 준비는 G-EDU에서 즉시 시작할 수 있을 만큼 충분히 준비한다."
             },
             "ques4": {
-              "title": "TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?",
-              "ans": "G-EDU thiết kế các lớp học ONLINE và OFFLINE riêng biệt, nhưng không kết hợp đồng thời Online và Offline."
+              "title": "학원이 온라인 교육을 지원합니까?",
+              "ans": "G-EDU는 별도의 온라인과 오프라인 클래스를 설계하지만 온라인과 오프라인은 동시 결합하지 않는다."
             },
             "ques5": {
-              "title": "TRUNG TÂM CÓ HỖ TRỢ HỌC VIÊN NGOÀI GIỜ HỌC KHÔNG?",
-              "ans": "Tại tầng 3 của G-EDU, các học viên sẽ thoải mái sử dụng 'Góc thư viện' để đọc sách tiếng Hàn, thực hành tiếng theo cá nhân hoặc theo nhóm. <br> Đặc biệt, học viên sẽ được tư vấn với những người sáng lập trung tâm về “mọi nỗi lo” (định hướng sau học tiếng Hàn, dự định du học, chọn nghề nghiệp v.v)"
+              "title": "학원은 학생들이 수업 이외의 시간에 지원합니까?",
+              "ans": "G-EDU 3층에서는 수강생들이 편하게 '도서관 코너'를 이용해 한국어 책을 읽고 개인 또는 팀별로 언어를 연습한다. <br> 특히 학생들은 센터 설립자들과 '모든 고민'(한국어 학습 후 오리엔테이션, 유학 예정, 진로 선택 등)에 대해 상담을 받게 된다."
             },
             "ques6": {
-              "title": "VÌ SAO NÊN CHỌN G-EDU ĐỂ HỌC TIẾNG HÀN?",
-              "ans": "Tại G-EDU, chúng tôi chọn phương châm 'thực dạy' và 'thực học'. <br> Sự tâm huyết, giàu chuyên môn và tầm nhìn của đội ngũ sáng lập trung tâm sẽ là nguồn lực quý giá và 'mở' cho tất cả học viên của G-EDU 'tận dụng'. <br> G-EDU cung cấp các bài giảng đặc biệt, các buổi nói chuyện, workshop giao lưu dành cho học viên."
+              "title": "왜 G-EDU를 선택해서 한국어를 배워야 할까요?",
+              "ans": "G-EDU에서는 '실습'과 '실습' 방침을 정합니다. <br> 센터 창립진의 열정, 전문성 및 비전은 G-EDU의 모든 학생들이 '활용'할 수 있는 소중한 자원이 될 것입니다. <br>G-EDU는 학생들을 위한 특별 강의, 토크쇼, 교류 워크숍을 제공합니다."
             }
           }
         }
       },
       "footer": {
         "block1": {
-          "title": "Trung tâm tiếng Hàn G-EDU",
-          "phone": "Điện thoại: 038 318 5291",
-          "Địa chỉ": "Số 12N7 ngõ 40, đường Xuân La, P. Xuân La, Q.Tây Hồ, Tp. Hà Nội"
+          "title": "G-EDU 한국어 학원",
+          "phone": "전화번호:",
+          "address": "주소"
         },
         "block2": {
-          "title": "Để lại thông tin liên hệ",
-          "desc": "Nếu bạn có thắc mắc hay băn khoăn về chương trình học, hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!",
+          "title": "연락을 남긴다",
+          "desc": "커리큘럼에 대해 궁금하거나 궁금한 점이 있으면 정보를 남겨주시면 빠른 시일 내에 연락드리겠습니다!",
           "form": {
-            "label1": "Họ và tên",
-            "label2": "Số điện thoại"
+            "label1": "이름",
+            "label2": "전화번호",
+            "successMss": "커리큘럼에 관심을 가져 주셔서 감사드리며, 빠른 시일 내에 다시 연락드리겠습니다!",
+            "button": "등록"
           }
         }
       }

@@ -126,4 +126,50 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     }
+
+    // for on change web lang
+
+    function onChangeLanguage(event) {
+        console.log("changed lang: ", event.target.value);
+
+        let langPath = location.pathname;
+        switch (event.target.value) {
+            case "ko":
+                if (langPath.startsWith("/ko"))
+                    return;
+                if (langPath.startsWith("/en"))
+                    langPath = langPath.replace("/en", "");
+                window.location.href = window.location.origin + "/ko" + langPath;
+                break;
+            case "en":
+                if (langPath.startsWith("/en"))
+                    return;
+                if (langPath.startsWith("/ko"))
+                    langPath = langPath.replace("/ko", "");
+                window.location.href = window.location.origin + "/en" + langPath;
+                break;
+            default:
+                if (langPath.startsWith("/en"))
+                    langPath = langPath.replace("/en", "");
+                else if (langPath.startsWith("/ko"))
+                    langPath = langPath.replace("/ko", "");
+                window.location.href = window.location.origin + langPath;
+                break;
+        }
+
+        // location.pathname
+    }
+    document.getElementById("webLang").addEventListener("change", onChangeLanguage);
+    switch (document.querySelector('meta[name="lang"]').content) {
+        case "ko":
+            document.getElementById("webLang").value = "ko";
+            break;
+        case "en":
+            document.getElementById("webLang").value = "en";
+            break;
+        default:
+            break;
+    }
+
+
 });

@@ -21,7 +21,7 @@
         <section class="pt-[50px] text-center">
             <p class="text-2xl text-[#B0B0C0]">G-EDU</p>
             <h3 class="text-3xl text-[#181B32] font-[600] mt-[15px]">
-                Kỹ năng đạt được
+                {{ t 'test.pages.homepage.body.section-skill.title' }}
             </h3>
 
             <div class="grid md:flex gap-[50px] skills mt-[50px] justify-center">
@@ -29,12 +29,11 @@
                     <div class="grid gap-[30px] justify-center justify-items-center">
                         <img class="mx-auto" src="/images/homepage/grammar_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
-                            Ngữ pháp
+                            {{ t 'test.pages.homepage.body.section-skill.grammar.title' }}
                         </p>
                     </div>
                     <p class="mt-[15px]">
-                        Là nền tảng quan trọng nhất của ngôn ngữ, “gốc rễ” phải chắc thì cây mới vững chãi và ra hoa kết
-                        trái.
+                        {{ t 'test.pages.homepage.body.section-skill.grammar.desc' }}
                     </p>
                 </div>
 
@@ -42,13 +41,11 @@
                     <div class="grid gap-[30px] justify-center">
                         <img class="mx-auto" src="/images/homepage/speaking_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
-                            Phát âm - Nói
+                            {{ t 'test.pages.homepage.body.section-skill.speaking.title' }}
                         </p>
                     </div>
                     <p class="mt-[15px]">
-                        Giao tiếp là sự qua lại hai chiều, thực hành Phát âm đúng và chuẩn là bước đệm để Nói hay và
-                        Nghe
-                        giỏi.
+                      {{ t 'test.pages.homepage.body.section-skill.speaking.desc' }}
                     </p>
                 </div>
 
@@ -56,24 +53,24 @@
                     <div class="grid gap-[30px] justify-center justify-items-center">
                         <img class="mx-auto" src="/images/homepage/listening_icon.jpg" alt="">
                         <p class="text-2xl text-[#181B32] font-[600]">
-                            Nghe
+                            {{ t 'test.pages.homepage.body.section-skill.listening.title' }}
                         </p>
 
                     </div>
                     <p class="mt-[15px]">
-                        Thực hành nghe một cách chủ động để tăng độ tiếp xúc với ngôn ngữ, nâng cao khả năng nghe và
-                        hiểu
-                        ngôn ngữ.
+                        {{ t 'test.pages.homepage.body.section-skill.listening.desc' }}
                     </p>
                 </div>
 
                 <div class="md:w-[350px]">
                     <div class="grid gap-[30px] justify-center">
                         <img class="mx-auto" src="/images/homepage/writing_icon.jpg" alt="">
-                        <p class="text-2xl text-[#181B32] font-[600]">Viết</p>
+                        <p class="text-2xl text-[#181B32] font-[600]">
+                            {{ t 'test.pages.homepage.body.section-skill.writing.title' }}
+                        </p>
                     </div>
                     <p class="mt-[15px]">
-                        Bước thực hành tiếng tổng hợp của học ngôn ngữ. Viết giỏi mới thực sự là giỏi!
+                       {{ t 'test.pages.homepage.body.section-skill.writing.desc' }}
                     </p>
                 </div>
 
@@ -87,7 +84,7 @@
         <!-- study itenerary -->
         <section class="pt-[50px] studying_itenerary">
             <h3 class="text-3xl font-semibold">
-                Hành trình với G-EDU
+                {{ t 'test.pages.homepage.body.section-itinerary.title' }}
             </h3>
 
             <div class="hidden md:block">
@@ -113,7 +110,7 @@
         <!-- anh -->
         <section class="pt-[50px] studying_itenerary mb-10 md:mb-5">
             <h3 class="text-3xl font-semibold">
-                Thư viện ảnh
+                 {{ t 'test.pages.homepage.body.section-img.title' }}
             </h3>
 
             <div class="image-container w-fit mx-auto mt-[30px] grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-[1px] justify-center flex-wrap">
@@ -133,7 +130,7 @@
         <!-- faq -->
         <section class="pt-[50px] studying_itenerary mb-10 md:mb-20">
             <h3 class="text-3xl font-semibold">
-                Câu hỏi thường gặp
+                {{ t 'test.pages.homepage.body.section-faq.title' }}
             </h3>
 
             <div class="mt-[30px]">
@@ -142,7 +139,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                KHÓA HỌC NÀY DÀNH CHO NHỮNG AI?
+                               {{ t 'test.pages.homepage.body.section-faq.questions.ques1.title' }}
                             </h3>
 
                             <div
@@ -157,8 +154,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            G-EDU có đầy đủ các khóa học dành cho mọi đối tượng quan tâm đến tiếng Hàn. Hãy liên hệ để
-                            được tư vấn khóa học phù hợp
+                            {{ t 'test.pages.homepage.body.section-faq.questions.ques1.ans' }}
                         </p>
                     </li>
 
@@ -166,7 +162,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                TÔI CÓ THỂ TRẢI NGHIỆM HỌC THỬ KHÔNG?
+                              {{ t 'test.pages.homepage.body.section-faq.questions.ques2.title' }}
                             </h3>
 
                             <div
@@ -181,9 +177,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            G-EDU không cung cấp riêng biệt tiết học thử. Học viên đăng ký học và sau khi kết thúc buổi
-                            học đầu tiên, nếu học viên không hài lòng, chúng tôi sẽ HOÀN TRẢ TOÀN BỘ số tiền khóa học
-                            bạn đã đóng.
+                             {{ t 'test.pages.homepage.body.section-faq.questions.ques2.ans' }}
                         </p>
                     </li>
 
@@ -191,7 +185,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                THỦ TỤC ĐĂNG KÍ NHƯ THẾ NÀO?
+                                {{ t 'test.pages.homepage.body.section-faq.questions.ques3.title' }}
                             </h3>
 
                             <div
@@ -206,7 +200,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            Sự chuẩn bị rõ ràng về mục đích học của bạn là hành trang đủ để bắt đầu ngay với G-EDU
+                            {{ t 'test.pages.homepage.body.section-faq.questions.ques3.ans' }}
                         </p>
                     </li>
 
@@ -214,7 +208,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                TRUNG TÂM CÓ HỖ TRỢ DẠY HỌC ONLINE KHÔNG?
+                                {{ t 'test.pages.homepage.body.section-faq.questions.ques4.title' }}
                             </h3>
 
                             <div
@@ -229,8 +223,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            G-EDU thiết kế các lớp học ONLINE và OFFLINE riêng biệt, nhưng không kết hợp đồng thời On và
-                            Off.
+                           {{ t 'test.pages.homepage.body.section-faq.questions.ques4.ans' }}
                         </p>
                     </li>
 
@@ -238,7 +231,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                TRUNG TÂM CÓ HỖ TRỢ HỌC VIÊN NGOÀI GIỜ HỌC KHÔNG?
+                                {{ t 'test.pages.homepage.body.section-faq.questions.ques5.title' }}
                             </h3>
 
                             <div
@@ -253,11 +246,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            Tại tầng 3 của G-EDU, các học viên sẽ thoải mái sử dụng “Góc thư viện” để đọc sách tiếng
-                            Hàn, thực hành tiếng theo cá nhân hoặc theo nhóm.
-                            <br />
-                            Đặc biệt, học viên sẽ được tư vấn với những người sáng lập trung tâm về “mọi nỗi lo” (định
-                            hướng sau học tiếng Hàn, dự định du học, chọn nghề nghiệp v.v)
+                            {{{ t 'test.pages.homepage.body.section-faq.questions.ques5.ans' }}}
                         </p>
                     </li>
 
@@ -265,7 +254,7 @@
                         class="faq_item border border-[#B0B0C0] w-full md:w-[48%] lg:w-[48.2%] xl:w-[48.6%] px-[20px] lg:px-[50px] py-[20px] rounded-[30px] duration-200 ease-in-out">
                         <div class=" flex flex-row items-center justify-between gap-[15px]">
                             <h3 class="font-semibold text-lg ">
-                                VÌ SAO NÊN CHỌN G-EDU ĐỂ HỌC TIẾNG HÀN?
+                                {{ t 'test.pages.homepage.body.section-faq.questions.ques6.title' }}
                             </h3>
 
                             <div
@@ -280,13 +269,7 @@
 
                         </div>
                         <p class="faq_ans hidden max-w-[95%] mt-[10px]">
-                            Tại G-EDU, chúng tôi chọn phương châm “thực dạy” và “thực học”
-                            <br>
-                            Sự tâm huyết, giàu chuyên môn và tầm nhìn của đội ngũ sáng lập trung tâm sẽ là nguồn lực quý
-                            giá và “mở” cho tất cả học viên của G-EDU “tận dụng”
-                            <br>
-                            G-EDU cung cấp các bài giảng đặc biệt, các buổi nói chuyện, workshop giao lưu dành cho học
-                            viên.
+                            {{{ t 'test.pages.homepage.body.section-faq.questions.ques6.ans' }}}
                         </p>
                     </li>
 

@@ -1,106 +1,108 @@
 {
   "testmmm": "test11 en",
-    "pages": {
-      "homepage": {
-        "header": {
-          "menu": {
-            "about": "About G-EDU",
-            "study": "Study in Korea",
-            "living": "Live in Korea",
-            "course": "Course",
-            "activity": "Activities",
-            "contact": "Contact",
-            "vi": "Vietnamese",
-            "ko": "Korean",
-            "en": "English"
+  "pages": {
+    "homepage": {
+      "header": {
+        "menu": {
+          "about": "About G-EDU",
+          "study": "Study in Korea",
+          "living": "Live in Korea",
+          "course": "Course",
+          "activity": "Activities",
+          "contact": "Contact",
+          "vi": "Vietnamese",
+          "ko": "Korean",
+          "en": "English"
+        },
+        "menu-item": {
+          "item1.1": "Learn Korean",
+          "item1.2": "Major Info",
+          "item1.3": "Scholarship Info",
+          "item2.1": "Know Korea",
+          "item2.2": "Community",
+          "item3.1": "Begin-Inter-Advanced Course",
+          "item3.2": "Topik Course",
+          "item3.3": "Special Course",
+          "item4.1": "Guest - Lecture",
+          "item4.2": "Mentor",
+          "item4.3": "Workshop",
+          "item4.4": "Club",
+          "item4.5": "Libary"
+        }
+      },
+      "body": {
+        "section-skill": {
+          "title": "Acquired skill",
+          "grammar": {
+            "title": "Grammar",
+            "desc": "It's important part of the language, the root must be good for the tree to be strong and blossom info fruit."
           },
-          "menu-item": {
-            "item1.1": "Learn Korean",
-            "item1.2": "Major Info",
-            "item1.3": "Scholarship Info",
-            "item2.1": "Know Korea",
-            "item2.2": "Community",
-            "item3.1": "Begin-Inter-Advanced Course",
-            "item3.2": "Topik Course",
-            "item3.3": "Special Course",
-            "item4.1": "Guest - Lecture",
-            "item4.2": "Mentor",
-            "item4.3": "Workshop",
-            "item4.4": "Club",
-            "item4.5": "Libary"
+          "speaking": {
+            "title": "Speaking",
+            "desc": "Communication is a two-way interaction, proper and accurate is the stepping stone to being good at speaking and listening."
+          },
+          "listening": {
+            "title": "Listening",
+            "desc": "Practice listening proactively to increase language exposure, improve language listening and understanding."
+          },
+          "writing": {
+            "title": "Writing",
+            "desc": "Practice writing from basic to advanced. Good at writing is all you need."
           }
         },
-        "body": {
-          "section-skill": {
-            "title": "Acquired skill",
-            "grammar": {
-              "title": "Grammar",
-              "desc": "It's important part of the language, the root must be good for the tree to be strong and blossom info fruit."
+        "section-itinerary": {
+          "title": "Begin journey with G-EDU"
+        },
+        "section-img": {
+          "title": "Image gallery"
+        },
+        "section-faq": {
+          "title": "Frequently asked questions",
+          "questions": {
+            "ques1": {
+              "title": "Who is this course for?",
+              "ans": "G-EDU has full range of courses for everyone interested in Korean. Please contact us for advice on suitable courses.."
             },
-            "speaking": {
-              "title": "Speaking",
-              "desc": "Communication is a two-way interaction, proper and accurate is the stepping stone to being good at speaking and listening."
+            "ques2": {
+              "title": "CAN I TAKE A TRIAL LEARNING EXPERIENCE?",
+              "ans": "G-EDU doesn not just provides trial course. Students can register for the first day of course. If they are not satisfied, we will full-Refund you paid."
             },
-            "listening": {
-              "title": "Listening",
-              "desc": "Practice listening proactively to increase language exposure, improve language listening and understanding."
+            "ques3": {
+              "title": "How to register course?",
+              "ans": "Just use your phone and contact us. We will instruct you."
             },
-            "writing": {
-              "title": "Writing",
-              "desc": "Practice writing from basic to advanced. Good at writing is all you need."
-            }
-          },
-          "section-itinerary": {
-            "title": "Begin journey with G-EDU"
-          },
-          "section-img": {
-            "title": "Image gallery"
-          },
-          "section-faq": {
-            "title": "Frequently asked questions",
-            "questions": {
-              "ques1": {
-                "title": "Who is this course for?",
-                "ans": "G-EDU has full range of courses for everyone interested in Korean. Please contact us for advice on suitable courses.."
-              },
-              "ques2": {
-                "title": "CAN I TAKE A TRIAL LEARNING EXPERIENCE?",
-                "ans": "G-EDU doesn not just provides trial course. Students can register for the first day of course. If they are not satisfied, we will full-Refund you paid."
-              },
-              "ques3": {
-                "title": "How to register course?",
-                "ans": "Just use your phone and contact us. We will instruct you."
-              },
-              "ques4": {
-                "title": "Does G-EDU has has online course?",
-                "ans": "G-EDU designs separate online and ofline courses. You can choose one of them to start learning."
-              },
-              "ques5": {
-                "title": "Does G-EDU support out of teaching time?",
-                "ans": "At 3rd floor in G-EDU, students can use free library space to read Korean book, practice Korean personal or with group. <br> In particular, students can be consulted with the founders of the center on 'all worries' (post-hoc orientation, plan to study abroad, choose a career, etc.)"
-              },
-              "ques6": {
-                "title": "WHY SHOULD CHOOSE G-EDU TO start learning Korean?",
-                "ans": "At G-EDU, We choose 'practical teaching' and 'practical learning'. <br>The enthusiasm, expertise, and vision of the center's founding team will be valuable and 'open' resources for all G-EDU's students to take advantage. <br> G-EDU offers special lectures, talks, exchange workshops for students."
-              }
+            "ques4": {
+              "title": "Does G-EDU has has online course?",
+              "ans": "G-EDU designs separate online and ofline courses. You can choose one of them to start learning."
+            },
+            "ques5": {
+              "title": "Does G-EDU support out of teaching time?",
+              "ans": "At 3rd floor in G-EDU, students can use free library space to read Korean book, practice Korean personal or with group. <br> In particular, students can be consulted with the founders of the center on 'all worries' (post-hoc orientation, plan to study abroad, choose a career, etc.)"
+            },
+            "ques6": {
+              "title": "WHY SHOULD CHOOSE G-EDU TO start learning Korean?",
+              "ans": "At G-EDU, We choose 'practical teaching' and 'practical learning'. <br>The enthusiasm, expertise, and vision of the center's founding team will be valuable and 'open' resources for all G-EDU's students to take advantage. <br> G-EDU offers special lectures, talks, exchange workshops for students."
             }
           }
+        }
+      },
+      "footer": {
+        "block1": {
+          "title": "G-EDU Korean center",
+          "phone": "Phone:",
+          "address": "Address:"
         },
-        "footer": {
-          "block1": {
-            "title": "G-EDU Korean center",
-            "phone": "Phone: 098 123 4567",
-            "Địa chỉ": "No.12N7 lane 40, Xuân La street, Xuân La ward, Tây Hồ district, Hà Nội city"
-          },
-          "block2": {
-            "title": "Leave your information",
-            "desc": "If you have any question about curriculum, leave your information and we will contact you as soon as possible.",
-            "form": {
-              "label1": "Your name",
-              "label2": "Your phone"
-            }
+        "block2": {
+          "title": "Leave your information",
+          "desc": "If you have any question about curriculum, leave your information and we will contact you as soon as possible.",
+          "form": {
+            "label1": "Your name",
+            "label2": "Your phone",
+            "successMss": "Thank you for your interest in the curriculum, we will contact you again as soon as possible!",
+            "button": "Send"
           }
         }
       }
     }
   }
+}
