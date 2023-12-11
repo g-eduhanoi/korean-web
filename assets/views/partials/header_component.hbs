@@ -64,6 +64,8 @@
             <!-- begin header menu -->
             <ul
                 class="grid md:flex gap-[10px] lg:gap-[20px] font-[700] px-[30px] py-[50px] md:p-0 md:justify-center items-center text-[#666680]">
+
+                {{!-- about --}}
                 <li class="relative cursor-pointer">
                     <a href="/ve-chung-toi" class=" flex space-x-1 items-center hover:text-[#130D4B]">
                         <span>
@@ -101,7 +103,8 @@
                     </ul>
                 </li>
 
-                <li class="menu_item relative cursor-pointer">
+                {{!-- live in korean --}}
+                <li class="hidden menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
                         <span>
                             {{ t 'test.pages.homepage.header.menu.living' }}
@@ -124,6 +127,7 @@
                     </ul>
                 </li>
 
+                {{!-- course --}}
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
                         <span>
@@ -153,6 +157,7 @@
                     </ul>
                 </li>
 
+                {{!-- activity --}}
                 <li class="menu_item relative cursor-pointer">
                     <a class="flex space-x-1 items-center hover:text-[#130D4B]">
                         <span>
@@ -185,6 +190,15 @@
                                 {{ t 'test.pages.homepage.header.menu-item.item4.5' }}
                             </a></li>
                     </ul>
+                </li>
+
+                <li class="relative cursor-pointer">
+                    <a href="/danh-sach-chuyen-muc" class="flex space-x-1 items-center hover:text-[#130D4B]">
+                        <span>
+                            Blogs
+                        </span>
+                    </a>
+
                 </li>
 
                 <li><a href="/lien-he" class=" hover:text-[#130D4B]">

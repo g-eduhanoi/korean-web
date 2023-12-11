@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { PostLocaleType } from "post/entities/post.entity";
 
 export class PostFilterReqDto {
     @ApiProperty({
@@ -12,4 +13,6 @@ export class PostFilterReqDto {
         default: 'post mm'
     })
     q?: string;
+
+    postLocale: PostLocaleType;
 }

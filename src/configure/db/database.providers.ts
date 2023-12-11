@@ -32,8 +32,7 @@ const databaseProviders = [
                 Option
             ]);
             await sequelize.sync({
-                // alter: true
-            
+                alter: true
             });
             return sequelize;
         },

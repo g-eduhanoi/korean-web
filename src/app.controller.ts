@@ -21,6 +21,7 @@ import { ClassService } from 'class/class.service';
 import { OptionService } from 'option/option.service';
 import { I18n, I18nContext, I18nService } from 'nestjs-i18n';
 import createLocaleRoute from 'configure/utils/I18nRoute';
+import { PostLocaleType } from 'post/entities/post.entity';
 
 @Controller()
 export class AppController {
@@ -111,7 +112,7 @@ export class AppController {
   @Get(["bai-viet/:slug/:id", ...createLocaleRoute(['post/:slug/:id', 'bai-viet/:slug/:id'])])
   async getDetailPost(@Param('id') id: number) {
     const post = await this.postService.findOne(id);
-    const relatedPosts = await this.postService.findRelatedPost(post.category.id, id);
+    const relatedPosts = await this.postService.findRelatedPost(post.category.id, id, I18nContext.current().lang.toUpperCase() as PostLocaleType);
 
     console.log(relatedPosts.length);
 

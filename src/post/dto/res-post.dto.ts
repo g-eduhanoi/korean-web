@@ -16,8 +16,13 @@ export class ResPostDto {
     tags: Tag[];
     createdAt: Date;
     updatedAt: Date;
+    postParent?: number;
+    postLocale: string;
+    postEn?: ResPostDto;
+    postKo?: ResPostDto;
 
     static async fromPost(post: Post): Promise<ResPostDto> {
+        if(!post) return null;
         const res = new ResPostDto();
         res.id = post.id;
         res.title = post.title;

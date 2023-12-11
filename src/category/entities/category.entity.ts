@@ -6,6 +6,9 @@ export class Category extends Model{
     name: string;
     @Column
     slug: string;
+
+    @Column
+    parentId: number;
 }
 
 export const CategoryRepo = {

@@ -4,6 +4,7 @@ import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { ResPageDto } from 'configure/db/res-page.dto';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class CategoryService {
@@ -148,6 +149,11 @@ export class CategoryService {
     console.log(ReqPageableDto.toPageable(pageable));
 
     const result = await this.categoryRepo.findAndCountAll({
+      where: {
+        parentId: {
+          [Op.eq]: null
+        }
+      },
       ...ReqPageableDto.toPageable(pageable)
     });
 

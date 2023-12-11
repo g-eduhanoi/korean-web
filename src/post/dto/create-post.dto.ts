@@ -55,6 +55,8 @@ export class CreatePostDto {
     tagIds: number[];
 
     loggedUserId: number;
+    postParent?: number;
+    postLocale: string;
 
     category: Category | null;
     tags: Tag[] | null;

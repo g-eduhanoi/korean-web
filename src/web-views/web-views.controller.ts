@@ -19,14 +19,16 @@ export class WebViewsController {
 
     async filterPost(categoryId: number) {
         const latestPosts = await this.postService.filter({
-            categoryId
+            categoryId,
+            postLocale: "VI"
         }, {
             page: 0, size: 3
         });
 
 
         const pageDto = await this.postService.filter({
-            categoryId
+            categoryId,
+            postLocale: "VI"
         }, {
             page: 0, size: 12
         });
@@ -145,6 +147,12 @@ export class WebViewsController {
         }
     }
 
+    @Get(['cac-chuyen-muc', ...createLocaleRoute(['blogs', 'cac-chuyen-muc'])])
+    @Render('posts/blogs')
+    async blogs(){
+
+        return {}
+    }
 
     @Get(['ve-chung-toi', ...createLocaleRoute(['about_g-edu', 've-chung-toi'])])
     @Render('introduction/about')

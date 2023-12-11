@@ -36,8 +36,13 @@ export class Post extends Model {
   createdBy: number;
 
   @Column
-
   updatedBy: number;
+
+  @Column
+  parentId: number;
+
+  @Column
+  postLocale: string;
 
   @BelongsToMany(() => Tag, () => PostTag)
   tags: Tag[];
@@ -53,6 +58,17 @@ export class PostTag extends Model {
   @ForeignKey(() => Tag)
   @Column
   tagId: number;
+}
+
+export type PostLocaleType = "VI" | "EN" | "KO";
+export const EPostLocale: {
+  Vi: PostLocaleType;
+  En: PostLocaleType;
+  Ko: PostLocaleType;
+} = {
+  Vi: "VI",
+  En: "EN",
+  Ko: "KO"
 }
 
 export const PostProviders = [
