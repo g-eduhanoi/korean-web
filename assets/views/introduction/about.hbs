@@ -4,7 +4,7 @@
 <head>
     <!-- head -->
     {{> head_component}}
-    <title>Về chúng tôi - G-EDU</title>
+    <title>{{ t 'test.pages.homepage.header.menu.about' }}</title>
 </head>
 
 <body>
@@ -19,13 +19,13 @@
                 <li>
                     <a href="/"
                         class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
-                        Trang chủ
+                         {{ t 'test.navbar.home' }}
                     </a>
                 </li>
                 <li>
                     <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
                 </li>
-                <li class="text-neutral-500 dark:text-neutral-400"> {{title}}</li>
+                <li class="text-neutral-500 dark:text-neutral-400"> {{ t 'test.pages.homepage.header.menu.about' }}</li>
             </ol>
         </nav>
 

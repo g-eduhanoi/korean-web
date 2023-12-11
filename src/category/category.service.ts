@@ -170,6 +170,16 @@ export class CategoryService {
     return await this.categoryRepo.findByPk(id);
   }
 
+  findChilds(parentId: number) {
+    return this.categoryRepo.findAll({
+      where: {
+        parentId: {
+          [Op.eq]: parentId
+        }
+      }
+    });
+  }
+
   async update(id: number, updateCategoryDto: UpdateCategoryDto) {
     const category = await this.findOne(id);
     if (!category) {

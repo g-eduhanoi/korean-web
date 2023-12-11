@@ -3,12 +3,15 @@ import { PostService } from './../post/post.service';
 import { Controller, Get, Render } from '@nestjs/common';
 import createLocaleRoute from 'configure/utils/I18nRoute';
 import { I18n, I18nContext } from 'nestjs-i18n';
+import { CategoryService } from 'category/category.service';
 
 @Controller()
 export class WebViewsController {
 
     constructor(private readonly postService: PostService,
-        private readonly optionService: OptionService) { }
+        private readonly optionService: OptionService,
+        private readonly categoryService: CategoryService
+    ) { }
 
     @Get(['chuyen-nganh-hoc', ...createLocaleRoute(['major', 'chuyen-nganh-hoc'])])
     @Render('posts/post_list_page')
@@ -149,9 +152,32 @@ export class WebViewsController {
 
     @Get(['cac-chuyen-muc', ...createLocaleRoute(['blogs', 'cac-chuyen-muc'])])
     @Render('posts/blogs')
-    async blogs(){
+    async blogs() {
+        const child1s = (await this.categoryService.findChilds(16))
+            .map(async (item) => {
+                return {
+                    title: item.name,
+                    slug: item.slug,
+                    posts: (await this.postService.filter({
+                        categoryId: item.id,
+                        postLocale: "VI"
+                    }, {
+                        page: 0, size: 3,
+                    
+                    })).content
+                }
+            });
 
-        return {}
+
+
+        const pageData = {
+            sectionData: await Promise.all(child1s)
+        }
+
+        pageData.sectionData.forEach(item => {
+            console.log("post length: ", item.posts.length)
+        })
+        return pageData;
     }
 
     @Get(['ve-chung-toi', ...createLocaleRoute(['about_g-edu', 've-chung-toi'])])
@@ -165,6 +191,7 @@ export class WebViewsController {
             images: [],
             content: ''
         };
+        
 
         return {
             pageData,

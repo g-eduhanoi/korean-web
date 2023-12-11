@@ -30,12 +30,20 @@
         </nav>
 
 
-
         <section>
             <div class="flex justify-between items-center">
                 <h3 class="text-2xl font-semibold">Tin Mới Nhất</h3>
 
-                <input class="hidden rounded-[30px] bg-[#F1F5F8] py-3 px-5 w-[340px]" placeholder="search...">
+                <div class="relative h-[60px]">
+                    <input id="searchQ" class="rounded-[30px] outline-none bg-[#F1F5F8] py-3 px-5 w-[340px]"
+                        placeholder="Tìm kiếm...">
+                    <svg class="absolute top-[10px] cursor-pointer hover:scale-[1.05] duration-200 easy-in-out" style="right: 15px;" width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M26.6561 26.1477L22.018 21.4249L21.9093 21.2528C21.7072 21.0432 21.4308 20.9251 21.1423 20.9251C20.8539 20.9251 20.5775 21.0432 20.3754 21.2528C16.4337 25.019 10.3601 25.2237 6.18248 21.7311C2.00487 18.2386 1.01962 12.1325 3.88015 7.46249C6.74068 2.79245 12.5593 1.00756 17.4772 3.29156C22.3951 5.57555 24.8861 11.2197 23.2983 16.4808C23.184 16.8609 23.2774 17.2742 23.5435 17.5651C23.8096 17.856 24.2078 17.9802 24.5883 17.891C24.9687 17.8018 25.2735 17.5127 25.3878 17.1327C27.286 10.8892 24.4192 4.17045 18.642 1.32264C12.8648 -1.52517 5.91104 0.352663 2.27903 5.74136C-1.35298 11.1301 -0.573209 18.4125 4.11391 22.8775C8.80103 27.3426 15.9889 27.6504 21.0276 23.6018L25.1342 27.7834C25.5583 28.2134 26.244 28.2134 26.6681 27.7834C27.0918 27.3473 27.0918 26.6453 26.6681 26.2092L26.6561 26.1477Z"
+                            fill="#3002AF" />
+                    </svg>
+                </div>
+
             </div>
 
 
@@ -54,14 +62,14 @@
                                 </span>
                                 -
                                 <span class="post_meta_item">
-                                    {{recentDate firstPost.createdAt }}
+                                    {{vnDateFormat firstPost.createdAt }}
                                 </span>
                             </div>
 
                             <div class="post_content">
                                 <a href="/bai-viet/{{firstPost.slug}}/{{firstPost.id}}"
                                     class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
+                                    <h2 class="post_title text-[20px] font-[700] text-[#101828]">
                                         {{ firstPost.title }}
                                     </h2>
 
@@ -76,8 +84,8 @@
 
                                 </a>
 
-                                <a href="/bai-viet/{{firstPost.slug}}/{{firstPost.id}}" class="hover:underline duration-200 ease-in-out">
-
+                                <a href="/bai-viet/{{firstPost.slug}}/{{firstPost.id}}"
+                                    class="hover:underline duration-200 ease-in-out">
                                     <p class="post_excerpt text-[16px] text-[#667085]">
                                         {{ firstPost.excerpt }}
                                     </p>
@@ -104,22 +112,22 @@
 
                     {{#each latestPosts}}
                     <div class="md:flex gap-[10px] md:h-[150px]">
-                        <a class="block md:w-[40%] md:h-full" href="/bai-viet/{{slug}}/{{id}}"> 
-                            <img class="w-full h-[300px] md:h-full hover:scale-[1.05] duration-200 ease-in-out border rounded" src="{{ thumbnail }}"
-                                alt="">
+                        <a class="block md:w-[40%] md:h-full" href="/bai-viet/{{slug}}/{{id}}">
+                            <img class="w-full h-[300px] md:h-full hover:scale-[1.05] duration-200 ease-in-out border rounded"
+                                src="{{ thumbnail }}" alt="">
                         </a>
 
-                        <div class="post_info md:w-[60%] flex justify-center flex-col gap-3">
+                        <div class="post_info md:w-[60%] flex flex-col">
                             <div class="post_meta text-[14px] text-[#6941C6]">
                                 <span class="post_meta_item"> {{ category.name }} </span>
                                 -
-                                <span class="post_meta_item"> {{recentDate createdAt }} </span>
+                                <span class="post_meta_item"> {{vnDateFormat createdAt }} </span>
                             </div>
 
-                            <div class="post_content">
+                            <div class="post_content mt-[5px]">
                                 <a href="/bai-viet/{{slug}}/{{id}}"
                                     class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                    <h2 class="post_title text-[25px] text-[#101828]">
+                                    <h2 class="post_title text-[20px] font-[700] text-[#101828]">
                                         {{ title }}
                                     </h2>
 
@@ -136,7 +144,7 @@
 
                                 <a href="/bai-viet/{{slug}}/{{id}}" class="hover:underline duration-200 ease-in-out">
 
-                                    <p class="post_excerpt text-[16px] text-[#667085]">
+                                    <p class="post_excerpt text-[15px] text-[#667085]">
                                         {{ excerpt }}
                                     </p>
                                 </a>
@@ -173,8 +181,8 @@
                 {{#each recentPostPage.content }}
                 <div class="w-[48%] sm:w-[31%]">
                     <a href="/bai-viet/{{slug}}/{{id}}">
-                        <img class="w-full h-[250px] hover:scale-[1.05] duration-200 ease-in-out border rounded" src="{{ thumbnail }}"
-                            alt="">
+                        <img class="w-full h-[250px] hover:scale-[1.05] duration-200 ease-in-out border rounded"
+                            src="{{ thumbnail }}" alt="">
                     </a>
 
                     <div class="post_info grid gap-3 mt-3">
@@ -184,14 +192,14 @@
                             </span>
                             -
                             <span class="post_meta_item">
-                                {{recentDate createdAt }}
+                                {{vnDateFormat createdAt }}
                             </span>
                         </div>
 
                         <div class="post_content">
                             <a href="/bai-viet/{{slug}}/{{id}}"
                                 class="hover:underline flex justify-between items-center duration-200 ease-in-out">
-                                <h2 class="post_title text-[25px] text-[#101828]">
+                                <h2 class="post_title text-[20px] font-[700] text-[#101828]">
                                     {{ title }}
                                 </h2>
 
@@ -208,7 +216,7 @@
 
                             <a href="/bai-viet/{{slug}}/{{id}}" class="hover:underline duration-200 ease-in-out">
 
-                                <p class="post_excerpt text-[16px] text-[#667085]">
+                                <p class="post_excerpt text-[15px] text-[#667085]">
                                     {{ excerpt }}
                                 </p>
                             </a>
@@ -216,12 +224,12 @@
                         </div>
 
                         <ul class="post_tags flex gap-2">
-                             {{#each tags}}
-                                <li
-                                    class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
-                                    {{name}}
-                                </li>
-                                {{/each}}
+                            {{#each tags}}
+                            <li
+                                class="bg-[#EEF4FF] rounded-[15px] text-[11px] px-2 py-1 hover:scale-[1.05] duration-150 ease-in-out cursor-pointer">
+                                {{name}}
+                            </li>
+                            {{/each}}
                         </ul>
 
                     </div>

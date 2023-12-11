@@ -9,6 +9,7 @@ export class Category extends Model{
 
     @Column
     parentId: number;
+
 }
 
 export const CategoryRepo = {

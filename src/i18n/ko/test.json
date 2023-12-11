@@ -1,5 +1,8 @@
 {
   "testmmm": "test11 ko",
+  "navbar": {
+    "home": "홈페이"
+  },
   "pages": {
     "homepage": {
       "header": {
@@ -101,6 +104,24 @@
             "successMss": "커리큘럼에 관심을 가져 주셔서 감사드리며, 빠른 시일 내에 다시 연락드리겠습니다!",
             "button": "등록"
           }
+        }
+      }
+    },
+    "contact_page": {
+      "title": "연락 정보",
+      "body": {
+        "worktimeTitle": "근무시간",
+        "addressTitle": "주소",
+        "phoneTitle": "연락처",
+        "form:": {
+          "title": "연락을 남긴다",
+          "fullName": "이름",
+          "fullNamePlh": "이름을 입력해수십시요.",
+          "phone": "연락처",
+          "phonePlh": "연락처을 입력해수십시요.",
+          "emailPlh": "이매일을 입력...",
+          "subject": "내용을 입력해수십시요.",
+          "sendBtn": "보내"
         }
       }
     }

@@ -4,7 +4,7 @@
 <head>
     <!-- head -->
     {{> head_component}}
-    <title>Contact page</title>
+    <title>{{ t 'test.pages.homepage.header.menu.contact' }}</title>
 </head>
 
 <body>
@@ -17,24 +17,30 @@
             <ol class="list-reset flex">
                 <li>
                     <a href="/"
-                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">Trang
-                        chủ</a>
+                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                         {{ t 'test.navbar.home' }}
+                    </a>
                 </li>
                 <li>
                     <span class="mx-2 text-neutral-500 dark:text-neutral-400">/</span>
                 </li>
-                <li class="text-neutral-500 dark:text-neutral-400"> {{title}}</li>
+                <li class="text-neutral-500 dark:text-neutral-400"> {{ t 'test.pages.homepage.header.menu.contact' }}</li>
             </ol>
         </nav>
 
         <div class="2sm:flex md:gap-x-[100px] xl:gap-x-[200px] mt-10">
             <div class="w-1/2">
-                <h1 class="text-5xl font-semibold mb-[100px]">Thông tin liên hệ</h1>
+                <h1 class="text-5xl font-semibold mb-[100px]">
+                    {{ t 'test.pages.contact_page.title' }}
+                </h1>
 
 
                 <ul class="grid grid-cols-2 gap-[30px] justify-between">
                     <div class="swiper-slide w-full">
-                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Thời gian làm việc</h3>
+                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">
+
+                             {{ t 'test.pages.contact_page.body.worktimeTitle' }}
+                        </h3>
                         <div>
                             {{{
                             pageData.wt.val
@@ -43,7 +49,9 @@
                     </div>
 
                     <div class="swiper-slide w-full">
-                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Địa chỉ</h3>
+                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">
+                            {{ t 'test.pages.contact_page.body.addressTitle' }}
+                        </h3>
                         <div>
                             <p>
                                 {{{
@@ -67,7 +75,9 @@
                     </div>
 
                     <div class="swiper-slide w-full">
-                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">Số điện thoại</h3>
+                        <h3 class="text-[#230E5C] text-[18px] font-semibold mb-[10px]">
+                            {{ t 'test.pages.contact_page.body.phoneTitle' }}
+                        </h3>
                         <div>
                             <p>
                                 <a href="tel:{{pageData.ph.val}}" class="hover:text-[#524FD5]">
@@ -82,26 +92,28 @@
             </div>
 
             <div class="w-1/2 border rounded">
-                <h1 class="text-2xl font-semibold text-center mt-[20px]">Để lại thông tin</h1>
+                <h1 class="text-2xl font-semibold text-center mt-[20px]">
+                    {{ t 'test.pages.contact_page.body.form.title' }}
+                </h1>
                 <form id="leaveInfoForm" class="px-8 pt-6 pb-8 mb-4">
                     <div class="grid gap-[15px]">
                         <div>
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="fullName">
-                                Họ và tên (<span class="text-red-500">*</span>)
+                                {{ t 'test.pages.contact_page.body.form.fullName' }} (<span class="text-red-500">*</span>)
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="fullName" type="text" required placeholder="Họ và tên">
+                                id="fullName" type="text" required placeholder="{{ t 'test.pages.contact_page.body.form.fullNamePlh' }}">
                             <p class="fullName_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                         </div>
 
                         <div>
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="phone">
-                                Số điện thoại (<span class="text-red-500">*</span>)
+                                {{ t 'test.pages.contact_page.body.form.phone' }} (<span class="text-red-500">*</span>)
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="phone" type="text" required placeholder="Số điện thoại">
+                                id="phone" type="text" required placeholder="{{ t 'test.pages.contact_page.body.form.phonePlh' }}">
                             <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                         </div>
 
@@ -111,13 +123,13 @@
                             </label>
                             <input
                                 class="shadow appearance-none border rounded-full w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent"
-                                id="phone" type="text" required placeholder="Số điện thoại">
+                                id="phone" type="text" required placeholder="{{ t 'test.pages.contact_page.body.form.emailPlh' }}">
                             <p class="phone_error text-red-500 text-[13px] px-[10px] hidden">fasfs</p>
                         </div>
 
                         <div>
                             <label class="block text-[#230E5C] text-sm font-bold mb-2" for="content">
-                                Nội dung bạn muốn trao đổi (<span class="text-red-500">*</span>)
+                                {{ t 'test.pages.contact_page.body.form.subject' }} (<span class="text-red-500">*</span>)
                             </label>
                             <textarea name="content" id="content" cols="30" rows="2"
                                 class="w-full rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent">

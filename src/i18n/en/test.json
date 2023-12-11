@@ -1,5 +1,8 @@
 {
   "testmmm": "test11 en",
+  "navbar": {
+    "home": "Home"
+  },
   "pages": {
     "homepage": {
       "header": {
@@ -101,6 +104,24 @@
             "successMss": "Thank you for your interest in the curriculum, we will contact you again as soon as possible!",
             "button": "Send"
           }
+        }
+      }
+    },
+    "contact_page": {
+      "title": "Contact Information",
+      "body": {
+        "worktimeTitle": "Work Time",
+        "addressTitle": "Address",
+        "phoneTitle": "Phone",
+        "form:": {
+          "title": "Leave your information",
+          "fullName": "Your name",
+          "fullNamePlh": "Please input your name.",
+          "phone": "Phone",
+          "phonePlh": "Please input your phone.",
+          "emailPlh": "Input your name.",
+          "subject": "Please input content.",
+          "sendBtn": "Send"
         }
       }
     }

@@ -72,8 +72,13 @@ async function bootstrap() {
     console.log(arg1, arg2);
     return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
   });
+
   handlebars.registerHelper('recentDate', function (value, options) {
     return moment(value).fromNow();
+  });
+
+  handlebars.registerHelper('vnDateFormat', function (value, options) {
+    return moment(value).format("DD/MM/yyyy");
   });
 
   handlebars.registerHelper('classSessionDay', function (value: string, options) {
@@ -86,6 +91,10 @@ async function bootstrap() {
 
   handlebars.registerHelper('dateTimeFormat', function (value, options) {
     return moment(value).format("yyyy-MM-dd HH:mm:ss");
+  });
+
+  handlebars.registerHelper('prefixLocaleHref', function (value, options) {
+    return I18nContext.current().lang == "vi"  ? "" : `/${I18nContext.current().lang}`;
   });
 
   handlebars.registerHelper('currentLang', function (value, options) {
