@@ -15,4 +15,5 @@ export class PostFilterReqDto {
     q?: string;
 
     postLocale: PostLocaleType;
+    isNeedOtherLocale?: boolean;
 }

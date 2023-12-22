@@ -170,8 +170,6 @@ export class WebViewsController {
                 }
             });
 
-
-
         const pageData = {
             sectionData: await Promise.all(child1s)
         }

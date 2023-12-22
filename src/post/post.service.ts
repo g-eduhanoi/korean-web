@@ -86,6 +86,7 @@ export class PostService {
   }
 
   async filter(reqDto: PostFilterReqDto, pageable: ReqPageableDto) {
+
     if (!pageable)
       pageable = new ReqPageableDto();
 
@@ -128,8 +129,10 @@ export class PostService {
     resPage.content = await Promise.all(result.rows.map(async (post) => {
       const dto = await ResPostDto.fromPost(post);
       console.log("post parent id: ", dto.id)
-      dto.postEn = await ResPostDto.fromPost(await this.getPostByParentIdAndLocale(dto.id, EPostLocale.En));
-      dto.postKo = await ResPostDto.fromPost(await this.getPostByParentIdAndLocale(dto.id, EPostLocale.Ko));
+      if (reqDto.isNeedOtherLocale) {
+        dto.postEn = await ResPostDto.fromPost(await this.getPostByParentIdAndLocale(dto.id, EPostLocale.En));
+        dto.postKo = await ResPostDto.fromPost(await this.getPostByParentIdAndLocale(dto.id, EPostLocale.Ko));
+      }
       return dto;
     }));
 
