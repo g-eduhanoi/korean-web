@@ -2,15 +2,17 @@ import { OptionService } from 'option/option.service';
 import { PostService } from './../post/post.service';
 import { Controller, Get, Render } from '@nestjs/common';
 import createLocaleRoute from 'configure/utils/I18nRoute';
-import { I18n, I18nContext } from 'nestjs-i18n';
 import { CategoryService } from 'category/category.service';
+import { FileService } from 'file/file.service';
+import { ResPageDto } from 'configure/db/res-page.dto';
+import { FileEntity } from 'file/entities/file.entity';
 
-@Controller()
+@Controller("homepage")
 export class WebViewsController {
-
     constructor(private readonly postService: PostService,
         private readonly optionService: OptionService,
-        private readonly categoryService: CategoryService
+        private readonly categoryService: CategoryService,
+        private readonly fileService: FileService,
     ) { }
 
     @Get(['chuyen-nganh-hoc', ...createLocaleRoute(['major', 'chuyen-nganh-hoc'])])
@@ -163,7 +165,7 @@ export class WebViewsController {
                         postLocale: "VI"
                     }, {
                         page: 0, size: 3,
-                    
+
                     })).content
                 }
             });
@@ -191,7 +193,7 @@ export class WebViewsController {
             images: [],
             content: ''
         };
-        
+
 
         return {
             pageData,
@@ -199,4 +201,15 @@ export class WebViewsController {
         }
     }
 
+
+    // for apis
+    @Get('gallery')
+    async gallery(): Promise<ResPageDto<FileEntity>> {
+        return await this.fileService.findAll({
+            fileCode: "GALLERY"
+        }, {
+            page: 0,
+            size: 18
+        });
+    }
 }

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
-import { File } from './entities/file.entity';
+import { FileEntity } from './entities/file.entity';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { ResPageDto } from 'configure/db/res-page.dto';
 import { FileFilterReqDto } from './dto/file-filter-req.dto';
@@ -9,7 +9,7 @@ import {Op} from 'sequelize';
 
 @Injectable()
 export class FileService {
-  constructor(@Inject("FILE_REPO") private readonly fileRepo: typeof File) { }
+  constructor(@Inject("FILE_REPO") private readonly fileRepo: typeof FileEntity) { }
 
 
   async createForGallery(createFileDto: CreateFileDto) {
@@ -66,7 +66,7 @@ export class FileService {
       where: whereBuilder
     });
 
-    const resPage: ResPageDto<File> = new ResPageDto();
+    const resPage: ResPageDto<FileEntity> = new ResPageDto();
     resPage.content = result.rows;
     resPage.totalElements = result.count;
     resPage.totalPages = Math.ceil(result.count / pageable.size);

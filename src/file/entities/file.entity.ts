@@ -1,8 +1,7 @@
 import { Column, Model, Table } from "sequelize-typescript";
 
 @Table({tableName: 'tbl_files'})
-export class File extends Model {
-
+export class FileEntity extends Model {
     @Column
     title: string;
 
@@ -33,6 +32,6 @@ export class File extends Model {
 
 export const FileRepo = {
     provide: "FILE_REPO",
-    useValue: File,
+    useValue: FileEntity,
     global: true
 }

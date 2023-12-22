@@ -15,6 +15,7 @@ import { I18nContext } from 'nestjs-i18n';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.setGlobalPrefix(process.env.PREFIX_URL);
   app.enableCors();
   //  configure view engine and static assets
   
