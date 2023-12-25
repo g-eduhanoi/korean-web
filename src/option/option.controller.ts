@@ -3,8 +3,8 @@ import { OptionService } from './option.service';
 import { CreateOptionDto } from './dto/create-option.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('option')
-@Controller('api/options')
+@ApiTags('options')
+@Controller('options')
 export class OptionController {
   constructor(private readonly optionService: OptionService) {}
 

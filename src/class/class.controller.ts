@@ -9,7 +9,7 @@ import { ClassFilterReqDto } from './dto/class-filter.dto';
 import { RegisClassReq } from './dto/regis-class-req.dto';
 
 @ApiTags('Class')
-@Controller('api/classes')
+@Controller('classes')
 export class ClassController {
   constructor(private readonly classService: ClassService) { }
 

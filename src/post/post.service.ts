@@ -93,6 +93,7 @@ export class PostService {
     let whereBuilder: {
       categoryId?: object,
       title?: object,
+      id?: object,
       postLocale: object
     } = {
       postLocale: {
@@ -108,6 +109,12 @@ export class PostService {
       whereBuilder.title = {
         [Op.like]: `%${reqDto.q}%`
       }
+    if (reqDto.idNotIn)
+      whereBuilder.id = {
+        [Op.notIn]: reqDto.idNotIn
+      };
+
+    console.log("here filter")
 
 
     const result = await this.postRepo.findAndCountAll({
@@ -190,9 +197,12 @@ export class PostService {
 
   async findOne(id: number) {
     const post = await this.postRepo.findByPk(id);
-    const res = await ResPostDto.fromPost(post);
+    if (!post) throw "not found";
 
+    const res = await ResPostDto.fromPost(post);
     res.content = post.content;
+    console.log("here1")
+
     return res;
   }
 

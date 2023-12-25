@@ -30,6 +30,14 @@ export class PostController {
     return this.postService.findOne(+id);
   }
 
+  @Get('detail/:id')
+  async findDetail(@Param('id') id: string, @Query("lang") lang: PostLocaleType) {
+    if (lang.toUpperCase() == "VI")
+      return await this.postService.findOne(+id);
+    else
+      return await this.postService.getPostByParentIdAndLocale(+id, lang);
+  }
+
   @Put(':id')
   update(@Param('id') id: string, @Body() updatePostDto: UpdatePostDto) {
     return this.postService.update(+id, updatePostDto);

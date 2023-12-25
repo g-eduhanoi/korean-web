@@ -14,6 +14,8 @@ export class PostFilterReqDto {
     })
     q?: string;
 
+    idNotIn?: number[];
+
     postLocale: PostLocaleType;
     isNeedOtherLocale?: boolean;
 }
