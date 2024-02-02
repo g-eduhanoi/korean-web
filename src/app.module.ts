@@ -34,6 +34,8 @@ import { OptionRepo } from 'option/entities/option.entity';
 import { QueryResolver, AcceptLanguageResolver, I18nModule, I18nResolver, HeaderResolver } from 'nestjs-i18n';
 import { Request } from 'express';
 import { ConfigModule } from '@nestjs/config';
+import { ContactController } from './contact/contact.controller';
+import { ContactModule } from './contact/contact.module';
 
 
 
@@ -85,9 +87,10 @@ class TestI18n implements I18nResolver {
     TagModule,
     ClassModule,
     OptionModule,
+    ContactModule,
 
   ],
-  controllers: [AppController, PostController, WebViewsController],
+  controllers: [AppController, PostController, WebViewsController, ContactController],
   providers: [
     {
       provide: APP_GUARD,
