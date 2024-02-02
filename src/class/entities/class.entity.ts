@@ -38,8 +38,10 @@ export class ClassRegistration extends Model{
     class: Class;
 
     @Column
+    courseId: Number;
+
+    @Column
     status: string;
-    
 }
 
 export const ClassRepos = [

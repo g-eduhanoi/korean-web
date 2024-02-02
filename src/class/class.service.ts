@@ -82,9 +82,9 @@ export class ClassService {
   }
 
   async registerClass(classRegisDto: RegisClassReq) {
-    const classEntity: Class = await this.classRepo.findByPk(classRegisDto.classId);
-    if (!classEntity)
-      throw "Class doesn't exist!";
+    // const classEntity: Class = await this.classRepo.findByPk(classRegisDto.classId);
+    // if (!classEntity)
+    //   throw "Class doesn't exist!";
 
     await this.classRegisRepo.create({
       ...classRegisDto,

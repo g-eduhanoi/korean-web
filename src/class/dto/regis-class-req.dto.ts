@@ -6,6 +6,9 @@ export class RegisClassReq{
     @ApiProperty({default: "1"})
     classId: number;
 
+    @ApiProperty({default: "1"})
+    courseId: number;
+
     @ApiProperty({default: "Nguye van a"})
     name: string;
 
