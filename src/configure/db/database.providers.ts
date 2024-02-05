@@ -7,6 +7,7 @@ import { Option } from 'option/entities/option.entity';
 import { Post, PostTag,  } from 'post/entities/post.entity';
 import { Sequelize } from 'sequelize-typescript';
 import { Tag } from 'tag/entities/tag.entity';
+import {Contact} from "../../contact/entities/contact.entity";
 
 const databaseProviders = [
     {
@@ -29,7 +30,8 @@ const databaseProviders = [
                 Account, Post, Category, Tag, FileEntity,
                 PostTag,
                 Class, ClassRegistration,
-                Option
+                Option,
+                Contact
             ]);
             await sequelize.sync({
                 alter: true

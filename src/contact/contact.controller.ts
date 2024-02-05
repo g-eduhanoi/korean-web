@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ContactService } from './contact.service';
 import { CreateContactDto } from './dto/create-contact.dto';
 import { UpdateContactDto } from './dto/update-contact.dto';
+import {ReqPageableDto} from "../configure/db/req-pageable.dto";
 
 @Controller('contact')
 export class ContactController {
@@ -12,9 +13,9 @@ export class ContactController {
     return this.contactService.create(createContactDto);
   }
 
-  @Get()
-  findAll() {
-    return this.contactService.findAll();
+  @Post("findAll")
+  findAll(@Body() pageable: ReqPageableDto) {
+    return this.contactService.findAll(pageable);
   }
 
   @Get(':id')

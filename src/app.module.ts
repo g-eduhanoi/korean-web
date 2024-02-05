@@ -36,6 +36,8 @@ import { Request } from 'express';
 import { ConfigModule } from '@nestjs/config';
 import { ContactController } from './contact/contact.controller';
 import { ContactModule } from './contact/contact.module';
+import {ContactService} from "./contact/contact.service";
+import {ContactRepo} from "./contact/entities/contact.entity";
 
 
 
@@ -109,7 +111,9 @@ class TestI18n implements I18nResolver {
     ClassService,
     ...ClassRepos,
     OptionService,
-    OptionRepo
+    OptionRepo,
+    ContactService,
+    ContactRepo
 
   ],
 })
