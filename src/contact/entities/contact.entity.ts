@@ -1,4 +1,6 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import {BelongsTo, BelongsToMany, Column, ForeignKey, Model, Table} from 'sequelize-typescript';
+import {Tag} from "../../tag/entities/tag.entity";
+import {Post, PostTag} from "../../post/entities/post.entity";
 @Table({tableName: 'tbl_contact'})
 export class Contact extends Model{
     @Column
@@ -11,8 +13,23 @@ export class Contact extends Model{
     content: string;
 }
 
-export const ContactRepo = {
-    provide: "CONTACT_REPO",
-    useValue: Contact,
-    global: true
+@Table({tableName: 'tbl_contact_tag'})
+export class ContactTag extends Model{
+    @Column
+    name: string;
+    @Column
+    contactId: number;
 }
+
+export const ContactRepos = [
+    {
+        provide: "CONTACT_REPO",
+        useValue: Contact,
+        global: true
+    },
+    {
+        provide: "CONTACT_TAG_REPO",
+        useValue: ContactTag,
+        global: true
+    }
+]

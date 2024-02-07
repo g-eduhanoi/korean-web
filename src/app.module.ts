@@ -37,7 +37,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ContactController } from './contact/contact.controller';
 import { ContactModule } from './contact/contact.module';
 import {ContactService} from "./contact/contact.service";
-import {ContactRepo} from "./contact/entities/contact.entity";
+import {ContactRepos, ContactTag} from "./contact/entities/contact.entity";
 
 
 
@@ -90,7 +90,6 @@ class TestI18n implements I18nResolver {
     ClassModule,
     OptionModule,
     ContactModule,
-
   ],
   controllers: [AppController, PostController, WebViewsController, ContactController],
   providers: [
@@ -113,8 +112,7 @@ class TestI18n implements I18nResolver {
     OptionService,
     OptionRepo,
     ContactService,
-    ContactRepo
-
+    ...ContactRepos,
   ],
 })
 export class AppModule { }

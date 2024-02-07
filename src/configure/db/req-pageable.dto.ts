@@ -20,7 +20,6 @@ export class ReqPageableDto {
 
     static toPageable(pageable: ReqPageableDto): FindOptions {
         console.log("is page null? ", pageable.page == null);
-        
         if (!pageable.page)
             pageable.page = 0;
 
