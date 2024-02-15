@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { Account } from 'account/entities/account.entity';
 import { Category } from 'category/entities/category.entity';
-import { Class, ClassRegistration } from 'class/entities/class.entity';
+import {Class, ClassRegistration, RegistrationTag} from 'class/entities/class.entity';
 import { FileEntity } from 'file/entities/file.entity';
 import { Option } from 'option/entities/option.entity';
 import { Post, PostTag,  } from 'post/entities/post.entity';
@@ -29,7 +29,10 @@ const databaseProviders = [
                 Account, Post, Category, Tag, FileEntity,
                 PostTag,
                 Class, ClassRegistration,
-                Option
+                Option,
+                Contact,
+                ContactTag,
+                RegistrationTag
             ]);
             await sequelize.sync({
                 alter: true

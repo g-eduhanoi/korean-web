@@ -1,13 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
-import { Class, ClassRegistration } from './entities/class.entity';
+import {Class, ClassRegistration, RegistrationTag} from './entities/class.entity';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { ClassFilterReqDto } from './dto/class-filter.dto';
 import { Op } from 'sequelize';
 import { ResPageDto } from 'configure/db/res-page.dto';
 import { ClassResDto } from './dto/class-res.dto';
 import { RegisClassReq } from './dto/regis-class-req.dto';
+import {TagClassDto} from "./dto/TagClass.dto";
+import {ContactTag} from "../contact/entities/contact.entity";
+import {TagCreateDto} from "./dto/TagCreate.dto";
+import {RegisClassResDto} from "./dto/regis-class-res.dto";
+import {ContactResDto} from "../contact/dto/contact-res.dto";
 
 @Injectable()
 export class ClassService {
@@ -16,6 +21,7 @@ export class ClassService {
   constructor(
     @Inject("CLASS_REPO") private readonly classRepo: typeof Class,
     @Inject("CLASS_REGIS_REPO") private readonly classRegisRepo: typeof ClassRegistration,
+    @Inject("REGIS_TAG_REPO") private readonly regisTagRepo: typeof RegistrationTag,
   ) { }
 
 
@@ -49,6 +55,7 @@ export class ClassService {
       ...ReqPageableDto.toPageable(pageable),
       where: whereBuilder,
     });
+
 
     const resPage: ResPageDto<ClassResDto> = new ResPageDto();
     resPage.content = result.rows;
@@ -141,8 +148,19 @@ export class ClassService {
       ]
     });
 
-    const resPage: ResPageDto<ClassRegistration> = new ResPageDto();
-    resPage.content = result.rows;
+    const resPage: ResPageDto<RegisClassResDto> = new ResPageDto();
+
+
+    const regisClassResDtos = new Array<RegisClassResDto>()
+    for (const x of result.rows) {
+      const resultTag = await this.regisTagRepo.findAndCountAll({
+        where: { classRegistrationId: x.id }
+      })
+      const tags : string[] = resultTag.rows.map(x => x.name);
+      regisClassResDtos.push(RegisClassResDto.toDto(x,tags));
+    }
+
+    resPage.content = regisClassResDtos;
     resPage.totalElements = result.count;
     resPage.totalPages = Math.ceil(result.count / pageable.size);
     resPage.numberOfElements = result.rows.length;
@@ -163,5 +181,27 @@ export class ClassService {
     });
 
     await regis.save();
+  }
+
+
+  async updateTag(id: number, tagClassDto: TagClassDto) {
+    const regis = await this.classRegisRepo.findByPk(id);
+    if(!regis)
+      throw 'regis class not found!'
+    this.regisTagRepo.destroy({
+      where: {classRegistrationId : id }
+    })
+    const tags = new Array<string>();
+    for (const x of tagClassDto?.tags) {
+      const tag :RegistrationTag = await this.regisTagRepo.create(
+          {
+            name: x,
+            classRegistrationId: id,
+          },
+      )
+      tags.push(tag.name);
+    }
+
+    return RegisClassResDto.toDto(regis,tags);
   }
 }

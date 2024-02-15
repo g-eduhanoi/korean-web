@@ -44,6 +44,14 @@ export class ClassRegistration extends Model{
     status: string;
 }
 
+@Table({tableName: 'tbl_class_registration_tag'})
+export class RegistrationTag extends Model{
+    @Column
+    name: string;
+    @Column
+    classRegistrationId: number;
+}
+
 export const ClassRepos = [
     {
         provide: "CLASS_REPO",
@@ -53,6 +61,11 @@ export const ClassRepos = [
     {
         provide: "CLASS_REGIS_REPO",
         useValue: ClassRegistration,
+        global: true
+    },
+    {
+        provide: "REGIS_TAG_REPO",
+        useValue: RegistrationTag,
         global: true
     }
 ]
