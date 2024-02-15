@@ -7,7 +7,6 @@ export class CreateClassDto {
         default: "LOp 1"
     })
     name: string;
-
     @ApiProperty({
         description: `Session time`,
         default: '12-23',
