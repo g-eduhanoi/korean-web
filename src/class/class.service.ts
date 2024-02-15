@@ -149,8 +149,6 @@ export class ClassService {
     });
 
     const resPage: ResPageDto<RegisClassResDto> = new ResPageDto();
-
-
     const regisClassResDtos = new Array<RegisClassResDto>()
     for (const x of result.rows) {
       const resultTag = await this.regisTagRepo.findAndCountAll({
