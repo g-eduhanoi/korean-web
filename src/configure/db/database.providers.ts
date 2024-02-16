@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
 import { Account } from 'account/entities/account.entity';
 import { Category } from 'category/entities/category.entity';
-import { Class, ClassRegistration } from 'class/entities/class.entity';
+import {Class, ClassRegistration, RegistrationTag} from 'class/entities/class.entity';
 import { FileEntity } from 'file/entities/file.entity';
 import { Option } from 'option/entities/option.entity';
 import { Post, PostTag,  } from 'post/entities/post.entity';
 import { Sequelize } from 'sequelize-typescript';
 import { Tag } from 'tag/entities/tag.entity';
-import {Contact, ContactTag} from "../../contact/entities/contact.entity";
 
 const databaseProviders = [
     {
@@ -32,7 +31,8 @@ const databaseProviders = [
                 Class, ClassRegistration,
                 Option,
                 Contact,
-                ContactTag
+                ContactTag,
+                RegistrationTag
             ]);
             await sequelize.sync({
                 alter: true

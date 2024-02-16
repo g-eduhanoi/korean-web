@@ -7,6 +7,7 @@ import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { filter } from 'rxjs';
 import { ClassFilterReqDto } from './dto/class-filter.dto';
 import { RegisClassReq } from './dto/regis-class-req.dto';
+import {TagClassDto} from "./dto/TagClass.dto";
 
 @ApiTags('Class')
 @Controller('classes')
@@ -55,5 +56,11 @@ export class ClassController {
   async markRegistrationCompleted(@Param("id") id: number)
   {
     await this.classService.markRegistrationCompleted(id);
+  }
+
+
+  @Put(':id/updateTag')
+  updateTag(@Param('id') id: string, @Body() tagClassDto: TagClassDto) {
+    return this.classService.updateTag(+id, tagClassDto);
   }
 }
