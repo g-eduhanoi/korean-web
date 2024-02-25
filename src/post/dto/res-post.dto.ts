@@ -20,10 +20,14 @@ export class ResPostDto {
     postLocale: string;
     postEn?: ResPostDto;
     postKo?: ResPostDto;
-
+    parentId: number;
     static async fromPost(post: Post): Promise<ResPostDto> {
         if(!post) return null;
         const res = new ResPostDto();
+        // // @ts-ignore
+        // if (location !== "VI") {
+        //     res.parentId = post.parentId;
+        // }
         res.id = post.id;
         res.title = post.title;
         // res.content = post.content;
@@ -37,6 +41,7 @@ export class ResPostDto {
         res.tags = await post.$get("tags");
         res.createdAt = post.createdAt;
         res.updatedAt = post.updatedAt;
+        res.parentId = post.parentId;
         return res;
     }
 }

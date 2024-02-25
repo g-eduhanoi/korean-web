@@ -1,6 +1,4 @@
 import {BelongsTo, BelongsToMany, Column, ForeignKey, Model, Table} from 'sequelize-typescript';
-import {Tag} from "../../tag/entities/tag.entity";
-import {Post, PostTag} from "../../post/entities/post.entity";
 @Table({tableName: 'tbl_contact'})
 export class Contact extends Model{
     @Column

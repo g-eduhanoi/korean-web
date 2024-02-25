@@ -38,6 +38,10 @@ import { ContactController } from './contact/contact.controller';
 import { ContactModule } from './contact/contact.module';
 import {ContactService} from "./contact/contact.service";
 import {ContactRepos, ContactTag} from "./contact/entities/contact.entity";
+import { TeacherModule } from './teacher/teacher.module';
+import {TeacherController} from "./teacher/teacher.controller";
+import {TeacherRepos} from "./teacher/entities/teacher.entity";
+import {TeacherService} from "./teacher/teacher.service";
 
 
 
@@ -90,8 +94,9 @@ class TestI18n implements I18nResolver {
     ClassModule,
     OptionModule,
     ContactModule,
+    TeacherModule,
   ],
-  controllers: [AppController, PostController, WebViewsController, ContactController],
+  controllers: [AppController, PostController, WebViewsController, ContactController,TeacherController],
   providers: [
     {
       provide: APP_GUARD,
@@ -113,6 +118,8 @@ class TestI18n implements I18nResolver {
     OptionRepo,
     ContactService,
     ...ContactRepos,
+    ...TeacherRepos,
+    TeacherService
   ],
 })
 export class AppModule { }

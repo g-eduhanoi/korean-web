@@ -22,6 +22,7 @@ import { OptionService } from 'option/option.service';
 import { I18n, I18nContext, I18nService } from 'nestjs-i18n';
 import createLocaleRoute from 'configure/utils/I18nRoute';
 import { PostLocaleType } from 'post/entities/post.entity';
+import {TeacherService} from "./teacher/teacher.service";
 
 @Controller()
 export class AppController {
@@ -32,6 +33,7 @@ export class AppController {
     private readonly postService: PostService,
     private readonly classService: ClassService,
     private readonly optionService: OptionService,
+    private readonly teacherService: TeacherService,
     private readonly i18n: I18nService
   ) { }
 
