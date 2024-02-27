@@ -41,6 +41,9 @@ import {ContactRepos, ContactTag} from "./contact/entities/contact.entity";
 import {jwtConstants} from "./auth/constants";
 import {JwtModule} from "@nestjs/jwt";
 import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter";
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthorityController} from "./authority/authority.controller";
+import {AuthController} from "./account/auth.controller";
 
 
 
@@ -98,8 +101,12 @@ class TestI18n implements I18nResolver {
     OptionModule,
     ContactModule,
   ],
-  controllers: [AppController, PostController, WebViewsController, ContactController,AppController],
+  controllers: [AppController, PostController, WebViewsController, ContactController,AppController,AuthController],
   providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,

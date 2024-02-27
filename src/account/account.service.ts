@@ -27,10 +27,10 @@ export class AccountService {
 
   async login(username: string, pass: string): Promise<{ access_token: string }> {
     const user = await this.accountRepo.findOne({where: {username: username}});
-    if (user?.password !== pass) {
+    if (await bcrypt.compare(pass, user.password) === false) {
       throw new UnauthorizedException();
     }
-    const payload = { sub: user.id, username: user.username };
+    const payload = { sub: user.id, username: user.username , role: user.role};
     return {
       access_token: await this.jwtService.signAsync(payload),
     };

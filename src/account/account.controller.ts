@@ -4,14 +4,15 @@ import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { ApiTags } from '@nestjs/swagger';
 import {ReqPageableDto} from "../configure/db/req-pageable.dto";
-import {ClassFilterReqDto} from "../class/dto/class-filter.dto";
 import {FilterUserDto} from "./dto/filter-user.dto";
+import {Role} from "../role/enum/role.enum";
+import {Roles} from "../configure/security/roles.decorator";
 
 @ApiTags('Account')
 @Controller('accounts')
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
-
+  @Roles(Role.Admin)
   @Post()
   create(@Body() createAccountDto: CreateAccountDto) {
     return this.accountService.create(createAccountDto);

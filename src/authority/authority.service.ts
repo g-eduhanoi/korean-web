@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, SetMetadata} from '@nestjs/common';
 import { CreateAuthorityDto } from './dto/create-authority.dto';
 import { UpdateAuthorityDto } from './dto/update-authority.dto';
 

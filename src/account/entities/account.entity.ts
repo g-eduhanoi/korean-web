@@ -12,6 +12,6 @@ export class Account extends Model {
   fullName: string;
   @Column
   phone: string;
-  @Column({ defaultValue: "EMP" })
+  @Column
   role: string;
 }
