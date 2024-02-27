@@ -12,6 +12,7 @@ import { readFileSync } from 'fs';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as moment from 'moment';
 import { I18nContext } from 'nestjs-i18n';
+import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -147,7 +148,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  
+  app.useGlobalFilters(new HttpExceptionFilter());
   await app.listen(process.env.PORT);
 
 }

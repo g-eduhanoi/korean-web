@@ -1,24 +1,25 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {Controller, Get, Post, Body, Patch, Param, Delete, Put} from '@nestjs/common';
 import { AccountService } from './account.service';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { UpdateAccountDto } from './dto/update-account.dto';
 import { ApiTags } from '@nestjs/swagger';
+import {ReqPageableDto} from "../configure/db/req-pageable.dto";
+import {ClassFilterReqDto} from "../class/dto/class-filter.dto";
+import {FilterUserDto} from "./dto/filter-user.dto";
 
 @ApiTags('Account')
-@Controller('api/accounts')
+@Controller('accounts')
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 
   @Post()
   create(@Body() createAccountDto: CreateAccountDto) {
-
-    
     return this.accountService.create(createAccountDto);
   }
 
-  @Get()
-  findAll() {
-    return this.accountService.findAll();
+  @Post("findAll")
+  findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: FilterUserDto) {
+    return this.accountService.findAll(reqDto, pageable);
   }
 
   @Get(':id')
@@ -26,7 +27,7 @@ export class AccountController {
     return this.accountService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto) {
     return this.accountService.update(+id, updateAccountDto);
   }

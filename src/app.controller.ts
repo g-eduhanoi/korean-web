@@ -93,10 +93,10 @@ export class AppController {
     @Res() res: Response,
     @Body() input: LoginInput,
   ): Promise<void> {
-    const result: boolean = await this.accountService.login(input);
+    const result: { access_token: string } = await this.accountService.login(input.username, input.password);
 
     const loginResult: object = {
-      result: await this.accountService.login(input),
+      result: await this.accountService.login(input.username, input.password),
       message: result ? 'Login Success' : 'Login Failed',
     };
     if (result) res.render('index', loginResult);

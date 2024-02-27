@@ -8,7 +8,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { RoleModule } from './role/role.module';
 import { AuthorityModule } from './authority/authority.module';
 import { RolesGuard } from './configure/security/roles.guard';
-import { APP_GUARD } from '@nestjs/core';
+import {APP_FILTER, APP_GUARD} from '@nestjs/core';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AccountService } from './account/account.service';
 import { Account } from './account/entities/account.entity';
@@ -38,6 +38,9 @@ import { ContactController } from './contact/contact.controller';
 import { ContactModule } from './contact/contact.module';
 import {ContactService} from "./contact/contact.service";
 import {ContactRepos, ContactTag} from "./contact/entities/contact.entity";
+import {jwtConstants} from "./auth/constants";
+import {JwtModule} from "@nestjs/jwt";
+import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter";
 
 
 
@@ -74,10 +77,14 @@ class TestI18n implements I18nResolver {
 
       ],
       viewEngine: 'hbs'
-      
     }),
     ConfigModule.forRoot({
       isGlobal: true
+    }),
+    JwtModule.register({
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '600000000000000s' },
     }),
     DatabaseModule,
     FileModule,
@@ -91,8 +98,12 @@ class TestI18n implements I18nResolver {
     OptionModule,
     ContactModule,
   ],
-  controllers: [AppController, PostController, WebViewsController, ContactController],
+  controllers: [AppController, PostController, WebViewsController, ContactController,AppController],
   providers: [
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
