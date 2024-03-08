@@ -8,12 +8,13 @@ import { Post, PostTag,  } from 'post/entities/post.entity';
 import { Sequelize } from 'sequelize-typescript';
 import { Tag } from 'tag/entities/tag.entity';
 import {Contact, ContactTag} from "../../contact/entities/contact.entity";
+import {Teacher} from "../../teacher/entities/teacher.entity";
 
 const databaseProviders = [
     {
         provide: 'SEQUELIZE',
         useFactory: async () => {
-            const dialect: any = process.env.DATABASE_DIALECT;
+            const dialect: any = 'mysql';
             const sequelize =  new Sequelize({
                 dialect: dialect,
                 host: process.env.DATABASE_HOST,
@@ -33,7 +34,8 @@ const databaseProviders = [
                 Option,
                 Contact,
                 ContactTag,
-                RegistrationTag
+                RegistrationTag,
+                Teacher
             ]);
             await sequelize.sync({
                 alter: true

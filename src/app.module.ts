@@ -44,6 +44,10 @@ import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter
 import {AuthGuard} from "./auth/auth.guard";
 import {AuthorityController} from "./authority/authority.controller";
 import {AuthController} from "./account/auth.controller";
+import { TeacherModule } from './teacher/teacher.module';
+import {TeacherController} from "./teacher/teacher.controller";
+import {TeacherRepos} from "./teacher/entities/teacher.entity";
+import {TeacherService} from "./teacher/teacher.service";
 
 
 
@@ -100,6 +104,7 @@ class TestI18n implements I18nResolver {
     ClassModule,
     OptionModule,
     ContactModule,
+    TeacherModule,
   ],
   controllers: [AppController, PostController, WebViewsController, ContactController,AppController,AuthController],
   providers: [
@@ -131,6 +136,8 @@ class TestI18n implements I18nResolver {
     OptionRepo,
     ContactService,
     ...ContactRepos,
+    ...TeacherRepos,
+    TeacherService
   ],
 })
 export class AppModule { }
