@@ -14,7 +14,7 @@ const databaseProviders = [
     {
         provide: 'SEQUELIZE',
         useFactory: async () => {
-            const dialect: any = process.env.DATABASE_DIALECT;
+            const dialect: any = 'mysql';
             const sequelize =  new Sequelize({
                 dialect: dialect,
                 host: process.env.DATABASE_HOST,

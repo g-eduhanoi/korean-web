@@ -14,7 +14,7 @@ export class Account extends Model {
   email: string;
 
   @Column
-  fullname: string;
+  fullName: string;
 
   @Column({ defaultValue: true })
   isActive: boolean;
