@@ -22,4 +22,8 @@ export class Account extends Model {
   @Column({ defaultValue: false })
   isApproved: boolean;
 
+  @Column
+  role: string;
+  @Column
+  phone: string;
 }
