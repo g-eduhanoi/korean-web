@@ -8,7 +8,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { RoleModule } from './role/role.module';
 import { AuthorityModule } from './authority/authority.module';
 import { RolesGuard } from './configure/security/roles.guard';
-import { APP_GUARD } from '@nestjs/core';
+import {APP_FILTER, APP_GUARD} from '@nestjs/core';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AccountService } from './account/account.service';
 import { Account } from './account/entities/account.entity';
@@ -38,6 +38,12 @@ import { ContactController } from './contact/contact.controller';
 import { ContactModule } from './contact/contact.module';
 import {ContactService} from "./contact/contact.service";
 import {ContactRepos, ContactTag} from "./contact/entities/contact.entity";
+import {jwtConstants} from "./auth/constants";
+import {JwtModule} from "@nestjs/jwt";
+import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter";
+import {AuthGuard} from "./auth/auth.guard";
+import {AuthorityController} from "./authority/authority.controller";
+import {AuthController} from "./account/auth.controller";
 import { TeacherModule } from './teacher/teacher.module';
 import {TeacherController} from "./teacher/teacher.controller";
 import {TeacherRepos} from "./teacher/entities/teacher.entity";
@@ -78,10 +84,14 @@ class TestI18n implements I18nResolver {
 
       ],
       viewEngine: 'hbs'
-      
     }),
     ConfigModule.forRoot({
       isGlobal: true
+    }),
+    JwtModule.register({
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '600000000000000s' },
     }),
     DatabaseModule,
     FileModule,
@@ -96,8 +106,16 @@ class TestI18n implements I18nResolver {
     ContactModule,
     TeacherModule,
   ],
-  controllers: [AppController, PostController, WebViewsController, ContactController,TeacherController],
+  controllers: [AppController, PostController, WebViewsController, ContactController,AppController,AuthController],
   providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
     {
       provide: APP_GUARD,
       useClass: RolesGuard,

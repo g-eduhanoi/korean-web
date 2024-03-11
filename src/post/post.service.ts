@@ -156,12 +156,13 @@ export class PostService {
   }
 
   async getPostByParentIdAndLocale(id: number, locale: PostLocaleType) {
-    return await this.postRepo.findOne({
+    const post = await this.postRepo.findOne({
       where: {
         parentId: id,
         postLocale: locale
       }
     });
+    return post;
   }
 
   async findAll(pageable: ReqPageableDto) {

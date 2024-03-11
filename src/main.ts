@@ -1,17 +1,18 @@
-import { HttpAdapterHost, NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
-import { NestExpressApplication } from "@nestjs/platform-express";
-import { join } from "path";
-import * as session from "express-session";
-import * as cookieParser from "cookie-parser";
-import helmet from "helmet";
-import * as csurf from "csurf";
-import { AllExceptionsFilter } from "./configure/security/exception/http-exception.filter";
-import hbs, { handlebars } from "hbs";
-import { readFileSync } from "fs";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import * as moment from "moment";
-import { I18nContext } from "nestjs-i18n";
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
+import * as session from 'express-session';
+import * as cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import * as csurf from 'csurf';
+import { AllExceptionsFilter } from './configure/security/exception/http-exception.filter';
+import hbs, { handlebars } from 'hbs';
+import { readFileSync } from 'fs';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as moment from 'moment';
+import { I18nContext } from 'nestjs-i18n';
+import {HttpExceptionFilter} from "./configure/httpException/HttpExceptionFilter";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -148,8 +149,10 @@ async function bootstrap() {
     SwaggerModule.setup("api/docs", app, document);
   }
 
-
+  app.useGlobalFilters(new HttpExceptionFilter());
   await app.listen(process.env.PORT || 3000);
+
 }
 
 bootstrap();
+
