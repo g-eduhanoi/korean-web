@@ -85,6 +85,11 @@ export class ClassService {
   }
 
   remove(id: number) {
+    this.classRepo.destroy({
+      where: {id: id}
+    }).then(r => {
+        console.log("remove result: ", r)
+    })
     return `This action removes a #${id} class`;
   }
 

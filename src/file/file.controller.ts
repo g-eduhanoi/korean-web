@@ -8,6 +8,7 @@ import { diskStorage } from 'multer';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import * as fs from 'fs';
 import { FileFilterReqDto } from './dto/file-filter-req.dto';
+import {Public} from "../auth/auth.guard";
 
 const ASSET_DIR = process.cwd() + '/assets/public/uploads/';
 if (!fs.existsSync(ASSET_DIR))
@@ -40,10 +41,12 @@ const multerStorage = diskStorage({
 });
 
 @ApiTags('File')
-@Controller('api/files')
+@Controller('/files')
 export class FileController {
   constructor(private readonly fileService: FileService) { }
 
+
+  @Public()
   @Post('upload')
   @UseInterceptors(FileInterceptor('file', { storage: multerStorage }))
   uploadFile(@UploadedFile() fileDto: CreateFileDto) {
