@@ -6,6 +6,7 @@ import { CategoryService } from 'category/category.service';
 import { FileService } from 'file/file.service';
 import { ResPageDto } from 'configure/db/res-page.dto';
 import { FileEntity } from 'file/entities/file.entity';
+import { Public } from 'auth/auth.guard';
 
 @Controller("homepage")
 export class WebViewsController {
@@ -200,6 +201,7 @@ export class WebViewsController {
     }
 
 
+    @Public()
     // for apis
     @Get('gallery')
     async gallery(): Promise<ResPageDto<FileEntity>> {

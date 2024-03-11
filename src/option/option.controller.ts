@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { OptionService } from './option.service';
 import { CreateOptionDto } from './dto/create-option.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Public } from 'auth/auth.guard';
 
 @ApiTags('options')
 @Controller('options')
@@ -14,6 +15,7 @@ export class OptionController {
     return this.optionService.save(createOptionDto);
   }
 
+  @Public()
   @Get('optionKey/:key')
   getOptionByKey(@Param('key') optionKey: string) {
     return this.optionService.getOptionByKey(optionKey);

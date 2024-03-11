@@ -5,12 +5,14 @@ import {UpdateContactDto} from './dto/update-contact.dto';
 import {ReqPageableDto} from "../configure/db/req-pageable.dto";
 import {ClassFilterReqDto} from "../class/dto/class-filter.dto";
 import {contactFilterReqDto} from "../category/dto/contactFilterReqDto";
+import { Public } from 'auth/auth.guard';
 
 @Controller('contact')
 export class ContactController {
     constructor(private readonly contactService: ContactService) {
     }
 
+    @Public()
     @Post()
     create(@Body() createContactDto: CreateContactDto) {
         return this.contactService.create(createContactDto);

@@ -4,6 +4,7 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Public } from 'auth/auth.guard';
 
 @ApiTags('Category')
 @Controller('api/categories')
@@ -15,6 +16,7 @@ export class CategoryController {
     return this.categoryService.create(createCategoryDto);
   }
 
+  @Public()
   @Post("findAll")
   findAll(@Body() pageable: ReqPageableDto) {
     return this.categoryService.findAll(pageable);
