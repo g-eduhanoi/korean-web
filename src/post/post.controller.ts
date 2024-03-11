@@ -7,6 +7,7 @@ import { ReqPageableDto } from 'configure/db/req-pageable.dto';
 import { PostFilterReqDto } from './dto/post-filter-req.dto';
 import { CategoryService } from 'category/category.service';
 import { PostLocaleType } from './entities/post.entity';
+import { Public } from 'auth/auth.guard';
 
 @ApiTags('Post')
 @Controller('posts')
@@ -20,16 +21,19 @@ export class PostController {
     return this.postService.create(createPostDto);
   }
 
+  @Public()
   @Post("findAll")
   findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: PostFilterReqDto) {
     return this.postService.filter(reqDto, pageable);
   }
 
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.postService.findOne(+id);
   }
 
+  @Public()
   @Get('detail/:id')
   async findDetail(@Param('id') id: string, @Query("lang") lang: PostLocaleType) {
     if (lang.toUpperCase() == "VI")
@@ -48,6 +52,7 @@ export class PostController {
     return this.postService.remove(+id);
   }
 
+  @Public()
   @Get("blogs/all")
   async getBlogs(@Query("lang") lang: PostLocaleType) {
     const child1s = (await this.categoryService.findChilds(16))

@@ -8,6 +8,7 @@ import { filter } from 'rxjs';
 import { ClassFilterReqDto } from './dto/class-filter.dto';
 import { RegisClassReq } from './dto/regis-class-req.dto';
 import {TagClassDto} from "./dto/TagClass.dto";
+import { Public } from 'auth/auth.guard';
 
 @ApiTags('Class')
 @Controller('classes')
@@ -19,6 +20,7 @@ export class ClassController {
     return this.classService.create(createClassDto);
   }
 
+  @Public()
   @Post("findAll")
   findAll(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: ClassFilterReqDto) {
     return this.classService.findAll(reqDto, pageable);
@@ -39,11 +41,13 @@ export class ClassController {
     return this.classService.remove(+id);
   }
 
+  @Public()
   @Post("regis-class")
   regisClass(@Body() reqDto: RegisClassReq) {
     return this.classService.registerClass(reqDto);
   }
 
+  @Public()
   @Post("regis-class/findAll")
   findAllRegisClass(@Body("pageable") pageable: ReqPageableDto, @Body("filter") reqDto: {
     q: string,
