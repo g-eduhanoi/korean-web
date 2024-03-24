@@ -34,8 +34,8 @@ const multerStorage = diskStorage({
 
     const uniqueSuffix = Date.now() + '_' + file.originalname;
     // file.urlLink = "http://localhost:3000" + '/uploads/' + uniqueSuffix;
-    file.urlLink = "http://localhost:3000" + `/uploads/${monthlyDir}/` + uniqueSuffix;
-    // file.urlLink = "https://g-eduhanoi.com" + `/uploads/${monthlyDir}/` + uniqueSuffix;
+    // file.urlLink = "http://localhost:3000" + `/uploads/${monthlyDir}/` + uniqueSuffix;
+    file.urlLink = "https://g-eduhanoi.com" + `/uploads/${monthlyDir}/` + uniqueSuffix;
     cb(null, uniqueSuffix)
   }
 });
